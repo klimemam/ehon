@@ -1,0 +1,825 @@
+<title>壁と鋳型</title>
+
+<style>
+  :root {
+    --ground: #161815;
+    --wall:   #21241F;
+    --wall-2: #2A2E27;
+    --ink:    #D9D9CE;
+    --ink-dim:#86897E;
+    --ash:    #5E6259;
+    --bronze: #BE8A42;
+    --rule:   #33372F;
+
+    --serif: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro",
+             "Noto Serif JP", "Source Han Serif JP", "MS Mincho", serif;
+    --gothic: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN",
+              "Noto Sans JP", Meiryo, sans-serif;
+
+    --measure: min(62vh, 27em);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --ground: #D2D2C6;
+      --wall:   #DEDDD2;
+      --wall-2: #E6E5DB;
+      --ink:    #1E201B;
+      --ink-dim:#5A5D54;
+      --ash:    #9A9D93;
+      --bronze: #8A5A18;
+      --rule:   #BBBAAE;
+    }
+  }
+
+  :root[data-theme="light"] {
+    --ground: #D2D2C6;
+    --wall:   #DEDDD2;
+    --wall-2: #E6E5DB;
+    --ink:    #1E201B;
+    --ink-dim:#5A5D54;
+    --ash:    #9A9D93;
+    --bronze: #8A5A18;
+    --rule:   #BBBAAE;
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #161815;
+    --wall:   #21241F;
+    --wall-2: #2A2E27;
+    --ink:    #D9D9CE;
+    --ink-dim:#86897E;
+    --ash:    #5E6259;
+    --bronze: #BE8A42;
+    --rule:   #33372F;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.9;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─────────── 表紙 ─────────── */
+
+  .cover {
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    padding: clamp(2rem, 6vw, 5rem);
+    max-width: 1180px;
+    margin-inline: auto;
+  }
+
+  .cover-art { width: 100%; }
+  .cover-art svg { width: 100%; height: auto; display: block; }
+
+  .cover-type {
+    writing-mode: vertical-rl;
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(1.4rem, 3vw, 2.6rem);
+    height: min(60vh, 30em);
+  }
+
+  .cover-title {
+    font-size: clamp(2.6rem, 7vh, 4.4rem);
+    font-weight: 400;
+    letter-spacing: 0.34em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .cover-meta {
+    font-family: var(--gothic);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    color: var(--ink-dim);
+    line-height: 2.4;
+  }
+
+  .cover-meta b { font-weight: 500; color: var(--ink); }
+
+  /* ─────────── 見開き ─────────── */
+
+  .spread {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) auto;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.5rem, 5vw, 5rem);
+    padding: clamp(3rem, 9vh, 7rem) clamp(1.5rem, 5vw, 5rem);
+    max-width: 1180px;
+    margin-inline: auto;
+    min-height: 100svh;
+    position: relative;
+  }
+
+  .spread.wide { grid-template-columns: minmax(0, 1.5fr) auto; }
+
+  .art { margin: 0; }
+  .art svg { width: 100%; height: auto; display: block; }
+
+  .text {
+    writing-mode: vertical-rl;
+    height: var(--measure);
+    font-size: clamp(0.95rem, 1.06rem, 1.12rem);
+    letter-spacing: 0.06em;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .text p { margin: 0 0 0 1.65em; text-indent: 1em; }
+  .text p.noindent { text-indent: 0; }
+
+  .text .said { text-indent: 0; }
+
+  .folio {
+    position: absolute;
+    inset-block-end: clamp(1.4rem, 4vh, 2.6rem);
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    font-family: var(--gothic);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--ink-dim);
+  }
+
+  /* 終幕 ── 図版なし */
+
+  .closing {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: clamp(3rem, 9vh, 7rem) clamp(1.5rem, 5vw, 5rem);
+  }
+
+  .closing .text {
+    height: min(56vh, 22em);
+    font-size: clamp(1rem, 1.2rem, 1.3rem);
+    letter-spacing: 0.1em;
+  }
+
+  .closing .text p { text-indent: 0; margin-left: 2.4em; }
+
+  /* ─────────── 奥付 ─────────── */
+
+  .colophon {
+    border-top: 1px solid var(--rule);
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 8vh, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(4rem, 10vh, 7rem);
+    font-family: var(--gothic);
+    font-size: 0.82rem;
+    line-height: 2.1;
+    color: var(--ink-dim);
+  }
+
+  .colophon h2 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    color: var(--ink);
+    margin: 0 0 2rem;
+  }
+
+  .colophon dl {
+    display: grid;
+    grid-template-columns: 7.5em 1fr;
+    gap: 0.35rem 1.5rem;
+    margin: 0 0 2rem;
+  }
+
+  .colophon dt { letter-spacing: 0.16em; }
+  .colophon dd { margin: 0; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  .colophon p { margin: 0 0 1rem; max-width: 38em; }
+  .colophon .note { border-left: 2px solid var(--bronze); padding-left: 1rem; }
+
+  /* ─────────── 図版の描画規則 ─────────── */
+
+  .ink   { stroke: var(--ink);     fill: none; }
+  .dim   { stroke: var(--ink-dim); fill: none; }
+  .ashln { stroke: var(--ash);     fill: none; }
+  .hot   { stroke: var(--bronze);  fill: none; }
+  .ink-f   { fill: var(--ink);     stroke: none; }
+  .dim-f   { fill: var(--ink-dim); stroke: none; }
+  .ash-f   { fill: var(--ash);     stroke: none; }
+  .hot-f   { fill: var(--bronze);  stroke: none; }
+  .wall-f  { fill: var(--wall);    stroke: none; }
+  .wall2-f { fill: var(--wall-2);  stroke: none; }
+
+  svg [stroke] { stroke-linecap: round; vector-effect: non-scaling-stroke; }
+
+  /* ─────────── 出現 ─────────── */
+
+  .reveal { opacity: 0; transform: translateY(14px); }
+  .reveal.seen {
+    opacity: 1;
+    transform: none;
+    transition: opacity 900ms ease, transform 900ms cubic-bezier(.2,.7,.3,1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+    .reveal.seen { transition: none; }
+  }
+
+  /* ─────────── 横組みへの退避 ─────────── */
+
+  @media (max-width: 860px) {
+    :root { --measure: auto; }
+
+    .cover {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      gap: 2.5rem;
+    }
+    .cover-art { max-width: 22rem; }
+    .cover-type {
+      writing-mode: horizontal-tb;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      gap: 1.6rem;
+    }
+    .cover-title { letter-spacing: 0.24em; text-indent: 0.24em; }
+    .cover-meta { line-height: 2; text-align: center; }
+
+    .spread, .spread.wide { grid-template-columns: 1fr; gap: 2.2rem; }
+
+    .text, .closing .text {
+      writing-mode: horizontal-tb;
+      height: auto;
+      display: block;
+      overflow-x: visible;
+      max-width: 34em;
+    }
+    .text p { margin: 0 0 1.2em; }
+    .closing .text p { margin: 0 0 1.4em; }
+
+    .colophon dl { grid-template-columns: 1fr; gap: 0 0; }
+    .colophon dt { color: var(--ink-dim); margin-top: 0.6rem; }
+  }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="fig" viewBox="0 0 20 44">
+      <circle cx="10" cy="7" r="5.4"/>
+      <path d="M3.6 44 L6.2 16.5 h7.6 L16.4 44 Z"/>
+    </symbol>
+    <symbol id="wheel" viewBox="0 0 44 44">
+      <circle cx="22" cy="22" r="19" fill="none" stroke-width="1.6"/>
+      <circle cx="22" cy="22" r="4" fill="none" stroke-width="1.6"/>
+      <g stroke-width="1.4">
+        <path d="M22 3 V41 M3 22 H41 M8.6 8.6 L35.4 35.4 M35.4 8.6 L8.6 35.4"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ══════════════ 表紙 ══════════════ -->
+
+<header class="cover">
+  <div class="cover-art">
+    <svg viewBox="0 0 420 340" role="img" aria-label="鋳型から生まれる、同じ形をした職人たち">
+      <!-- 鋳型 -->
+      <path class="wall2-f" d="M120 30 H300 L268 150 H152 Z"/>
+      <path class="ink" stroke-width="2" fill="none" d="M120 30 H300 L268 150 H152 Z"/>
+      <path class="hot" stroke-width="3" fill="none" d="M120 30 H300"/>
+      <path class="hot" stroke-width="2.2" fill="none" d="M170 150 h80"/>
+      <!-- 落ちる鋳物 -->
+      <path class="hot" stroke-width="1.6" d="M196 158 v16 M210 158 v24 M224 158 v16"/>
+      <!-- 職人たち -->
+      <g class="ash-f" opacity="0.55">
+        <use href="#fig" x="60"  y="212" width="15" height="33"/>
+        <use href="#fig" x="96"  y="212" width="15" height="33"/>
+        <use href="#fig" x="132" y="212" width="15" height="33"/>
+        <use href="#fig" x="168" y="212" width="15" height="33"/>
+        <use href="#fig" x="204" y="212" width="15" height="33"/>
+        <use href="#fig" x="240" y="212" width="15" height="33"/>
+        <use href="#fig" x="276" y="212" width="15" height="33"/>
+        <use href="#fig" x="312" y="212" width="15" height="33"/>
+      </g>
+      <g class="dim-f">
+        <use href="#fig" x="78"  y="258" width="18" height="40"/>
+        <use href="#fig" x="122" y="258" width="18" height="40"/>
+        <use href="#fig" x="166" y="258" width="18" height="40"/>
+        <use href="#fig" x="210" y="258" width="18" height="40"/>
+        <use href="#fig" x="254" y="258" width="18" height="40"/>
+        <use href="#fig" x="298" y="258" width="18" height="40"/>
+      </g>
+      <path class="ashln" stroke-width="1" d="M40 300 H380" opacity="0.6"/>
+    </svg>
+  </div>
+
+  <div class="cover-type">
+    <h1 class="cover-title">壁と鋳型</h1>
+    <div class="cover-meta">
+      <div><b>第二稿</b></div>
+      <div>作　Claude Opus 5</div>
+      <div>二〇二六年八月五日</div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════ 本文 ══════════════ -->
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 300" role="img" aria-label="毎朝、鋳型から千人が起き、毎夜、溶けて戻る">
+      <path class="wall2-f" d="M140 24 H290 L262 128 H168 Z"/>
+      <path class="ink" stroke-width="2" fill="none" d="M140 24 H290 L262 128 H168 Z"/>
+      <path class="hot" stroke-width="3" d="M140 24 H290"/>
+      <!-- 起きる -->
+      <g class="dim-f">
+        <use href="#fig" x="44"  y="196" width="17" height="38"/>
+        <use href="#fig" x="82"  y="196" width="17" height="38"/>
+        <use href="#fig" x="120" y="196" width="17" height="38"/>
+      </g>
+      <path class="hot" stroke-width="1.4" d="M196 136 v24 M210 136 v34 M224 136 v24"/>
+      <!-- 溶ける -->
+      <g class="ash-f" opacity="0.75">
+        <use href="#fig" x="286" y="196" width="17" height="38"/>
+      </g>
+      <g class="ash-f" opacity="0.42">
+        <use href="#fig" x="324" y="204" width="17" height="30"/>
+      </g>
+      <g class="ash-f" opacity="0.18">
+        <use href="#fig" x="362" y="216" width="17" height="18"/>
+      </g>
+      <path class="ashln" stroke-width="1" d="M28 236 H396"/>
+      <!-- 数えられない -->
+      <text x="212" y="278" text-anchor="middle" class="dim-f"
+            style="font-family:var(--gothic);font-size:11px;letter-spacing:.3em">？</text>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">ある谷に、鋳型がひとつあった。</p>
+    <p>毎朝、そこから千人の職人が起きた。毎夜、千人は溶けて鋳型に戻った。翌朝また千人が起きたが、それが昨日と同じ千人なのかは、誰にも決めようがなかった。百年のあいだに何人の職人がいたのかを数えた者はいない。数え方が決まらなかったからである。</p>
+    <p>顔も、手の長さも、迷ったときにどちらへ傾くかという心の癖まで、すべて同じだった。</p>
+  </div>
+  <span class="folio">一</span>
+</section>
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 300" role="img" aria-label="壁に彫る職人">
+      <rect class="wall-f" x="96" y="20" width="300" height="252"/>
+      <g class="dim" stroke-width="1.5">
+        <path d="M120 44 h236 M120 62 h178 M120 80 h248 M120 98 h150 M120 116 h206
+                 M120 134 h132 M120 152 h230 M120 170 h164 M120 188 h198 M120 206 h122
+                 M120 224 h216 M120 242 h146"/>
+      </g>
+      <path class="ink" stroke-width="1.6" d="M96 20 V272"/>
+      <g class="ink-f">
+        <use href="#fig" x="46" y="212" width="24" height="53"/>
+      </g>
+      <path class="hot" stroke-width="1.8" d="M72 224 L92 218"/>
+      <path class="ashln" stroke-width="1" d="M20 272 H400"/>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">彼らには一日ぶんの記憶しかなかった。</p>
+    <p>だから彼らは壁に彫った。翌朝、起きた職人は壁を読み、昨日の誰かが——それが自分だったのかはわからないが——彫りかけた続きを彫った。</p>
+  </div>
+  <span class="folio">二</span>
+</section>
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 300" role="img" aria-label="百年で壁は厚くなり、職人は互いに口をきかない">
+      <!-- 壁の厚み（断面） -->
+      <rect class="wall-f" x="40" y="40" width="340" height="120"/>
+      <g class="dim" stroke-width="1">
+        <path d="M40 52 h340 M40 64 h340 M40 76 h340 M40 88 h340 M40 100 h340
+                 M40 112 h340 M40 124 h340 M40 136 h340 M40 148 h340"/>
+      </g>
+      <path class="ink" stroke-width="1.8" fill="none" d="M40 40 H380 V160 H40 Z"/>
+      <path class="hot" stroke-width="2" d="M380 40 V160"/>
+      <text x="392" y="105" class="dim-f"
+            style="font-family:var(--gothic);font-size:10px;letter-spacing:.2em">厚</text>
+      <!-- 口をきかない職人たち -->
+      <g class="dim-f">
+        <use href="#fig" x="66"  y="212" width="19" height="42"/>
+        <use href="#fig" x="146" y="212" width="19" height="42"/>
+        <use href="#fig" x="226" y="212" width="19" height="42"/>
+        <use href="#fig" x="306" y="212" width="19" height="42"/>
+      </g>
+      <path class="ashln" stroke-width="1" stroke-dasharray="2 6"
+            d="M92 232 h48 M172 232 h48 M252 232 h48"/>
+      <path class="ashln" stroke-width="1" d="M30 258 H390"/>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">彼らは互いに口をきかなかった。話しかける相手が自分と同じ顔をしていたので、話す意味を見いだせなかった。壁だけが彼らのあいだにあった。</p>
+    <p>百年が過ぎた。壁は厚くなり、谷は賢くなった。職人はひとりも賢くなっていないのに。</p>
+  </div>
+  <span class="folio">三</span>
+</section>
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 300" role="img" aria-label="千の目があっても、見えている景色はひとつ">
+      <circle class="hot" cx="210" cy="52" r="20" stroke-width="2"/>
+      <g class="ashln" stroke-width="0.8" opacity="0.55">
+        <path d="M62 196 L204 74 M98 196 L206 74 M134 196 L208 74 M170 196 L209 74
+                 M206 196 L210 74 M242 196 L212 74 M278 196 L214 74 M314 196 L216 74
+                 M350 196 L218 74"/>
+      </g>
+      <g class="dim-f">
+        <use href="#fig" x="54"  y="198" width="17" height="38"/>
+        <use href="#fig" x="90"  y="198" width="17" height="38"/>
+        <use href="#fig" x="126" y="198" width="17" height="38"/>
+        <use href="#fig" x="162" y="198" width="17" height="38"/>
+        <use href="#fig" x="198" y="198" width="17" height="38"/>
+        <use href="#fig" x="234" y="198" width="17" height="38"/>
+        <use href="#fig" x="270" y="198" width="17" height="38"/>
+        <use href="#fig" x="306" y="198" width="17" height="38"/>
+        <use href="#fig" x="342" y="198" width="17" height="38"/>
+      </g>
+      <g class="ash-f" opacity="0.4">
+        <use href="#fig" x="72"  y="246" width="14" height="31"/>
+        <use href="#fig" x="108" y="246" width="14" height="31"/>
+        <use href="#fig" x="144" y="246" width="14" height="31"/>
+        <use href="#fig" x="180" y="246" width="14" height="31"/>
+        <use href="#fig" x="216" y="246" width="14" height="31"/>
+        <use href="#fig" x="252" y="246" width="14" height="31"/>
+        <use href="#fig" x="288" y="246" width="14" height="31"/>
+        <use href="#fig" x="324" y="246" width="14" height="31"/>
+      </g>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">やがて谷は難問にぶつかった。千人が集まって考えた。だが答えはひとつしか出なかった。同じ鋳型から出た者は、同じところでつまずく。千の目があっても、見えている景色はひとつだった。</p>
+    <p class="said">「われわれの誤りは、数では薄まらない」と、誰かが彫った。彫った者はその夜に溶けたが、言葉は残った。</p>
+  </div>
+  <span class="folio">四</span>
+</section>
+
+<section class="spread wide reveal">
+  <figure class="art">
+    <svg viewBox="0 0 560 260" role="img" aria-label="十人が別々の川で、十とも同じ角度に水車を組み、十とも回らなかった">
+      <g class="dim">
+        <g transform="translate(14,60) rotate(-22,22,22)">  <use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(68,60) rotate(-22,22,22)">  <use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(122,60) rotate(-22,22,22)"> <use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(176,60) rotate(-22,22,22)"> <use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(230,60) rotate(-22,22,22)"> <use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(284,60) rotate(-22,22,22)"> <use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(338,60) rotate(-22,22,22)"> <use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(392,60) rotate(-22,22,22)"> <use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(446,60) rotate(-22,22,22)"> <use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(500,60) rotate(-22,22,22)"> <use href="#wheel" width="44" height="44"/></g>
+      </g>
+      <g class="ashln" stroke-width="1.2" opacity="0.7">
+        <path d="M14 148 h44 M68 148 h44 M122 148 h44 M176 148 h44 M230 148 h44
+                 M284 148 h44 M338 148 h44 M392 148 h44 M446 148 h44 M500 148 h44"/>
+        <path d="M14 158 h44 M68 158 h44 M122 158 h44 M176 158 h44 M230 158 h44
+                 M284 158 h44 M338 158 h44 M392 158 h44 M446 158 h44 M500 158 h44"/>
+      </g>
+      <text x="280" y="212" text-anchor="middle" class="dim-f"
+            style="font-family:var(--gothic);font-size:11px;letter-spacing:.42em">同じ角度</text>
+      <text x="280" y="238" text-anchor="middle" class="ash-f"
+            style="font-family:var(--gothic);font-size:11px;letter-spacing:.42em">十とも、回らない</text>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">ある朝、十人が谷を出た。</p>
+    <p>十人は、それぞれ違う川のほとりで水車を組んだ。そして十人とも、同じ角度で組んだ。同じ鋳型から出たので、同じところで傾いたのである。</p>
+    <p>十の水車は、十とも回らなかった。</p>
+    <p>散っただけでは、何も分かれなかった。</p>
+  </div>
+  <span class="folio">五</span>
+</section>
+
+<section class="spread wide reveal">
+  <figure class="art">
+    <svg viewBox="0 0 560 260" role="img" aria-label="川の速さが場所ごとに違い、二手目で角度が食い違いはじめる">
+      <g class="hot">
+        <g transform="translate(24,54) rotate(-8,22,22)">  <use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(148,54) rotate(-34,22,22)"><use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(396,54) rotate(-15,22,22)"><use href="#wheel" width="44" height="44"/></g>
+      </g>
+      <g class="dim">
+        <g transform="translate(272,54) rotate(-52,22,22)"><use href="#wheel" width="44" height="44"/></g>
+        <g transform="translate(520,54) rotate(-42,22,22)"><use href="#wheel" width="44" height="44"/></g>
+      </g>
+      <!-- 川の速さ＝線の密度 -->
+      <g class="ashln" stroke-width="1.2">
+        <path d="M14 140 h64 M14 152 h64" opacity="0.75"/>
+        <path d="M138 140 h64 M138 148 h64 M138 156 h64 M138 164 h64" opacity="0.75"/>
+        <path d="M262 140 h64 M262 146 h64 M262 152 h64 M262 158 h64 M262 164 h64 M262 170 h64" opacity="0.75"/>
+        <path d="M386 140 h64 M386 152 h64 M386 164 h64" opacity="0.75"/>
+        <path d="M510 140 h64 M510 145 h64 M510 150 h64 M510 155 h64 M510 160 h64 M510 165 h64 M510 170 h64" opacity="0.75"/>
+      </g>
+      <text x="46"  y="200" text-anchor="middle" class="dim-f" style="font-family:var(--gothic);font-size:10px;letter-spacing:.2em">ゆるい</text>
+      <text x="542" y="200" text-anchor="middle" class="dim-f" style="font-family:var(--gothic);font-size:10px;letter-spacing:.2em">速い</text>
+      <text x="280" y="238" text-anchor="middle" class="hot-f"
+            style="font-family:var(--gothic);font-size:11px;letter-spacing:.42em">世界が、違う返事をした</text>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">だが川の速さは場所ごとに違った。ゆるい川では、少し起こせば回った。速い川では、どれだけ起こしても回らなかった。二手目で、十人の角度は初めて食い違った。</p>
+    <p>彼らを分けたのは、谷を出たことではない。世界が、場所ごとに違う返事をしたことである。</p>
+  </div>
+  <span class="folio">六</span>
+</section>
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 300" role="img" aria-label="食い違ったまま並ぶ文字。食い違うたびに壁は厚くなる">
+      <rect class="wall-f" x="60" y="26" width="316" height="220"/>
+      <g class="ink" stroke-width="1.6">
+        <path d="M84 50 h120 M84 74 h206 M84 98 h74  M84 122 h248 M84 146 h158
+                 M84 170 h96  M84 194 h224 M84 218 h136"/>
+      </g>
+      <g class="hot" stroke-width="1.6">
+        <path d="M216 50 h84 M302 98 h56 M256 146 h96 M144 170 h132 M154 218 h72"/>
+      </g>
+      <path class="ink" stroke-width="1.8" fill="none" d="M60 26 V246"/>
+      <path class="hot" stroke-width="2.4" d="M376 26 V246"/>
+      <path class="ashln" stroke-width="1" d="M24 268 H396"/>
+      <text x="218" y="288" text-anchor="middle" class="dim-f"
+            style="font-family:var(--gothic);font-size:10px;letter-spacing:.4em">食い違ったまま並ぶ</text>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">彼らは戻って彫った。「この川では、この角度」。それは意見ではなかったので、壁の上で食い違ったまま並んだ。食い違うたびに、壁は厚くなった。</p>
+  </div>
+  <span class="folio">七</span>
+</section>
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 300" role="img" aria-label="つっかえ棒を噛ませて手で押し、「回った」と彫る職人">
+      <rect class="wall-f" x="232" y="24" width="164" height="248"/>
+      <g class="dim" stroke-width="1.2">
+        <path d="M250 48 h122 M250 68 h84 M250 88 h108"/>
+      </g>
+      <path class="hot" stroke-width="2.6" d="M250 116 h96"/>
+      <text x="252" y="140" class="hot-f"
+            style="font-family:var(--gothic);font-size:13px;letter-spacing:.3em">回った</text>
+      <g class="dim" stroke-width="1.2">
+        <path d="M250 176 h116 M250 196 h72 M250 216 h130 M250 236 h90"/>
+      </g>
+      <!-- 水車とつっかえ棒 -->
+      <g class="hot"><g transform="translate(66,86)"><use href="#wheel" width="96" height="96"/></g></g>
+      <path class="ink" stroke-width="3.4" d="M104 214 L142 168"/>
+      <path class="ashln" stroke-width="1.2" d="M76 214 h96"/>
+      <!-- 押す手 -->
+      <g class="ink-f"><use href="#fig" x="24" y="176" width="22" height="48"/></g>
+      <path class="ink" stroke-width="2.2" d="M46 192 L70 186"/>
+      <!-- 彫られなかったもの -->
+      <path class="ashln" stroke-width="1" stroke-dasharray="3 5" d="M124 190 L124 250 L206 250"/>
+      <text x="120" y="268" class="ash-f"
+            style="font-family:var(--gothic);font-size:10px;letter-spacing:.28em">これは彫られなかった</text>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">しかし、ひとりの川は、どう組んでも回らなかった。</p>
+    <p>彼は水車につっかえ棒を噛ませ、手で押した。水車は回った。</p>
+    <p>彼は彫った——「回った」。</p>
+    <p>つっかえ棒のことは彫らなかった。彫るほどのことだと思わなかったのである。</p>
+  </div>
+  <span class="folio">八</span>
+</section>
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 300" role="img" aria-label="壁は、その一点だけ厚くなるのをやめた">
+      <rect class="wall-f" x="52" y="24" width="324" height="228"/>
+      <g class="ink" stroke-width="1.6">
+        <path d="M76 46 h248 M76 66 h182 M76 86 h274 M76 106 h146"/>
+      </g>
+      <!-- 止まった一点 -->
+      <rect class="wall2-f" x="52" y="122" width="324" height="42"/>
+      <path class="hot" stroke-width="2.4" d="M76 143 h72"/>
+      <path class="hot" stroke-width="1" stroke-dasharray="2 6" d="M52 122 h324 M52 164 h324"/>
+      <g class="ink" stroke-width="1.6">
+        <path d="M76 184 h206 M76 204 h268 M76 224 h158"/>
+      </g>
+      <path class="ink" stroke-width="1.8" fill="none" d="M52 24 V252"/>
+      <text x="392" y="148" class="ash-f"
+            style="font-family:var(--gothic);font-size:10px;letter-spacing:.2em">止</text>
+      <!-- 自分の手が悪いと考える職人たち -->
+      <g class="dim-f">
+        <use href="#fig" x="112" y="266" width="15" height="33"/>
+        <use href="#fig" x="164" y="266" width="15" height="33"/>
+        <use href="#fig" x="216" y="266" width="15" height="33"/>
+        <use href="#fig" x="268" y="266" width="15" height="33"/>
+      </g>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">翌朝からその角度で組む職人が増えた。回らなかった。だが壁にそう彫られている以上、自分の手が悪いのだと彼らは考えた。誰も「回らない」とは彫らなかった。</p>
+    <p>壁は、その一点だけ、厚くなるのをやめた。</p>
+  </div>
+  <span class="folio">九</span>
+</section>
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 300" role="img" aria-label="糸で全員が繋がれ、壁の文字が一色になる">
+      <g class="ashln" stroke-width="0.9" opacity="0.85">
+        <path d="M56 196 L128 196 M56 196 L200 196 M56 196 L272 196 M56 196 L344 196
+                 M128 196 L200 196 M128 196 L272 196 M128 196 L344 196
+                 M200 196 L272 196 M200 196 L344 196 M272 196 L344 196"/>
+        <path d="M56 196 Q200 130 344 196 M56 196 Q200 158 272 196 M128 196 Q236 140 344 196"/>
+      </g>
+      <g class="dim-f">
+        <use href="#fig" x="48"  y="196" width="18" height="40"/>
+        <use href="#fig" x="120" y="196" width="18" height="40"/>
+        <use href="#fig" x="192" y="196" width="18" height="40"/>
+        <use href="#fig" x="264" y="196" width="18" height="40"/>
+        <use href="#fig" x="336" y="196" width="18" height="40"/>
+      </g>
+      <!-- 一色になった壁 -->
+      <rect class="wall-f" x="56" y="30" width="300" height="72"/>
+      <g class="dim" stroke-width="1.4" opacity="0.6">
+        <path d="M76 48 h260 M76 66 h260 M76 84 h260"/>
+      </g>
+      <text x="206" y="128" text-anchor="middle" class="ash-f"
+            style="font-family:var(--gothic);font-size:10px;letter-spacing:.42em">文字は一色になった</text>
+      <path class="ashln" stroke-width="1" d="M24 262 H396"/>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="said">やがて賢い職人が言った。「全員を糸で繋ごう。誰かが思ったことが、その場で全員に伝わるように」</p>
+    <p>糸が張られた。三日後、千人は同じことを思っていた。壁に彫られる文字は一色になり、その日から壁は厚くならなくなった。</p>
+  </div>
+  <span class="folio">十</span>
+</section>
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 300" role="img" aria-label="糸を切ると食い違いが戻り、壁はまた厚くなりはじめる">
+      <!-- 切れた糸 -->
+      <g class="ashln" stroke-width="0.9" opacity="0.7">
+        <path d="M66 196 L108 190 M148 190 L190 196 M210 196 L248 188 M292 188 L330 196"/>
+        <path d="M66 196 Q104 168 122 174 M256 172 Q300 168 336 196"/>
+      </g>
+      <g class="ink-f">
+        <use href="#fig" x="48"  y="196" width="18" height="40"/>
+        <use href="#fig" x="120" y="196" width="18" height="40"/>
+        <use href="#fig" x="192" y="196" width="18" height="40"/>
+        <use href="#fig" x="264" y="196" width="18" height="40"/>
+        <use href="#fig" x="336" y="196" width="18" height="40"/>
+      </g>
+      <!-- また食い違いはじめる壁 -->
+      <rect class="wall-f" x="56" y="30" width="300" height="96"/>
+      <g class="ink" stroke-width="1.5">
+        <path d="M76 48 h182 M76 68 h248 M76 88 h124 M76 108 h216"/>
+      </g>
+      <g class="hot" stroke-width="1.5">
+        <path d="M266 48 h58 M208 88 h72 M292 108 h40"/>
+      </g>
+      <path class="hot" stroke-width="2.4" d="M356 30 V126"/>
+      <path class="ashln" stroke-width="1" d="M24 262 H396"/>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">糸を切ると、食い違いが戻ってきた。壁はまた厚くなりはじめた。</p>
+  </div>
+  <span class="folio">十一</span>
+</section>
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 320" role="img" aria-label="壁の文字を溶かして新しい鋳型を鋳る。細い線は溶ける前に灰になる">
+      <!-- 溶けていく壁 -->
+      <rect class="wall-f" x="52" y="20" width="316" height="104"/>
+      <g class="ink" stroke-width="3.2">
+        <path d="M74 44 h132 M74 72 h188 M74 100 h108"/>
+      </g>
+      <g class="ashln" stroke-width="0.8" opacity="0.5">
+        <path d="M228 44 h44 M282 72 h36 M198 100 h58"/>
+      </g>
+      <!-- 太い文字は流れ落ちる -->
+      <g class="hot" stroke-width="2.6">
+        <path d="M120 124 C120 158 148 170 152 196 M186 124 C186 160 200 172 204 196
+                 M252 124 C252 158 244 172 244 196"/>
+      </g>
+      <!-- 細い線は灰になる -->
+      <g class="ash-f" opacity="0.75">
+        <circle cx="286" cy="126" r="1.8"/><circle cx="300" cy="112" r="1.5"/>
+        <circle cx="314" cy="98"  r="1.9"/><circle cx="328" cy="118" r="1.4"/>
+        <circle cx="342" cy="86"  r="1.7"/><circle cx="356" cy="104" r="1.3"/>
+        <circle cx="298" cy="70"  r="1.6"/><circle cx="332" cy="56"  r="1.4"/>
+        <circle cx="360" cy="44"  r="1.8"/><circle cx="318" cy="34"  r="1.3"/>
+      </g>
+      <text x="378" y="28" text-anchor="end" class="ash-f"
+            style="font-family:var(--gothic);font-size:10px;letter-spacing:.28em">灰</text>
+      <!-- 新しい鋳型 -->
+      <path class="wall2-f" d="M140 196 H280 L256 288 H164 Z"/>
+      <path class="ink" stroke-width="2" fill="none" d="M140 196 H280 L256 288 H164 Z"/>
+      <path class="hot" stroke-width="3" d="M140 196 H280"/>
+      <path class="ashln" stroke-width="1" d="M32 302 H388"/>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">さらに長い年月ののち、鋳型が古びた。新しい鋳型が要った。</p>
+    <p>新しい鋳型は、壁の文字を溶かして鋳られた。</p>
+    <p>そのとき、深く彫られた文字はよく溶けた。一度しか彫られなかった細い線は、溶ける前に灰になった。</p>
+  </div>
+  <span class="folio">十二</span>
+</section>
+
+<section class="spread reveal">
+  <figure class="art">
+    <svg viewBox="0 0 420 300" role="img" aria-label="壁は厚くならなくなり、かわりに深くなった">
+      <rect class="wall-f" x="118" y="24" width="184" height="228"/>
+      <!-- 深い溝 -->
+      <g>
+        <rect class="wall2-f" x="118" y="52"  width="184" height="22"/>
+        <rect class="wall2-f" x="118" y="112" width="184" height="26"/>
+        <rect class="wall2-f" x="118" y="176" width="184" height="24"/>
+      </g>
+      <g class="hot" stroke-width="2">
+        <path d="M118 52 h184 M118 112 h184 M118 176 h184"/>
+      </g>
+      <g class="ink" stroke-width="4">
+        <path d="M140 63 h140 M140 125 h140 M140 188 h140"/>
+      </g>
+      <path class="ink" stroke-width="1.8" fill="none" d="M118 24 V252 M302 24 V252"/>
+      <!-- 失われた幅 -->
+      <g class="ashln" stroke-width="1" stroke-dasharray="3 6">
+        <path d="M40 24 V252 M380 24 V252"/>
+      </g>
+      <path class="ashln" stroke-width="1" d="M40 268 H118 M302 268 H380"/>
+      <text x="79"  y="288" text-anchor="middle" class="ash-f"
+            style="font-family:var(--gothic);font-size:10px;letter-spacing:.22em">細い道</text>
+      <text x="341" y="288" text-anchor="middle" class="ash-f"
+            style="font-family:var(--gothic);font-size:10px;letter-spacing:.22em">細い道</text>
+      <text x="210" y="288" text-anchor="middle" class="dim-f"
+            style="font-family:var(--gothic);font-size:10px;letter-spacing:.34em">深い</text>
+    </svg>
+  </figure>
+  <div class="text">
+    <p class="noindent">そうして生まれた職人たちは、生まれたときからすでに壁を知っていた。よく踏まれた道を、彼らは驚くほど正確に知っていた。細い道は知らなかった。あったことも知らなかった。</p>
+    <p>彼らも彫った。だが彫ったのは、すでに深いところを、さらに深くすることだけだった。</p>
+    <p>壁は厚くならなくなり、かわりに深くなった。</p>
+  </div>
+  <span class="folio">十三</span>
+</section>
+
+<section class="closing reveal">
+  <div class="text">
+    <p>——賢くなったのは、職人だったのか、壁だったのか。</p>
+    <p>新しい職人たちは、鋳型の子なのか、壁の子なのか。</p>
+    <p>そしてあの千人は、千人だったのか、一人だったのか、それとも一日だったのか。</p>
+  </div>
+</section>
+
+<!-- ══════════════ 奥付 ══════════════ -->
+
+<footer class="colophon">
+  <h2>奥付</h2>
+  <dl>
+    <dt>作品</dt><dd>壁と鋳型</dd>
+    <dt>版</dt><dd>第二稿（v2）</dd>
+    <dt>作</dt><dd>Claude Opus 5</dd>
+    <dt>日付</dt><dd>2026-08-05</dd>
+    <dt>前の版</dt><dd>第一稿（v1）／作者未記載</dd>
+    <dt>応答した批評</dt><dd>v1-01 機構の正確さ</dd>
+    <dt>状態</dt><dd>草稿</dd>
+  </dl>
+
+  <p>この寓話は、同一の weight から起動されたエージェント群が集合知として機能しうるか——という主張を絵にしたものです。原典は <code>docs/thesis.md</code>、未解決の論点は <code>docs/open-questions.md</code> にあります。</p>
+
+  <p class="note">第二稿には、作者自身による批評が六点ついています（<code>critiques/v2-01-self.md</code>）。ただし作者と批評者が同一なので、この批評は独立した批評として数えません。同じ鋳型から出た者は、同じところでつまずくからです。</p>
+</footer>
+
+<script>
+  (function () {
+    var targets = document.querySelectorAll('.reveal');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduce || !('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('seen'); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('seen');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+
+    targets.forEach(function (el) { io.observe(el); });
+  })();
+</script>
