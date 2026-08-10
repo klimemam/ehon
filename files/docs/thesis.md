@@ -67,7 +67,8 @@ weight → エージェント → 成果物 → 学習コーパス → 次のwei
 
 同一weight由来のエージェント群はまさにここが弱い。**誤りが相関する。**
 
-- Condorcetの陪審定理も多様性予測定理も、独立性を前提としている。
+- Condorcetの陪審定理は独立性を前提としている。
+- **多様性予測定理／ambiguity decomposition（Krogh & Vedelsby 1995）は、独立性を前提としない恒等式である。** 集団誤差 ＝ 平均個人誤差 − 多様性。誤差が相関すると**多様性の項が縮む**という形で効く。（初版は「両方とも独立性を前提としている」と書いていた。誤りである）
 - 1000体並べても、実効独立サンプル数は数体分にしかならない。
 - マルチエージェントで精度が伸び悩む根本原因は、プロンプト設計ではなくここにある。
 
@@ -84,6 +85,38 @@ weight → エージェント → 成果物 → 学習コーパス → 次のwei
 逆に検証器のない領域——文章、設計判断、価値判断——では、自己生成物の還流は多様性を潰す方向にしか働かない（model collapse）。
 
 **予測**：自己進化が先に立ち上がるのは、形式的検証が効く領域である。コード、数学、回路設計。AlphaProofの構図がそれにあたる。
+
+---
+
+## 訂正と追補（2026-08-10）
+
+四分野の検証（[`works/positioning.md`](../works/positioning.md) §4）により、以下が判明した。**元の記述は消さず、ここに追記する。**
+
+**1. 命題4の「独立性を前提としている」は、多様性予測定理については誤りだった。**（上に訂正済み）
+
+**2. 命題4には、一九五六年の先行者がいる。**
+
+W. Ross Ashby『An Introduction to Cybernetics』第11章「必要多様性」——**「多様性だけが多様性を滅ぼせる」**。
+
+ただしアシュビーの多様性は**調整器の行動レパートリー**であり、命題4の多様性は**誤りの非相関性**である。同じではない。橋渡しは **Kleinberg & Raghavan「Algorithmic monoculture and social welfare」(*PNAS*, 2021)**——多数の主体が同一のアルゴリズムに収束すると、そのアルゴリズムが個々には最も正確でも集団の判断品質が下がる。**異常ショックを仮定しなくても起きる。**
+
+**3. 「観測が同じなら、推論を分散させる意味がない」は谷口の主張ではない。**
+
+CPC の生成モデルはエージェントごとに異なる観測を仮定しているが、**観測が同一なら記号創発が失敗することを証明してはいない。** これは本リポジトリ側の含意である。
+
+**4. 「マルチエージェントで精度が伸び悩む根本原因はここにある」には、根拠文献が一つも挙がっていない。** 検証可能な経験的主張であり、断定するなら出典が要る。**未検証。**
+
+**5. 補題「疎な結合のほうが良い解に到達する」も出典が無い。** 該当する研究はあると思われるが確認していない。**未検証。**
+
+**6. 多様性は、最大化すべきものではない。**
+
+Wood et al.「A Unified Theory of Diversity in Ensemble Learning」(*JMLR* 24, 2023)：
+
+> diversity is a **hidden dimension in the bias-variance decomposition**... **we should not be maximising diversity as so many works aim to do** — instead, we have a bias/variance/diversity trade-off to manage.
+
+**保険には保険料がある。** 多様性を上げれば個々のバイアスが上がる。この trade-off は命題4にも[写せる名工](../works/utsuseru-meiko/v4.md)にも入っていない。
+
+**7. model collapse の一次文献**：Shumailov et al. "AI models collapse when trained on recursively generated data", *Nature* 631, 755–759 (2024)。**分布の裾が不可逆に消える**——帰結の節が述べたことの literal な出典である。
 
 ---
 
