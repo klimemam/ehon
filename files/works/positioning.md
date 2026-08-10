@@ -349,12 +349,38 @@
 
 | 層 | 先行者 |
 | --- | --- |
-| 三つの欄が恣意的で、それでも世界を切る | **ボルヘス「ウィルキンズ」**——「宇宙のいかなる分類も、恣意的で憶測に満ちていないものはない」 |
+| 三つの欄が恣意的で、それでも世界を切る | **ボルヘス「ウィルキンズ」(1942)**——「宇宙のいかなる分類も、恣意的で憶測に満ちていないものはない。理由は単純で、**我々は宇宙が何であるかを知らない**」。フーコー『言葉と物』序文の着想源 |
+| 目録が供給を生成する | **ボルヘス「トレーン」(1940)**——百科事典の項目が世界を作る。ただし向きは**増殖**であって排除ではない |
 | 欄に入らない性質は載らない／「物によります」 | **Scott 第9章 metis**（thin simplification と実践知）。**Bowker & Star の残余カテゴリー** |
 | 書式に合わせて供給が変形する | **Scott の科学的林業**——台帳は森を記述しただけでなく、**台帳の範疇に合うように森を作り直した**。本作の「新しく店を開く者は、まず帳面を見た」と同じ機構 |
 | 載らない店は無いのと同じになる | **イリイチの radical monopoly**——「多数の提供者がいてもなお、それへのアクセス無しには社会から排除される」。*That motor traffic curtails the right to walk* が、本作の「町が広くなり、歩いて行く者は減っていった」と**逐語的に一致する** |
 
-さらに **Bowker & Star の看護介入分類（NIC）の章**は、**可視化のために数えられるようにすると、数えられない部分（ユーモアで患者を励ます等）が落ちる**ことを扱っており、**題材まで一致している。**
+さらに **Bowker & Star の看護介入分類（NIC）の段落**は、寓話の第四の欄と**ほぼ一対一で対応する。**
+
+> one much more difficult is **"humor."** How can one capture humor as a deliberate nursing intervention? … When do you stop? How to reimburse humor, how to measure this kind of care? **No one would dispute the importance of humor, but it is by its nature a situated and subjective action.**
+
+**「重要性は誰も否定しないが、状況依存的・主観的なので測れない」**——書記たちが「ていねいさ」の欄を作れずに三月で諦める場面と、論理構造が同型である。
+
+そして NIC 以前の看護師の言葉：
+
+> **"we were just thrown in with the cost of the room."** ／ **"I am not a bed!"**
+
+**分類に載らない労働は、記録の上で存在しない。**
+
+### Scott の metis に「車の修理」が明示されている
+
+決定的なのはここである。Scott は metis の例として、**明示的に repairing a car を挙げている。**
+
+> Virtually any complex task involving many variables whose values and interactions cannot be accurately forecast belongs to this genre: building a house, **repairing a car**, perfecting a new jet engine, surgically repairing a knee, or farming a plot of land.
+
+**寓話の修理屋は、偶然ではなく理論的に正しい人選だった。** 「持ってきた物によります」は metis の定義（規則を具体的状況にいつどう適用するかの知）の口語化であり、最終行「書き方が、無いからである」は **metis が原理的に codify 不能である**という Scott の主張そのものである。
+
+### この作品に残る、独自の二点
+
+検証の結論として、**先行文献に見つからなかったものが二つある。**
+
+1. **遡及的な非在**——帳面を端から端まで繰り、「そんな店は昔から無かった」と結論する場面。最も近い既存の一文は Porter『Trust in Numbers』の「**their disappearance from discourse may imply their disappearance from the world as well**」だが、**これは一文であって議論ではない**
+2. **新規参入者が書式に合わせて設計されて生まれること**（既存者の自己改造ではなく）。Scott の森の植え替えを除けば、直接の先行が無い
 
 ### 番号を打つ者
 

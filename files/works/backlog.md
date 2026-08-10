@@ -211,7 +211,13 @@ Goodhart の法則には**四つの型**があり、Manheim & Garrabrant (2018) 
 | **Causal** | 相関する物に介入するが、それは原因ではない | A2 温度計を暖める | 既に有り |
 | **Adversarial** | 指標を知る主体が、指標を狙って動く | A1 つっかえ棒 | 既に有り |
 
-関連：Campbell の法則 (1979)、Strathern (1997) の定式化「測度が目標になると、良い測度ではなくなる」、DeepMind の仕様ゲーミング事例集 (Krakovna et al. 2020)。
+関連：**Campbell の法則**——Campbell, *Assessing the Impact of Planned Social Change*, Occasional Paper #8, Dec 1976, p.49（逐語確認済）：
+
+> The more any quantitative social indicator is used for social decision-making, the more subject it will be to corruption pressures and the more apt it will be to distort and corrupt the social processes it is intended to monitor.
+
+**訂正**：流布している「When a measure becomes a target, it ceases to be a good measure」は **Goodhart の言葉ではない。** Strathern (1997) *European Review* 5(3), p.308 の**地の文**である（Strathern 自身は Hoskin 経由で Goodhart に帰属させている）。Goodhart 1975 の原文は異文が二種流通しており確定していない。**誤帰属に注意。**
+
+DeepMind の仕様ゲーミング事例集 (Krakovna et al. 2020)。
 
 ### 11.2 過学習・汎化
 
