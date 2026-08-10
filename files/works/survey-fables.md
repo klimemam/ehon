@@ -99,8 +99,25 @@
 **カフカの寓話をめぐる議論**は、我々の対応表の問題に直接刺さる。
 
 - ヒーベル：「カフカの場合には、教訓的な寓話 Lehrparabel は、**「からの寓話」Leerparabel** へと変わる」（Hiebel, Hans H.『Franz Kafka: Form und Bedeutung』Königshausen & Neumann, 1999, S.25。**Leerparabel はヒーベル自身が単引用符で括った造語であり、通用語ではない。引く際は必ずそう明記すること**）
-- ベンヤミン：「注釈される**教義**を所有しているのだろうか。**教義はここにはない。**」
-- アドルノ：「表現することを**拒否すること**によって自らを表現する。**開くための鍵が盗まれている寓話世界**」
+**ベンヤミン**「フランツ・カフカ」(1934)——GS II.2, S.420（「Ein Kinderbild」節）。一次資料で確認：
+
+> Besitzen wir die Lehre aber, die von Kafkas Gleichnissen begleitet und in den Gesten K.'s und den Gebärden seiner Tiere erläutert wird? **Sie ist nicht da**; wir können höchstens sagen, daß dies und jenes auf sie anspielt.
+
+**問いを立てて、三語で答える。**「カフカのたとえ話が伴い、Kの身振りと動物たちの仕草が説明している、その教義を我々は所有しているのか。**それは無い。**」
+
+> **訂正**：よく引かれる「ハガダーがハラハーの足元に身を横たえる……不意に重い前肢を振り上げる」という激しい定式は、**1934年論文には存在しない**（Pranke・zu Füße・gekuscht の出現回数はいずれも0）。ショーレム宛書簡（1938）に由来する別テクストである。1934年論文の言及は「zur Lehre ähnlich wie die Haggadah zur Halacha stehen」の一箇所のみ。**学術文献にも混同が見られる。**
+
+**アドルノ**「カフカ覚書」——GS 10.1, S.255。**次の二文は同一段落の隣接文である**（順序は下→上）：
+
+> **Es ist eine Parabolik, zu der der Schlüssel entwendet ward**
+> （**鍵が盗まれた寓意体系である**）
+
+> **Jeder Satz spricht: deute mich, und keiner will es dulden.**
+> （**どの文も「私を解釈せよ」と言い、どの文もそれを許さない。**）
+
+> **訂正**：初版は前者を「Parabeln, deren Schlüssel entwendet ward」（複数形の寓話）と推定していた。**正しくは Parabolik（寓意体系）である。** 個々の寓話ではなく、体系そのものの鍵が盗まれている。
+
+そしてアドルノのこの論考は、別版で **「Parabel ohne Schlüssel」（鍵のない寓話）** と題されている（Elm/Hiebel 編『Die Parabel』所収）。**本系列が探していた自己定位の名は、ヒーベルの造語 Leerparabel ではなく、こちらかもしれない。**
 
 **カルヴィーノ自身の方法の言明**が、規約6をそのまま述べている。
 
