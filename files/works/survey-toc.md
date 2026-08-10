@@ -212,6 +212,14 @@ Bettelheim『昔話の魔力』(1976) は目次の第1部第2章で fable と fa
 
 **目次を確認できなかったもの**：Hart & Honoré *Causation in the Law*、Mauss *The Gift*、Fricker（概念のみ）、Illich（概念のみ）、Zuboff 1988（第5章のみ）、Heyes、Henrich *WEIRDest*、Moore、Hu、Hughes、Smil *HTWRW*、**Power *The Audit Society*（章題は検索由来。原本ページ未取得）**、Bettelheim（カタログ注記のみ）、Lave & Wenger 第3章、Braverman 第19章。
 
-**未調査**：Geertz、Bijker、MacKenzie、**Vaughan *The Challenger Launch Decision*（逸脱の常態化。G7・G38 の中核概念であり次回最優先）**、Latour *We Have Never Been Modern*、Freire、Gopnik、Dreyfus。WebSearch 上限（200回）で打ち切り。
+**Vaughan『The Challenger Launch Decision』は確認済み。** 章構成と三概念の定義（逐語・頁つき）：
+
+- **normalization of deviance**（p.65）——「By 'normalized,' I mean that behavior the work group first identified as technical deviation was subsequently reinterpreted as within the norm for acceptable joint performance, then finally officially labeled an acceptable risk. **They redefined evidence that deviated from an acceptable standard so that it became the standard.**」
+- **culture of production**（p.67）——航空宇宙産業・工学専門職・NASA組織に由来する規範と信念が、マーシャル宇宙飛行センターの文化として独自に表現されたもの
+- **structural secrecy**（p.238）——「the way that patterns of information, organizational structure, processes, and transactions, and the structure of regulatory relations **systematically undermine the attempt to know and interpret situations** in all organizations」
+
+**三つ目が [`monban`](monban/v7.md) に直撃する。** 「町が数えたのは、門の内側にある物ばかりだった」は structural secrecy の像である。そして「迷ったら通す → 迷ったら止める」は normalization of deviance——**決定した瞬間が存在しない**。
+
+**未調査**：Geertz、Bijker、MacKenzie、Latour *We Have Never Been Modern*、Freire、Gopnik、Dreyfus。
 
 **推定であることの明示**：4節の「なぜ抜けていたか」はすべて推定であり、著者の実際の読書歴を確認したものではない。2節の背骨も、12分野から読み取った一本にすぎない——**別の軸を通せば別の空白が出る。** これは `map-axes.md` が `map.md` に対して言ったことを、この報告自身が受けるべき指摘である。
