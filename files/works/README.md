@@ -4,9 +4,12 @@
 
 ## 作品一覧
 
-| 作品 | 最新版 | 状態 |
-| --- | --- | --- |
-| [壁と鋳型](kabe-to-igata/) | v2 | 草稿 |
+| 作品 | 最新版 | 担当章 | 状態 |
+| --- | --- | --- | --- |
+| [壁と鋳型](kabe-to-igata/) | v2 | 4章ほか計10章（過密） | 草稿。v3 は v1 を基底に起こす |
+| [九十九回正しい門番](monban/) | v1 | 2.11 統計的正しさと個別の被害 | 草稿。独立な批評待ち |
+
+配置は [`map.md`](map.md)、多角評価は [`map-axes.md`](map-axes.md)、主題の母体は [`backlog.md`](backlog.md) / [`backlog-seeds.md`](backlog-seeds.md)。
 
 ## 構造
 
