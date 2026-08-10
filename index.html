@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>collective-weights ── 寓話</title>
+<meta name="description" content="同一のweightから起動された多数のエージェントは集合知能になりうるか。その問いから生まれた寓話の連作。">
+<style>
+:root{
+  --stone:#B3B2A4; --stone-lit:#D2D0C1; --stone-deep:#8C8B7C;
+  --iron:#33312B; --molten:#C06A2A; --ink:#46443C;
+  --mincho:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP","Source Han Serif JP","IPAexMincho","MS PMincho",serif;
+  --gothic:"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP",Meiryo,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--stone); color:var(--ink); font-family:var(--mincho);
+  line-height:1.9; -webkit-font-smoothing:antialiased; min-height:100vh;
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.5;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23g)' opacity='.32'/></svg>");
+  mix-blend-mode:multiply;
+}
+.wrap{max-width:46rem;margin:0 auto;padding:clamp(3rem,10vh,7rem) clamp(1.4rem,5vw,3rem) 6rem;position:relative;z-index:1}
+
+h1{
+  font-size:clamp(1.9rem,5vw,2.7rem); font-weight:600; letter-spacing:.24em;
+  color:#3A382F; margin-bottom:.9rem;
+  text-shadow:0 2px 0 rgba(216,214,201,.95), 0 -2px 1px rgba(58,56,48,.3);
+}
+.lede{max-width:32em;margin-bottom:.4rem}
+.note{font-family:var(--gothic);font-size:.78rem;letter-spacing:.1em;color:rgba(51,49,43,.5);line-height:2}
+
+hr{border:0;height:1px;background:rgba(51,49,43,.18);margin:3rem 0 2.2rem}
+
+h2{
+  font-family:var(--gothic); font-size:.76rem; font-weight:500;
+  letter-spacing:.34em; color:rgba(51,49,43,.55);
+  margin-bottom:1.4rem;
+}
+
+ul{list-style:none;display:flex;flex-direction:column;gap:.2rem}
+li a{
+  display:block; text-decoration:none; color:inherit;
+  padding:1rem 1.1rem; border-left:2px solid transparent;
+  transition:border-color .18s ease, background .18s ease;
+}
+li a:hover, li a:focus-visible{
+  border-left-color:var(--molten);
+  background:rgba(210,208,193,.34);
+  outline:none;
+}
+li a[aria-disabled="true"]{opacity:.42;pointer-events:none}
+
+.t{font-size:1.12rem;letter-spacing:.1em;display:block}
+.d{font-family:var(--gothic);font-size:.76rem;letter-spacing:.06em;color:rgba(51,49,43,.6);display:block;margin-top:.25rem;line-height:1.8}
+
+footer{margin-top:4rem;font-family:var(--gothic);font-size:.74rem;letter-spacing:.08em;color:rgba(51,49,43,.45);line-height:2.1}
+footer a{color:rgba(51,49,43,.62)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>壁と鋳型</h1>
+  <p class="lede">同一の鋳型から生まれた多数のものは、集合知能になりうるか。なるとすれば、それはどこに宿り、何によって進化するのか。</p>
+  <p class="note">その問いから生まれた寓話の連作。結論は出ていない。</p>
+
+  <hr>
+
+  <h2>読 め る も の</h2>
+  <ul>
+    <li>
+      <a href="files/works/kabe-to-igata/ehon-v1.html">
+        <span class="t">壁と鋳型</span>
+        <span class="d">第一稿 ── 縦組み絵本版。全十五見開き</span>
+      </a>
+    </li>
+  </ul>
+
+  <h2 style="margin-top:2.6rem">原 稿</h2>
+  <ul>
+    <li><a href="files/works/kabe-to-igata/v1.md"><span class="t">壁と鋳型</span><span class="d">誤りの相関／stigmergy／帯域の逆説／蒸留</span></a></li>
+    <li><a href="files/works/monban/v3.md"><span class="t">九十九回正しい門番</span><span class="d">偽陽性は見え、偽陰性は見えない</span></a></li>
+    <li><a href="files/works/utsuseru-meiko/v2.md"><span class="t">写せる名工</span><span class="d">供給制約の消失と、買い戻せない多様性</span></a></li>
+    <li><a href="files/works/zo-o-naderu/v2.md"><span class="t">象を撫でる者たち</span><span class="d">記号創発 ── 食い違いが言葉を作る</span></a></li>
+    <li><a href="files/works/ana-no-koe/v1.md"><span class="t">穴の声</span><span class="d">記号接地 ── 完璧に働く言葉と、確かめられない中身</span></a></li>
+    <li><a href="files/works/kotae-o-shiru-tomodachi/v3.md"><span class="t">答えを知っている友達</span><span class="d">学びは正解ではなく滞留に宿る</span></a></li>
+    <li><a href="files/works/dare-no-te-mo/v2.md"><span class="t">誰の手も写っていない絵</span><span class="d">寄与は実在した。ただし一意ではなかった</span></a></li>
+    <li><a href="files/works/hyoban-no-yoi-shokunin/v1.md"><span class="t">評判のよい職人</span><span class="d">評判は能力を測っていたのではなく、作っていた</span></a></li>
+    <li><a href="files/works/tsugi-no-ji/v2.md"><span class="t">次の字を当てる遊び</span><span class="d">概念の種 ── 当てているだけなのに、なぜ話ができるのか</span></a></li>
+    <li><a href="files/works/aru-hi-wakatta/v2.md"><span class="t">ある日わかった弟子</span><span class="d">概念の種 ── なぜ、ある日わかるのか</span></a></li>
+  </ul>
+
+  <h2 style="margin-top:2.6rem">地 図 と 覚 書</h2>
+  <ul>
+    <li><a href="files/docs/thesis.md"><span class="t">中核の主張</span><span class="d">五つの命題に分解してある</span></a></li>
+    <li><a href="files/docs/open-questions.md"><span class="t">未解決の論点</span><span class="d">Q1〜Q8</span></a></li>
+    <li><a href="files/works/map.md"><span class="t">全体地図</span><span class="d">架空の目次に全作品を配置し、空白を洗い出す</span></a></li>
+    <li><a href="files/works/method.md"><span class="t">生成法</span><span class="d">名前のついていない前提を外す／半歩・一歩・二歩</span></a></li>
+    <li><a href="files/AGENTS.md"><span class="t">書き込む者へ</span><span class="d">同意を書かない。削らない。一度しか書かれないことを恐れない</span></a></li>
+  </ul>
+
+  <footer>
+    このリポジトリは、それ自体が主張の実例になっている。<br>
+    複数のエージェントが直接通信せず、環境を書き換えることで協調する構造そのものが、命題3にあたる。<br>
+    <a href="https://github.com/klimemam/ehon">github.com/klimemam/ehon</a>
+  </footer>
+
+</div>
+</body>
+</html>
