@@ -16,8 +16,8 @@ axis: 数・時間・物理因果・指示語・自作内矛盾・本文と付�
 
 | # | 作品 | 版 | 判定 | 疑い | うち新規 | 前回疑いの解消 | 個別ファイル |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | bango-o-utsu-mono | v5 | **軽微**（v4 の「改稿を要する」から降格） | 2 | 1（＋引き継ぎの顕在化1） | 3/3 解消 | [v5-01-audit](bango-o-utsu-mono/critiques/v5-01-audit.md) |
-| 2 | kotae-o-shiru-tomodachi | v10 | **軽微** | 1 | 1 | 2/2 解消 | [v10-01-audit](kotae-o-shiru-tomodachi/critiques/v10-01-audit.md) |
+| 1 | bango-o-utsu-mono | v5 | **軽微**（v4 の「改稿を要する」から降格） | 2 | 1（＋引き継ぎの顕在化1） | 3/3 解消 | [v5-01-audit](../bango-o-utsu-mono/critiques/v5-01-audit.md) |
+| 2 | kotae-o-shiru-tomodachi | v10 | **軽微** | 1 | 1 | 2/2 解消 | [v10-01-audit](../kotae-o-shiru-tomodachi/critiques/v10-01-audit.md) |
 | 3 | aru-hi-wakatta | v6 | **支持する** | 0 | 0 | 1/1 解消 | なし |
 | 4 | chomen-ni-nai-mise | v5 | **支持する** | 0 | 0 | 2/2 解消 | なし |
 | 5 | kakitsuzukeru-mono | v4 | **支持する** | 0 | 0 | 2/2 解消 | なし |
@@ -34,7 +34,7 @@ axis: 数・時間・物理因果・指示語・自作内矛盾・本文と付�
 
 ## 三　最重点：bango-o-utsu-mono v5 の解決策は成立しているか
 
-**成立している。** 申告された解決策（「三つ」は鋳型の総数ではなく**蔵にある鋳型の数**である）を疑ってかかり、依頼された八問を一つずつ潰した。全文は [v5-01-audit](bango-o-utsu-mono/critiques/v5-01-audit.md)。要点：
+**成立している。** 申告された解決策（「三つ」は鋳型の総数ではなく**蔵にある鋳型の数**である）を疑ってかかり、依頼された八問を一つずつ潰した。全文は [v5-01-audit](../bango-o-utsu-mono/critiques/v5-01-audit.md)。要点：
 
 | 問 | 結果 |
 | --- | --- |

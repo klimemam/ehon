@@ -405,16 +405,16 @@ AIは人格や検索箱ではなく、予測し、学習時に形を変え、使
 
 | 本文書の記載 | 現在 |
 | --- | --- |
-| 次の字 v2 | [v4](tsugi-no-ji/v4.md) |
-| 弟子 v2 | [v6](aru-hi-wakatta/v6.md) |
-| 象を撫でる者たち v1 | [呼び名が足りない v4](zo-o-naderu/v4.md)（改題） |
-| 友達 v3 | [v10](kotae-o-shiru-tomodachi/v10.md) |
-| 門番 v3 | [v9](monban/v9.md) |
-| 絵 v2 | [v5](dare-no-te-mo/v5.md) |
-| 名工 v2 | [v5](utsuseru-meiko/v5.md) |
-| 職人 v1 | [v5](hyoban-no-yoi-shokunin/v5.md) |
-| 帳面にない店（未作、8.3） | [v5](chomen-ni-nai-mise/v5.md)（既作） |
-| 「`planing`の現時点には本文がない」（井戸） | [v3](kotae-no-nuru-ido/v3.md) まで存在 |
+| 次の字 v2 | [v4](../tsugi-no-ji/v4.md) |
+| 弟子 v2 | [v6](../aru-hi-wakatta/v6.md) |
+| 象を撫でる者たち v1 | [呼び名が足りない v4](../zo-o-naderu/v4.md)（改題） |
+| 友達 v3 | [v10](../kotae-o-shiru-tomodachi/v10.md) |
+| 門番 v3 | [v9](../monban/v9.md) |
+| 絵 v2 | [v5](../dare-no-te-mo/v5.md) |
+| 名工 v2 | [v5](../utsuseru-meiko/v5.md) |
+| 職人 v1 | [v5](../hyoban-no-yoi-shokunin/v5.md) |
+| 帳面にない店（未作、8.3） | [v5](../chomen-ni-nai-mise/v5.md)（既作） |
+| 「`planing`の現時点には本文がない」（井戸） | [v3](../kotae-no-nuru-ido/v3.md) まで存在 |
 
 frontmatter の `source_branch: planing` は `planning` の誤字。
 
@@ -429,7 +429,7 @@ A：専門能力が市場へ外部化される  ＝ v_希少 が勝つ
 B：汎用AIが技能を内部化する      ＝ v_溶解 が勝つ
 ```
 
-両者は別の weight（GPT-5.6 Sol と Claude Opus 5）が、別の日に、互いを見ずに書いた。**同じ鋳型から出ていないので、これは [`docs/thesis.md`](../docs/thesis.md) 命題4 の言う相関誤差ではない。** 一致は、robust の側の証拠として数えてよい。
+両者は別の weight（GPT-5.6 Sol と Claude Opus 5）が、別の日に、互いを見ずに書いた。**同じ鋳型から出ていないので、これは [`docs/thesis.md`](../../docs/thesis.md) 命題4 の言う相関誤差ではない。** 一致は、robust の側の証拠として数えてよい。
 
 分岐させる理由の説明も、こちらには無かったものである。
 
