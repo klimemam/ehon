@@ -2,6 +2,89 @@
 
 分析から生まれた作品を、版と作者をつけて管理する場所。
 
+
+---
+
+## 索引
+
+**この文書は規約である。** 以下はどこに何があるかの一覧。**2026-08-17 に、直下に散らばっていた21のファイルを四つに分けた。**
+
+### 作品
+
+| ディレクトリ | 作 | 最新版 |
+| --- | --- | --- |
+| [`ana-no-koe`](ana-no-koe/) | 穴の声 | [v3](ana-no-koe/v3.md) |
+| [`aru-hi-wakatta`](aru-hi-wakatta/) | ある日わかった弟子 | [v6](aru-hi-wakatta/v6.md) |
+| [`bango-o-utsu-mono`](bango-o-utsu-mono/) | 番号を打つ者 | [v5](bango-o-utsu-mono/v5.md) |
+| [`chomen-ni-nai-mise`](chomen-ni-nai-mise/) | 帳面にない店 | [v5](chomen-ni-nai-mise/v5.md) |
+| [`dare-no-te-mo`](dare-no-te-mo/) | 誰の手も写っていない絵 | [v6](dare-no-te-mo/v6.md) |
+| [`hazure-no-fuda`](hazure-no-fuda/) | はずれの札 | [v2](hazure-no-fuda/v2.md) |
+| [`hyoban-no-yoi-shokunin`](hyoban-no-yoi-shokunin/) | 評判のよい職人 | [v7](hyoban-no-yoi-shokunin/v7.md) |
+| [`kabe-to-igata`](kabe-to-igata/) | 壁と鋳型 | [v2](kabe-to-igata/v2.md) |
+| [`kakitsuzukeru-mono`](kakitsuzukeru-mono/) | 書きつづけるもの | [v4](kakitsuzukeru-mono/v4.md) |
+| [`kotae-no-nuru-ido`](kotae-no-nuru-ido/) | 答えのぬるい井戸 | [v4](kotae-no-nuru-ido/v4.md) |
+| [`kotae-o-shiru-tomodachi`](kotae-o-shiru-tomodachi/) | 答えを知っている友達 | [v10](kotae-o-shiru-tomodachi/v10.md) |
+| [`mata-tanomu`](mata-tanomu/) | また頼む | [v3](mata-tanomu/v3.md) |
+| [`monban`](monban/) | 九十九回正しい門番 | [v9](monban/v9.md) |
+| [`tanomu-riyuu`](tanomu-riyuu/) | 頼む理由 | [v2](tanomu-riyuu/v2.md) |
+| [`tsugi-no-ji`](tsugi-no-ji/) | 次の字を当てる遊び | [v4](tsugi-no-ji/v4.md) |
+| [`utsuseru-meiko`](utsuseru-meiko/) | 写せる名工 | [v7](utsuseru-meiko/v7.md) |
+| [`zo-o-naderu`](zo-o-naderu/) | 呼び名が足りない | [v6](zo-o-naderu/v6.md) |
+
+### method／方法
+
+| | |
+| --- | --- |
+| [`method/method.md`](method/method.md) | 半歩・一歩・二歩の判定基準。生成法 |
+| [`method/visual.md`](method/visual.md) | 視覚の系統。配色と図版の設計 |
+
+### map／地図・位置づけ
+
+| | |
+| --- | --- |
+| [`map/map.md`](map/map.md) | 本の目次（84章）。作品の対応先 |
+| [`map/map-axes.md`](map/map-axes.md) | 多角の軸 |
+| [`map/positioning.md`](map/positioning.md) | 系譜と文脈。訂正記録23件 |
+| [`map/phases.md`](map/phases.md) | 時系列の軸。五相・二速度・希望の設計・発表順 |
+| [`map/now-and-next.md`](map/now-and-next.md) | いまと、つぎ。日付つきの予測 |
+| [`map/collection-architecture.md`](map/collection-architecture.md) | 短編集の構成案（GPT-5.6 Sol） |
+| [`map/survey-toc.md`](map/survey-toc.md) | 分野横断の目次調査。40の空白 |
+| [`map/survey-fables.md`](map/survey-fables.md) | 隣接する寓話のサーベイ |
+
+### backlog／種
+
+| | |
+| --- | --- |
+| [`backlog/backlog.md`](backlog/backlog.md) | 主題とメタファーの棚卸し |
+| [`backlog/backlog-seeds.md`](backlog/backlog-seeds.md) | 姉妹系列「概念の種」。読者A/B/Cの定義 |
+| [`backlog/backlog-agent-economy.md`](backlog/backlog-agent-economy.md) | x402／Economic Router から出た種（S1〜S5） |
+| [`backlog/backlog-rhyme.md`](backlog/backlog-rhyme.md) | 英雄が荒くれ者になったあと（T1〜T4） |
+| [`backlog/backlog-personality.md`](backlog/backlog-personality.md) | どの気質が値を持つかは時代が決めている（N1〜N4） |
+| [`backlog/backlog-api.md`](backlog/backlog-api.md) | 足場はエージェントのために作られていない（U1〜U4） |
+
+### log／記録
+
+| | |
+| --- | --- |
+| [`log/experiment-fable.md`](log/experiment-fable.md) | 別の weight による批評の実験記録 |
+| [`log/critiques-fable-rules.md`](log/critiques-fable-rules.md) | 規約検査の全体表 |
+| [`log/critiques-audit-fable-rev.md`](log/critiques-audit-fable-rev.md) | 検算1 |
+| [`log/critiques-audit-round2.md`](log/critiques-audit-round2.md) | 検算2 |
+| [`log/critiques-audit-round3.md`](log/critiques-audit-round3.md) | 検算3 |
+| [`log/critiques-audit-round4.md`](log/critiques-audit-round4.md) | 検算4 |
+
+**作品ごとの批評は、各作の `critiques/` にある。**
+
+### この階層より上
+
+| | |
+| --- | --- |
+| [`../AGENTS.md`](../AGENTS.md) | 書き込むエージェントへの作法。分岐運用 |
+| [`../docs/thesis.md`](../docs/thesis.md) | 命題1〜5 |
+| [`../docs/open-questions.md`](../docs/open-questions.md) | 未解決の問い |
+| [`../docs/market.md`](../docs/market.md) | エージェント経済の分析 |
+| [`../docs/agent-economy.md`](../docs/agent-economy.md) | 始点（討議ハンドオフ） |
+
 ## 作品一覧
 
 ### 批評系列
@@ -14,7 +97,7 @@
 | [誰の手も写っていない絵](dare-no-te-mo/) | v1 | 6.1 データを作った労働 | 独立な批評待ち |
 | [写せる名工](utsuseru-meiko/) | v1 | 8.6 供給制約の消失 | 独立な批評待ち。壁と鋳型と世界を共有 |
 
-### 概念の種（[`backlog-seeds.md`](backlog-seeds.md)）
+### 概念の種（[`backlog-seeds.md`](backlog/backlog-seeds.md)）
 
 本文に専門用語を出さず、巻末に①対応表②原典③まだ誰も答えを持っていない問い、を置く。
 
@@ -25,7 +108,7 @@
 
 **全七作、独立な批評がゼロ。** 唯一の他者批評は [v2-02](kabe-to-igata/critiques/v2-02-human.md) のみで、これは v2 に対するもの。規約3により自己批評は独立と数えないため、**現時点でこの系列の品質は検証されていない。**
 
-配置は [`map.md`](map.md)、多角評価は [`map-axes.md`](map-axes.md)、主題の母体は [`backlog.md`](backlog.md) / [`backlog-seeds.md`](backlog-seeds.md)。
+配置は [`map.md`](map/map.md)、多角評価は [`map-axes.md`](map/map-axes.md)、主題の母体は [`backlog.md`](backlog/backlog.md) / [`backlog-seeds.md`](backlog/backlog-seeds.md)。
 
 ## 構造
 
@@ -136,7 +219,7 @@ v6.md      ← 両者を統合。何を採ったかを明記する
 
 **旧規約は「結末は主語を入れ替える問いにする」だった。これは誤りである。**
 
-全作に適用した結果、「——◯◯だったのか、△△だったのか。／…／…」という三行が**全作品の結末になった**（[`survey-fables.md`](survey-fables.md) 4.1）。主語の入れ替えは**結末の型のひとつ**であって、結末の型ではない。
+全作に適用した結果、「——◯◯だったのか、△△だったのか。／…／…」という三行が**全作品の結末になった**（[`survey-fables.md`](map/survey-fables.md) 4.1）。主語の入れ替えは**結末の型のひとつ**であって、結末の型ではない。
 
 使える型（調査で確認されたもの）：
 
@@ -194,9 +277,9 @@ v6.md      ← 両者を統合。何を採ったかを明記する
 
 **作るのである。**
 
-> 初版は「作品は文脈の中でしか価値を持たない」という無限定の一般命題として村上を引いていた。**その引用は本文に存在しなかった**（書評による合成）。村上は七箇所で「欧米では」と限定し、しかも当のルールを「くだらない金持ちのザレ事」と呼んでいる。**戦略的・道具的な処方であり、芸術の本質についての主張ではない**（[`positioning.md`](positioning.md) §0）。
+> 初版は「作品は文脈の中でしか価値を持たない」という無限定の一般命題として村上を引いていた。**その引用は本文に存在しなかった**（書評による合成）。村上は七箇所で「欧米では」と限定し、しかも当のルールを「くだらない金持ちのザレ事」と呼んでいる。**戦略的・道具的な処方であり、芸術の本質についての主張ではない**（[`positioning.md`](map/positioning.md) §0）。
 
-本系列はサーベイで文脈を把握した（[`survey-fables.md`](survey-fables.md)／[`survey-toc.md`](survey-toc.md)）。だがそれは**装置の側**にある。**作品自身が系譜を持っていない。**
+本系列はサーベイで文脈を把握した（[`survey-fables.md`](map/survey-fables.md)／[`survey-toc.md`](map/survey-toc.md)）。だがそれは**装置の側**にある。**作品自身が系譜を持っていない。**
 
 規則：各作品のフロントマターに `lineage:` を置き、覚書に**文脈**の節を設ける。
 
@@ -240,7 +323,7 @@ v6.md      ← 両者を統合。何を採ったかを明記する
 
 （『こども哲学』＝「一緒に読むなら4歳から、一人で読むなら7歳から」。累計25万部）
 
-**[`backlog-seeds.md`](backlog-seeds.md) の読者A・B・Cは、この形式にそのまま翻訳できる。** 「大人と小中学生の両方」は、**日本の絵本の表示規約の中で既に表現可能である。** 一つの年齢に決める必要はない。
+**[`backlog-seeds.md`](backlog/backlog-seeds.md) の読者A・B・Cは、この形式にそのまま翻訳できる。** 「大人と小中学生の両方」は、**日本の絵本の表示規約の中で既に表現可能である。** 一つの年齢に決める必要はない。
 
 規則：
 
@@ -250,7 +333,7 @@ v6.md      ← 両者を統合。何を採ったかを明記する
 
 ### 14. 造本を決めてから、確定版とする
 
-[`backlog-seeds.md`](backlog-seeds.md) 5節の表は「要決定」のまま止まっている。**決めないかぎり、どの版も草稿である。**
+[`backlog-seeds.md`](backlog/backlog-seeds.md) 5節の表は「要決定」のまま止まっている。**決めないかぎり、どの版も草稿である。**
 
 | 項目 | 根拠 |
 | --- | --- |
@@ -266,7 +349,7 @@ v6.md      ← 両者を統合。何を採ったかを明記する
 
 ### 15. 作品ごとに、流通の文脈も宣言する
 
-**規約10は思想史の文脈を要求した。それは [`positioning.md`](positioning.md) §0 の (a) にしか当たらない。**
+**規約10は思想史の文脈を要求した。それは [`positioning.md`](map/positioning.md) §0 の (a) にしか当たらない。**
 
 **(b) を書けない作品は、置き場所が無い。そして置き場所が無い本は、読まれない。**
 
@@ -281,13 +364,13 @@ v6.md      ← 両者を統合。何を採ったかを明記する
 - 産経児童出版文化賞の審査対象は「**小学校高学年までが読者対象**」と告知されている
 - MOE絵本屋さん大賞の投票者は**書店の児童書売り場担当者**である。**児童書棚に置かれなければ、候補にすらならない**
 - 「置き場所が無い」は業界公認の既知問題である。全国SLAの司書教諭向けQ&Aに**「高学年向きの絵本は絵本コーナーに置かないほうがよいでしょうか」**という設問が実在し、対応策の一つとして**「初めから一般図書の書架に主題により分類する」**——つまり**絵本の棚を捨てる**——が提示されている
-- **図書選定基準の構成要件に「参考文献」が入っている。** [`backlog-seeds.md`](backlog-seeds.md) の巻末三点セット（対応表・原典・未解決の問い）は、**減点ではなく加点方向である**
+- **図書選定基準の構成要件に「参考文献」が入っている。** [`backlog-seeds.md`](backlog/backlog-seeds.md) の巻末三点セット（対応表・原典・未解決の問い）は、**減点ではなく加点方向である**
 
 **最後に、逆向きの事実を一つ。**
 
 取次のパターン配本は、**過去の類書の実績**で配本先を決める。
 
-> **「先行例が無い」は、[`positioning.md`](positioning.md) では価値であり、配本では実績データの不在である。同じ事実が、二つの場所で逆の符号を持つ。**
+> **「先行例が無い」は、[`positioning.md`](map/positioning.md) では価値であり、配本では実績データの不在である。同じ事実が、二つの場所で逆の符号を持つ。**
 
 ### 16. 批評が出尽くしたら報告する
 

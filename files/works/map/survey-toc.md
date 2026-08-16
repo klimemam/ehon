@@ -40,7 +40,7 @@
 | 記号論 | 自然に見えることが、政治性を隠す（Barthes） |
 | 教育学 | 学習とは、誰になるかの変化である（Lave & Wenger） |
 
-**そして本リポジトリ自身が、[`hyoban-no-yoi-shokunin/v1.md`](hyoban-no-yoi-shokunin/v1.md) で独立にここへ到達している**——「評判は能力を測っていたのではなく、能力を作っていたのだ」。
+**そして本リポジトリ自身が、[`hyoban-no-yoi-shokunin/v1.md`](../hyoban-no-yoi-shokunin/v1.md) で独立にここへ到達している**——「評判は能力を測っていたのではなく、能力を作っていたのだ」。
 
 作者はそれを「Goodhart 族に第五の型として追加すべきかもしれない」と書いた。**だが12分野の目次から見ると、逆である。Goodhart のほうが、この一般則の一例である。**
 
@@ -48,11 +48,11 @@
 
 ## 3. 先行例：我々の方法論は既に定式化されている
 
-### 3.1 [`method.md`](method.md) の生成法 ＝ Suvin の認知的異化とノヴム
+### 3.1 [`method.md`](../method/method.md) の生成法 ＝ Suvin の認知的異化とノヴム
 
 `method.md` 6節は「この生成法自体が一つの街灯かもしれない」と未検証を宣言した。**答えが出た。**
 
-- **Suvin『SFの変容』(1979) 第1章 "Estrangement and Cognition"／第4章 "SF and the Novum"** ——SFの公理は「**認知的論理によって妥当性を与えられた虚構的ノヴムの物語的支配**」。これは [`README.md`](README.md) 規約6（現実に無い設定をひとつだけ／それはそのまま機構であること）と**逐語的に同じ要求**である
+- **Suvin『SFの変容』(1979) 第1章 "Estrangement and Cognition"／第4章 "SF and the Novum"** ——SFの公理は「**認知的論理によって妥当性を与えられた虚構的ノヴムの物語的支配**」。これは [`README.md`](../README.md) 規約6（現実に無い設定をひとつだけ／それはそのまま機構であること）と**逐語的に同じ要求**である
 - **Jameson『未来の考古学』(2005) 第2部第3章 "World Reduction in Le Guin"** ——経験的現実からの**体系的減算**。これは `method.md` の「名前のついていない前提を外す」そのもの
 
 **独創ではなく、SF批評が45年前に到達した地点だった。** ただし悪い知らせではない。`method.md` 6節の懸念に対する具体的な答えであり、**Suvin 2016年版所収の追加論考 "Science Fiction, Metaphor, Parable, and Chronotope" が直接の先行研究として未読**であることを意味する。
@@ -218,7 +218,7 @@ Bettelheim『昔話の魔力』(1976) は目次の第1部第2章で fable と fa
 - **culture of production**（p.67）——航空宇宙産業・工学専門職・NASA組織に由来する規範と信念が、マーシャル宇宙飛行センターの文化として独自に表現されたもの
 - **structural secrecy**（p.238）——「the way that patterns of information, organizational structure, processes, and transactions, and the structure of regulatory relations **systematically undermine the attempt to know and interpret situations** in all organizations」
 
-**三つ目が [`monban`](monban/v7.md) に直撃する。** 「町が数えたのは、門の内側にある物ばかりだった」は structural secrecy の像である。そして「迷ったら通す → 迷ったら止める」は normalization of deviance——**決定した瞬間が存在しない**。
+**三つ目が [`monban`](../monban/v7.md) に直撃する。** 「町が数えたのは、門の内側にある物ばかりだった」は structural secrecy の像である。そして「迷ったら通す → 迷ったら止める」は normalization of deviance——**決定した瞬間が存在しない**。
 
 **未調査**：Geertz、Bijker、MacKenzie、Latour *We Have Never Been Modern*、Freire、Gopnik、Dreyfus。
 

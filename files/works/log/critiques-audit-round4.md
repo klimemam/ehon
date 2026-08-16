@@ -20,8 +20,8 @@ axis: 数・時間・物理因果・指示語・自作内矛盾・本文と付�
 
 | # | 作品 | 版 | 前版 | 判定 | 疑い | うち新規 | 個別ファイル |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | hyoban-no-yoi-shokunin | v7 | v6 | **軽微** | 3 | 2（1件は v5 由来の引き継ぎを含む） | [v7-01-audit](hyoban-no-yoi-shokunin/critiques/v7-01-audit.md) |
-| 2 | hazure-no-fuda | v2 | v1 | **軽微** | 2 | 2（いずれも付属文書） | [v2-01-audit](hazure-no-fuda/critiques/v2-01-audit.md) |
+| 1 | hyoban-no-yoi-shokunin | v7 | v6 | **軽微** | 3 | 2（1件は v5 由来の引き継ぎを含む） | [v7-01-audit](../hyoban-no-yoi-shokunin/critiques/v7-01-audit.md) |
+| 2 | hazure-no-fuda | v2 | v1 | **軽微** | 2 | 2（いずれも付属文書） | [v2-01-audit](../hazure-no-fuda/critiques/v2-01-audit.md) |
 | 3 | utsuseru-meiko | v7 | v6 | **支持する** | 0 | 0 | なし |
 | 4 | mata-tanomu | v3 | v2 | **支持する** | 0 | 0 | なし |
 | 5 | zo-o-naderu | v6 | v5 | **支持する** | 0 | 0 | なし |
@@ -176,7 +176,7 @@ v1 の「やっつ」（十 − みっつ ＋ ひとつ）から「ななつ」�
 | 第三回 | [round3](critiques-audit-round3.md) | 新作3＋改稿6 | 8（＋軽微4） | 3／9 | 6／9 | **直した数の支配範囲を見ない**／宣言だけの共有世界 |
 | **第四回** | **本表** | **改稿6** | **5** | **0／6** | **2／6** | **grep できるものの外（制度・付属文書）** |
 
-（第一回より前に、全14作の最新版を横断した [hyoban v4-01-audit](hyoban-no-yoi-shokunin/critiques/v4-01-audit.md) の記録がある。確実3件＋疑い1件で、算術の総和・時刻の前後・分母の三型を立てた回である。）
+（第一回より前に、全14作の最新版を横断した [hyoban v4-01-audit](../hyoban-no-yoi-shokunin/critiques/v4-01-audit.md) の記録がある。確実3件＋疑い1件で、算術の総和・時刻の前後・分母の三型を立てた回である。）
 
 **収束している。** 根拠は三つある。
 

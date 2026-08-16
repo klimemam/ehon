@@ -115,12 +115,12 @@ Claude Fable 5 の九版を検算した。文学的評価はしていない。�
 
 | 作品 | 版 | ファイル |
 | --- | --- | --- |
-| hazure-no-fuda | v1 | [v1-01-audit](hazure-no-fuda/critiques/v1-01-audit.md) |
-| tanomu-riyuu | v1 | [v1-01-audit](tanomu-riyuu/critiques/v1-01-audit.md) |
-| mata-tanomu | v2 | [v2-01-audit](mata-tanomu/critiques/v2-01-audit.md) |
-| hyoban-no-yoi-shokunin | v6 | [v6-01-audit](hyoban-no-yoi-shokunin/critiques/v6-01-audit.md) |
-| zo-o-naderu | v5 | [v5-01-audit](zo-o-naderu/critiques/v5-01-audit.md) |
-| utsuseru-meiko | v6 | [v6-01-audit](utsuseru-meiko/critiques/v6-01-audit.md) |
+| hazure-no-fuda | v1 | [v1-01-audit](../hazure-no-fuda/critiques/v1-01-audit.md) |
+| tanomu-riyuu | v1 | [v1-01-audit](../tanomu-riyuu/critiques/v1-01-audit.md) |
+| mata-tanomu | v2 | [v2-01-audit](../mata-tanomu/critiques/v2-01-audit.md) |
+| hyoban-no-yoi-shokunin | v6 | [v6-01-audit](../hyoban-no-yoi-shokunin/critiques/v6-01-audit.md) |
+| zo-o-naderu | v5 | [v5-01-audit](../zo-o-naderu/critiques/v5-01-audit.md) |
+| utsuseru-meiko | v6 | [v6-01-audit](../utsuseru-meiko/critiques/v6-01-audit.md) |
 | ana-no-koe | v3 | なし（疑いゼロ） |
 | kotae-no-nuru-ido | v4 | なし（疑いゼロ） |
 | dare-no-te-mo | v6 | なし（疑いゼロ） |

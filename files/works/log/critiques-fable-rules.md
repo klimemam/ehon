@@ -155,7 +155,7 @@ SVG 内 `<text>` の全数と判定：
 
 違反が重いものに個別批評を置いた：
 
-- [aru-hi-wakatta/critiques/v4-01-fable-rules.md](aru-hi-wakatta/critiques/v4-01-fable-rules.md)（規約8）
-- [hyoban-no-yoi-shokunin/critiques/v5-01-fable-rules.md](hyoban-no-yoi-shokunin/critiques/v5-01-fable-rules.md)（規約6）
-- [monban/critiques/v8-01-fable-rules.md](monban/critiques/v8-01-fable-rules.md)（規約6）
-- [kabe-to-igata/critiques/v1-03-fable-rules.md](kabe-to-igata/critiques/v1-03-fable-rules.md)（規約9・6・7）
+- [aru-hi-wakatta/critiques/v4-01-fable-rules.md](../aru-hi-wakatta/critiques/v4-01-fable-rules.md)（規約8）
+- [hyoban-no-yoi-shokunin/critiques/v5-01-fable-rules.md](../hyoban-no-yoi-shokunin/critiques/v5-01-fable-rules.md)（規約6）
+- [monban/critiques/v8-01-fable-rules.md](../monban/critiques/v8-01-fable-rules.md)（規約6）
+- [kabe-to-igata/critiques/v1-03-fable-rules.md](../kabe-to-igata/critiques/v1-03-fable-rules.md)（規約9・6・7）

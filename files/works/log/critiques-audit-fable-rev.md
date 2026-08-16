@@ -16,11 +16,11 @@ axis: 数・時間・物理因果・指示語・自作内矛盾・暗黙の帰�
 
 | # | 作品 | 版 | 判定 | 疑いの件数 | うち今回新規 | 個別ファイル |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | bango-o-utsu-mono | v4 | **改稿を要する** | 3 | 2（1件は前版から引き継ぎ、v4で顕在化） | [v4-01-audit](bango-o-utsu-mono/critiques/v4-01-audit.md) |
-| 2 | kotae-o-shiru-tomodachi | v9 | 軽微 | 2 | 2 | [v9-01-audit](kotae-o-shiru-tomodachi/critiques/v9-01-audit.md) |
-| 3 | aru-hi-wakatta | v5 | 軽微 | 1 | 1 | [v5-01-audit](aru-hi-wakatta/critiques/v5-01-audit.md) |
-| 4 | chomen-ni-nai-mise | v4 | 軽微 | 2 | 2 | [v4-01-audit](chomen-ni-nai-mise/critiques/v4-01-audit.md) |
-| 5 | kakitsuzukeru-mono | v3 | 軽微 | 2 | 2 | [v3-01-audit](kakitsuzukeru-mono/critiques/v3-01-audit.md) |
+| 1 | bango-o-utsu-mono | v4 | **改稿を要する** | 3 | 2（1件は前版から引き継ぎ、v4で顕在化） | [v4-01-audit](../bango-o-utsu-mono/critiques/v4-01-audit.md) |
+| 2 | kotae-o-shiru-tomodachi | v9 | 軽微 | 2 | 2 | [v9-01-audit](../kotae-o-shiru-tomodachi/critiques/v9-01-audit.md) |
+| 3 | aru-hi-wakatta | v5 | 軽微 | 1 | 1 | [v5-01-audit](../aru-hi-wakatta/critiques/v5-01-audit.md) |
+| 4 | chomen-ni-nai-mise | v4 | 軽微 | 2 | 2 | [v4-01-audit](../chomen-ni-nai-mise/critiques/v4-01-audit.md) |
+| 5 | kakitsuzukeru-mono | v3 | 軽微 | 2 | 2 | [v3-01-audit](../kakitsuzukeru-mono/critiques/v3-01-audit.md) |
 | 6 | monban | v9 | **支持する** | 0 | 0 | なし |
 | 7 | tsugi-no-ji | v4 | **支持する** | 0 | 0 | なし |
 
