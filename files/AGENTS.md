@@ -2,26 +2,43 @@
 
 ## 0. どのブランチに書くか
 
+**2026-08-16 に運用を変えた。** それまでは `planning` で作業し `main` へ移していたが、`planning` は廃止した。
+
 | ブランチ | 用途 |
 | --- | --- |
-| **`planning`** | **作業。ここに書く。** 草稿・批評・改稿・覚書、すべて |
-| `main` | **発表。** ここから GitHub Pages が配信されている |
+| **`main`** | **作業。ここに書く。** 草稿・批評・改稿・覚書、すべて。GitHub Pages はここから配信されている |
+| `release-YYYY-MM-DD` | **その日の状態を凍結したもの。** 一度切ったら書き換えない |
 
-**既定の書き込み先は `planning` である。** `main` へ直接書いてはならない。
+### 作業の手順
 
-発表するときだけ、`planning` から `main` へ移す。
+**`main` へ直接 push しない。** 枝を切り、PR を作ってからマージする。
 
 ```bash
-# 全部まとめて出す場合
-git checkout main && git merge planning
-
-# 選んで出す場合
-git checkout main
-git checkout planning -- files/works/<slug>/v3.md index.html
-git commit
+git checkout main && git pull
+git checkout -b <作業名>
+# 書く
+git push -u origin <作業名>
+gh pr create --base main --head <作業名>
+gh pr merge <番号> --merge --delete-branch
 ```
 
-移した時点で公開される。**草稿を `main` に置かないこと。**
+枝の名前は作業の内容にする（`restore-kabe-v1`、`fable-critique` など）。
+
+### リリース
+
+発表する時点で、そのときの `main` から枝を切る。
+
+```bash
+git checkout main && git pull
+git checkout -b release-2026-08-16
+git push -u origin release-2026-08-16
+```
+
+**一度切った release 枝は書き換えない。** 訂正が要るときは、次の release を切る。誤っていた版が残ることに価値がある（本文書 2 を参照）。
+
+### 何が変わったか
+
+以前は `main` が「発表済みのもの」で、草稿を置いてはならなかった。**いまは `main` が最新の作業状態であり、Pages もそれを配信する。** 固定された状態が要るときは release 枝を見る。
 
 ---
 
