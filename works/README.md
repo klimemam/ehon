@@ -11,27 +11,30 @@
 
 ### 作品
 
+**注記（2026-08-17）**：PR#15 で全作に GPT-5.6 Sol の新版が入ったが、検算5（[`common/critiques-audit-round5-sol.md`](common/critiques-audit-round5-sol.md)）で index が指せる水準は4件のみだった。**下表は検算を通った最新版を指す。** Sol 版は各作のディレクトリに併置されており、改稿待ちである。
+
+
 | ディレクトリ | 作 | 最新版 |
 | --- | --- | --- |
-| [`ana-no-koe`](ana-no-koe/) | 穴の声 | [v4](ana-no-koe/v4.md) |
+| [`ana-no-koe`](ana-no-koe/) | 穴の声 | [v3](ana-no-koe/v3.md) |
 | [`aru-hi-wakatta`](aru-hi-wakatta/) | ある日わかった弟子 | [v7](aru-hi-wakatta/v7.md) |
-| [`bango-o-utsu-mono`](bango-o-utsu-mono/) | 番号を打つ者 | [v6](bango-o-utsu-mono/v6.md) |
+| [`bango-o-utsu-mono`](bango-o-utsu-mono/) | 番号を打つ者 | [v5](bango-o-utsu-mono/v5.md) |
 | [`chomen-ni-nai-mise`](chomen-ni-nai-mise/) | 帳面にない店 | [v6](chomen-ni-nai-mise/v6.md) |
 | [`dare-no-te-mo`](dare-no-te-mo/) | 誰の手も写っていない絵 | [v7](dare-no-te-mo/v7.md) |
-| [`hazure-no-fuda`](hazure-no-fuda/) | はずれの札 | [v3](hazure-no-fuda/v3.md) |
+| [`hazure-no-fuda`](hazure-no-fuda/) | はずれの札 | [v2](hazure-no-fuda/v2.md) |
 | [`hako-o-oroshita-toshi`](hako-o-oroshita-toshi/) | 箱を下ろした年 | [v1](hako-o-oroshita-toshi/v1.md) |
-| [`hyoban-no-yoi-shokunin`](hyoban-no-yoi-shokunin/) | よく届く名（旧題：評判のよい職人） | [v9](hyoban-no-yoi-shokunin/v9.md) |
-| [`kabe-to-igata`](kabe-to-igata/) | 壁と鋳型 | [v3](kabe-to-igata/v3.md) |
+| [`hyoban-no-yoi-shokunin`](hyoban-no-yoi-shokunin/) | よく届く名（旧題：評判のよい職人） | [v8](hyoban-no-yoi-shokunin/v8.md) |
+| [`kabe-to-igata`](kabe-to-igata/) | 壁と鋳型 | [v1](kabe-to-igata/v1.md) |
 | [`kabe-o-tabeta-igata`](kabe-o-tabeta-igata/) | 壁を食べた鋳型 | [v1](kabe-o-tabeta-igata/v1.md) |
-| [`kakitsuzukeru-mono`](kakitsuzukeru-mono/) | 書きつづけるもの | [v5](kakitsuzukeru-mono/v5.md) |
-| [`kotae-no-nuru-ido`](kotae-no-nuru-ido/) | 答えのぬるい井戸 | [v5](kotae-no-nuru-ido/v5.md) |
-| [`kotae-o-shiru-tomodachi`](kotae-o-shiru-tomodachi/) | 答えを知っている友達 | [v11](kotae-o-shiru-tomodachi/v11.md) |
-| [`mata-tanomu`](mata-tanomu/) | また頼む | [v4](mata-tanomu/v4.md) |
-| [`monban`](monban/) | 九十九回正しい門番 | [v10](monban/v10.md) |
-| [`tanomu-riyuu`](tanomu-riyuu/) | 頼む理由 | [v3](tanomu-riyuu/v3.md) |
-| [`tsugi-no-ji`](tsugi-no-ji/) | 次の字を当てる遊び | [v5](tsugi-no-ji/v5.md) |
+| [`kakitsuzukeru-mono`](kakitsuzukeru-mono/) | 書きつづけるもの | [v4](kakitsuzukeru-mono/v4.md) |
+| [`kotae-no-nuru-ido`](kotae-no-nuru-ido/) | 答えのぬるい井戸 | [v4](kotae-no-nuru-ido/v4.md) |
+| [`kotae-o-shiru-tomodachi`](kotae-o-shiru-tomodachi/) | 答えを知っている友達 | [v10](kotae-o-shiru-tomodachi/v10.md) |
+| [`mata-tanomu`](mata-tanomu/) | また頼む | [v3](mata-tanomu/v3.md) |
+| [`monban`](monban/) | 九十九回正しい門番 | [v9](monban/v9.md) |
+| [`tanomu-riyuu`](tanomu-riyuu/) | 頼む理由 | [v2](tanomu-riyuu/v2.md) |
+| [`tsugi-no-ji`](tsugi-no-ji/) | 次の字を当てる遊び | [v4](tsugi-no-ji/v4.md) |
 | [`utsuseru-meiko`](utsuseru-meiko/) | 写せる名工 | [v8](utsuseru-meiko/v8.md) |
-| [`zo-o-naderu`](zo-o-naderu/) | 呼び名が足りない | [v7](zo-o-naderu/v7.md) |
+| [`zo-o-naderu`](zo-o-naderu/) | 呼び名が足りない | [v6](zo-o-naderu/v6.md) |
 
 ### common／作品をまたぐもの——方法
 
