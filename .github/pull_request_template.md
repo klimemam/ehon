@@ -11,6 +11,7 @@
 ## 会話の識別
 
 - stream: <!-- 例: S1/monban, S2/collection-order -->
+- round: <!-- この stream 内の巡。例: 1 -->
 - parent PR:
 - depends_on:
 - blocks:
