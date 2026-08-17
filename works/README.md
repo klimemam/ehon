@@ -46,6 +46,7 @@
 | [`common/map-axes.md`](common/map-axes.md) | 多角の軸 |
 | [`common/positioning.md`](common/positioning.md) | 系譜と文脈。訂正記録23件 |
 | [`common/phases.md`](common/phases.md) | 時系列の軸。五相・二速度・希望の設計・発表順 |
+| [`common/naming.md`](common/naming.md) | 命名の軸。題が問題の名前になる。三部の順・一冊の適正数 |
 | [`common/now-and-next.md`](common/now-and-next.md) | いまと、つぎ。日付つきの予測 |
 | [`common/collection-architecture.md`](common/collection-architecture.md) | 短編集の構成案（GPT-5.6 Sol） |
 | [`common/survey-toc.md`](common/survey-toc.md) | 分野横断の目次調査。40の空白 |
