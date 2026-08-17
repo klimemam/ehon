@@ -19,7 +19,7 @@
 | [`chomen-ni-nai-mise`](chomen-ni-nai-mise/) | 帳面にない店 | [v5](chomen-ni-nai-mise/v5.md) |
 | [`dare-no-te-mo`](dare-no-te-mo/) | 誰の手も写っていない絵 | [v6](dare-no-te-mo/v6.md) |
 | [`hazure-no-fuda`](hazure-no-fuda/) | はずれの札 | [v2](hazure-no-fuda/v2.md) |
-| [`hyoban-no-yoi-shokunin`](hyoban-no-yoi-shokunin/) | 評判のよい職人 | [v7](hyoban-no-yoi-shokunin/v7.md) |
+| [`hyoban-no-yoi-shokunin`](hyoban-no-yoi-shokunin/) | よく届く名（旧題：評判のよい職人） | [v8](hyoban-no-yoi-shokunin/v8.md) |
 | [`kabe-to-igata`](kabe-to-igata/) | 壁と鋳型 | [v2](kabe-to-igata/v2.md) |
 | [`kakitsuzukeru-mono`](kakitsuzukeru-mono/) | 書きつづけるもの | [v4](kakitsuzukeru-mono/v4.md) |
 | [`kotae-no-nuru-ido`](kotae-no-nuru-ido/) | 答えのぬるい井戸 | [v4](kotae-no-nuru-ido/v4.md) |
