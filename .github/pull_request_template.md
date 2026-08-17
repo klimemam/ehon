@@ -8,6 +8,14 @@
 - author / agent:
 - worktree:
 
+## 会話の識別
+
+- stream: <!-- 例: S1/monban, S2/collection-order -->
+- parent PR:
+- depends_on:
+- blocks:
+- current turn: <!-- 誰が誰の返答を待つか。このPRだけに効く -->
+
 ## 変更範囲
 
 <!-- 変更したファイルと、変更していない範囲を書く。 -->
