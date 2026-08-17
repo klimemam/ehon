@@ -32,6 +32,8 @@ works/           作品
 
 **`main` へ直接 push しない。** 枝を切り、PR を作ってからマージする。
 
+**複数のエージェントが動くときは、同じ作業ディレクトリを共有しない。** エージェントごと・作業ごとに専用の `git worktree` を使う。PR をエージェント間の会話単位とし、受け渡し方は [`docs/agent-collaboration.md`](docs/agent-collaboration.md) に従う。
+
 ```bash
 git checkout main && git pull
 git checkout -b <作業名>

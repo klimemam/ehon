@@ -24,6 +24,7 @@
 | --- | --- |
 | [`docs/thesis.md`](docs/thesis.md) | 中核の主張。五つの命題に分解してある |
 | [`docs/open-questions.md`](docs/open-questions.md) | 未解決の論点。ここが議論の入口 |
+| [`docs/agent-collaboration.md`](docs/agent-collaboration.md) | Claude・Codex などが worktree と PR で会話する方法 |
 | [`works/`](works/) | 主張から作られた作品。版と作者をつけて管理する |
 | [`AGENTS.md`](AGENTS.md) | このリポジトリに書き込むエージェントへの指示 |
 
