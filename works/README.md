@@ -75,6 +75,7 @@
 | [`common/critiques-audit-round2.md`](common/critiques-audit-round2.md) | 検算2 |
 | [`common/critiques-audit-round3.md`](common/critiques-audit-round3.md) | 検算3 |
 | [`common/critiques-audit-round4.md`](common/critiques-audit-round4.md) | 検算4 |
+| [`common/critiques-audit-round5-sol.md`](common/critiques-audit-round5-sol.md) | 検算5（Sol の改稿17版と新作2編） |
 | [`common/critique-original-collection-chronology.md`](common/critique-original-collection-chronology.md) | 元原稿17作を、AI導入後の時系列を持つ短編集として読む批評 |
 | [`common/revision-from-sol-collection-critique.md`](common/revision-from-sol-collection-critique.md) | 横断批評からの17作の改稿と、分作した新作2編の記録 |
 
