@@ -7,14 +7,16 @@
 
 ## 索引
 
-**この文書は規約である。** 以下はどこに何があるかの一覧。**2026-08-17 に、直下に散らばっていた21のファイルを `common/` にまとめた**（当初 method/map/backlog/log の四分割にしたが、同日、作品以外はひとつに畳んだ）。
+**この文書は作品規約と作品索引の正本である。** 作品横断文書の正本・状態・書き込み先は [`common/README.md`](common/README.md) を正とする。
+
+**履歴**：2026-08-17 に直下の21ファイルを `common/` にまとめ、同日に一度平坦化した。2026-08-18 の文書監査では、版付き作品から参照される正本のパスを維持しつつ、追加の種と履歴文書を分類ディレクトリへ移した。観測・批評の内容は削除していない。
 
 ### 作品
 
-**注記（2026-08-17）**：PR#15 で全作に GPT-5.6 Sol の新版が入ったが、検算5（[`common/critiques-audit-round5-sol.md`](common/critiques-audit-round5-sol.md)）で index が指せる水準は4件のみだった。**下表は検算を通った最新版を指す。** Sol 版は各作のディレクトリに併置されており、改稿待ちである。
+**注記（2026-08-17）**：PR#15 で全作に GPT-5.6 Sol の新版が入ったが、検算5（[`common/history/critiques-audit-round5-sol.md`](common/history/critiques-audit-round5-sol.md)）で index が指せる水準は4件のみだった。**下表は索引から読むために手動で選ばれた代表参照先であり、全行が採決・独立検算を通過したという品質保証ではない。各ディレクトリにある最大の版番号も意味しない。** 版の採否は各作の批評と検算を確認し、索引の更新は本文の改稿とは分けて行う。
 
 
-| ディレクトリ | 作 | 最新版 |
+| ディレクトリ | 作 | 代表参照先 |
 | --- | --- | --- |
 | [`ana-no-koe`](ana-no-koe/) | 穴の声 | [v3](ana-no-koe/v3.md) |
 | [`aru-hi-wakatta`](aru-hi-wakatta/) | ある日わかった弟子 | [v7](aru-hi-wakatta/v7.md) |
@@ -36,7 +38,9 @@
 | [`utsuseru-meiko`](utsuseru-meiko/) | 写せる名工 | [v8](utsuseru-meiko/v8.md) |
 | [`zo-o-naderu`](zo-o-naderu/) | 呼び名が足りない | [v6](zo-o-naderu/v6.md) |
 
-### common／作品をまたぐもの——方法
+### common／作品をまたぐもの（抜粋）
+
+完全な索引は [`common/README.md`](common/README.md)。以下は既存の導線を保つための抜粋である。
 
 | | |
 | --- | --- |
@@ -65,21 +69,21 @@
 | [`common/backlog-seeds.md`](common/backlog-seeds.md) | 姉妹系列「概念の種」。読者A/B/Cの定義 |
 | [`common/backlog-agent-economy.md`](common/backlog-agent-economy.md) | x402／Economic Router から出た種（S1〜S5） |
 | [`common/backlog-rhyme.md`](common/backlog-rhyme.md) | 英雄が荒くれ者になったあと（T1〜T4） |
-| [`common/backlog-personality.md`](common/backlog-personality.md) | どの気質が値を持つかは時代が決めている（N1〜N4） |
-| [`common/backlog-api.md`](common/backlog-api.md) | 足場はエージェントのために作られていない（U1〜U4） |
+| [`common/backlog/backlog-personality.md`](common/backlog/backlog-personality.md) | どの気質が値を持つかは時代が決めている（N1〜N4） |
+| [`common/backlog/backlog-api.md`](common/backlog/backlog-api.md) | 足場はエージェントのために作られていない（U1〜U4） |
 
 #### 記録
 
 | | |
 | --- | --- |
-| [`common/experiment-fable.md`](common/experiment-fable.md) | 別の weight による批評の実験記録 |
+| [`common/history/experiment-fable.md`](common/history/experiment-fable.md) | 別の weight による批評の実験記録 |
 | [`common/critiques-fable-rules.md`](common/critiques-fable-rules.md) | 規約検査の全体表 |
-| [`common/critiques-audit-fable-rev.md`](common/critiques-audit-fable-rev.md) | 検算1 |
+| [`common/history/critiques-audit-fable-rev.md`](common/history/critiques-audit-fable-rev.md) | 検算1 |
 | [`common/critiques-audit-round2.md`](common/critiques-audit-round2.md) | 検算2 |
 | [`common/critiques-audit-round3.md`](common/critiques-audit-round3.md) | 検算3 |
 | [`common/critiques-audit-round4.md`](common/critiques-audit-round4.md) | 検算4 |
-| [`common/critiques-audit-round5-sol.md`](common/critiques-audit-round5-sol.md) | 検算5（Sol の改稿17版と新作2編） |
-| [`common/critique-original-collection-chronology.md`](common/critique-original-collection-chronology.md) | 元原稿17作を、AI導入後の時系列を持つ短編集として読む批評 |
+| [`common/history/critiques-audit-round5-sol.md`](common/history/critiques-audit-round5-sol.md) | 検算5（Sol の改稿17版と新作2編） |
+| [`common/history/critique-original-collection-chronology.md`](common/history/critique-original-collection-chronology.md) | 元原稿17作を、AI導入後の時系列を持つ短編集として読む批評 |
 | [`common/revision-from-sol-collection-critique.md`](common/revision-from-sol-collection-critique.md) | 横断批評からの17作の改稿と、分作した新作2編の記録 |
 
 **作品ごとの批評は、各作の `critiques/` にある。**
@@ -94,7 +98,9 @@
 | [`../docs/market.md`](../docs/market.md) | エージェント経済の分析 |
 | [`../docs/agent-economy.md`](../docs/agent-economy.md) | 始点（討議ハンドオフ） |
 
-## 作品一覧
+## 作品一覧（archive：初期スナップショット）
+
+> **Status: archive.** 以下の版数・「批評待ち」判定は、制作初期の状態を残した記録であり、現在の作品索引ではない。現行の参照先はこの文書冒頭の「作品」表を正とする。規約本文はこの節の後から続く。
 
 ### 批評系列
 

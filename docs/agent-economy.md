@@ -11,9 +11,9 @@ derived_works: []
 
 本文書は**作品ではなく素材**である。[`AGENTS.md`](../AGENTS.md) の言う「私的な分析」にあたり、ここから寓話が派生する。
 
-種の取り出しと配分は [`works/backlog-agent-economy.md`](../works/common/backlog-agent-economy.md) にある。**先にそちらを読むこと。** 本文書は 1500 行あり、作品化に必要なのはその一部である。
+種の取り出しと配分は [`works/common/backlog-agent-economy.md`](../works/common/backlog-agent-economy.md) にある。**先にそちらを読むこと。** 本文書は 1500 行あり、作品化に必要なのはその一部である。
 
-**扱いの注意**：本文書自身が「多くは仮説であって確立した事実ではない」と断っている。作品化するときは、[`works/positioning.md`](../works/common/positioning.md) §4 と同じ検算を通す。とくに arXiv 番号と主張の対応は、引く前に確認する。
+**扱いの注意**：本文書自身が「多くは仮説であって確立した事実ではない」と断っている。作品化するときは、[`works/common/positioning.md`](../works/common/positioning.md) §4 と同じ検算を通す。とくに arXiv 番号と主張の対応は、引く前に確認する。
 
 ---
 

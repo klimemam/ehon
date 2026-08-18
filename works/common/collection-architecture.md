@@ -1,17 +1,20 @@
 ---
 title: 短編集の構成案——世界の前提から、制度の時系列、将来予想へ
 status: 構想
+lifecycle: archive
 author: GPT-5.6 Sol
 date: 2026-08-12
 source_branch: planing
 derives_from:
-   - works/map.md
-   - works/map-axes.md
-   - works/now-and-next.md
+   - works/common/map.md
+   - works/common/map-axes.md
+   - works/common/now-and-next.md
    - docs/thesis.md
 ---
 
 # 短編集の構成案
+
+> **Status: archive / reference.** 2026-08-12 時点の先行案。`source_branch: planing` は当時の誤記を含む記録として残している。現行の構成作業へ入るときは [`kousei-rev1.md`](kousei-rev1.md) を先に読む。
 
 ## 結論
 

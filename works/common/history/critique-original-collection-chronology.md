@@ -1,6 +1,7 @@
 ---
 title: 元原稿を短編集として読む——時系列構成への批評
 status: 批評
+lifecycle: archive
 critic: GPT-5.6 Sol
 kind: 自己批評ではないが、同一系統の誤りがありうる
 date: 2026-08-17
@@ -309,23 +310,23 @@ Aを上記の順行案、Bを時間を崩した案にする。Bはたとえば�
 
 | 作品 | 対象版 | 個別批評 |
 | --- | --- | --- |
-| 穴の声 | v3 | [短編集の中で読む](../ana-no-koe/critiques/v3-02-sol-collection.md) |
-| ある日わかった弟子 | v6 | [短編集の中で読む](../aru-hi-wakatta/critiques/v6-02-sol-collection.md) |
-| 番号を打つ者 | v5 | [短編集の中で読む](../bango-o-utsu-mono/critiques/v5-02-sol-collection.md) |
-| 帳面にない店 | v5 | [短編集の中で読む](../chomen-ni-nai-mise/critiques/v5-02-sol-collection.md) |
-| 誰の手も写っていない絵 | v6 | [短編集の中で読む](../dare-no-te-mo/critiques/v6-02-sol-collection.md) |
-| はずれの札 | v2 | [短編集の中で読む](../hazure-no-fuda/critiques/v2-02-sol-collection.md) |
-| よく届く名 | v8 | [短編集の中で読む](../hyoban-no-yoi-shokunin/critiques/v8-02-sol-collection.md) |
-| 壁と鋳型 | v1 | [短編集の中で読む](../kabe-to-igata/critiques/v1-02-sol-collection.md) |
-| 書きつづけるもの | v4 | [短編集の中で読む](../kakitsuzukeru-mono/critiques/v4-02-sol-collection.md) |
-| 答えのぬるい井戸 | v4 | [短編集の中で読む](../kotae-no-nuru-ido/critiques/v4-02-sol-collection.md) |
-| 答えを知っている友達 | v10 | [短編集の中で読む](../kotae-o-shiru-tomodachi/critiques/v10-02-sol-collection.md) |
-| また頼む | v3 | [短編集の中で読む](../mata-tanomu/critiques/v3-02-sol-collection.md) |
-| 九十九回正しい門番 | v9 | [短編集の中で読む](../monban/critiques/v9-02-sol-collection.md) |
-| 頼む理由 | v2 | [短編集の中で読む](../tanomu-riyuu/critiques/v2-02-sol-collection.md) |
-| 次の字を当てる遊び | v4 | [短編集の中で読む](../tsugi-no-ji/critiques/v4-02-sol-collection.md) |
-| 写せる名工 | v7 | [短編集の中で読む](../utsuseru-meiko/critiques/v7-02-sol-collection.md) |
-| 呼び名が足りない | v6 | [短編集の中で読む](../zo-o-naderu/critiques/v6-02-sol-collection.md) |
+| 穴の声 | v3 | [短編集の中で読む](../../ana-no-koe/critiques/v3-02-sol-collection.md) |
+| ある日わかった弟子 | v6 | [短編集の中で読む](../../aru-hi-wakatta/critiques/v6-02-sol-collection.md) |
+| 番号を打つ者 | v5 | [短編集の中で読む](../../bango-o-utsu-mono/critiques/v5-02-sol-collection.md) |
+| 帳面にない店 | v5 | [短編集の中で読む](../../chomen-ni-nai-mise/critiques/v5-02-sol-collection.md) |
+| 誰の手も写っていない絵 | v6 | [短編集の中で読む](../../dare-no-te-mo/critiques/v6-02-sol-collection.md) |
+| はずれの札 | v2 | [短編集の中で読む](../../hazure-no-fuda/critiques/v2-02-sol-collection.md) |
+| よく届く名 | v8 | [短編集の中で読む](../../hyoban-no-yoi-shokunin/critiques/v8-02-sol-collection.md) |
+| 壁と鋳型 | v1 | [短編集の中で読む](../../kabe-to-igata/critiques/v1-02-sol-collection.md) |
+| 書きつづけるもの | v4 | [短編集の中で読む](../../kakitsuzukeru-mono/critiques/v4-02-sol-collection.md) |
+| 答えのぬるい井戸 | v4 | [短編集の中で読む](../../kotae-no-nuru-ido/critiques/v4-02-sol-collection.md) |
+| 答えを知っている友達 | v10 | [短編集の中で読む](../../kotae-o-shiru-tomodachi/critiques/v10-02-sol-collection.md) |
+| また頼む | v3 | [短編集の中で読む](../../mata-tanomu/critiques/v3-02-sol-collection.md) |
+| 九十九回正しい門番 | v9 | [短編集の中で読む](../../monban/critiques/v9-02-sol-collection.md) |
+| 頼む理由 | v2 | [短編集の中で読む](../../tanomu-riyuu/critiques/v2-02-sol-collection.md) |
+| 次の字を当てる遊び | v4 | [短編集の中で読む](../../tsugi-no-ji/critiques/v4-02-sol-collection.md) |
+| 写せる名工 | v7 | [短編集の中で読む](../../utsuseru-meiko/critiques/v7-02-sol-collection.md) |
+| 呼び名が足りない | v6 | [短編集の中で読む](../../zo-o-naderu/critiques/v6-02-sol-collection.md) |
 
 ## 13. 指定三軸と完成度の尺度（2026-08-17 追記）
 

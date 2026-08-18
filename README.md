@@ -18,17 +18,17 @@
 
 詳細は [`docs/thesis.md`](docs/thesis.md)。
 
-## 構成
+## 入口
 
 | ファイル | 内容 |
 | --- | --- |
+| [`docs/README.md`](docs/README.md) | 分析・問い・協働規約の入口。各文書の正本と状態 |
 | [`docs/thesis.md`](docs/thesis.md) | 中核の主張。五つの命題に分解してある |
-| [`docs/open-questions.md`](docs/open-questions.md) | 未解決の論点。ここが議論の入口 |
-| [`docs/agent-collaboration.md`](docs/agent-collaboration.md) | Claude・Codex などが worktree と PR で会話する方法 |
-| [`works/`](works/) | 主張から作られた作品。版と作者をつけて管理する |
-| [`AGENTS.md`](AGENTS.md) | このリポジトリに書き込むエージェントへの指示 |
+| [`works/README.md`](works/README.md) | 作品索引と、版・批評・造本の規約 |
+| [`works/common/README.md`](works/common/README.md) | 構成、種、調査、横断検算の分類と書き込み先 |
+| [`AGENTS.md`](AGENTS.md) | ブランチ、release、公開状態を含む運用の正本 |
 
-作品の版・批評の扱いは [`works/README.md`](works/README.md) を参照。
+新しく読む場合は、分析なら `docs/README.md`、作品なら `works/README.md`、作品横断資料なら `works/common/README.md` から始める。
 
 ## 自己言及について
 

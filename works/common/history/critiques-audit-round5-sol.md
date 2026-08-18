@@ -1,5 +1,6 @@
 ---
 target: GPT-5.6 Sol の一括投入（PR#15）——改稿17版と新作2編
+status: archive
 critic: 検算エージェント（Claude Opus 5）
 date: 2026-08-17
 kind: 機械的検算（全体表）
@@ -8,7 +9,7 @@ axis: 数・時間・物理因果・指示語・自作内矛盾・本文と付�
 
 # 検算表——第五回（Sol の一括投入19件）
 
-[`revision-from-sol-collection-critique.md`](revision-from-sol-collection-critique.md) が記録した17作の改稿と、過密と判定した二作から分けた新作2編を検算した。文学的評価はしていない。全件で前版との diff を取り、各作の `critiques/` にある audit と round2・3・4 の該当記述を読み、**過去の検算が確定させた数・時間・規則が新版で保存されているか**を一つずつ照合した。
+[`revision-from-sol-collection-critique.md`](../revision-from-sol-collection-critique.md) が記録した17作の改稿と、過密と判定した二作から分けた新作2編を検算した。文学的評価はしていない。全件で前版との diff を取り、各作の `critiques/` にある audit と round2・3・4 の該当記述を読み、**過去の検算が確定させた数・時間・規則が新版で保存されているか**を一つずつ照合した。
 
 **十九件のうち、支持するに足るものは無かった。軽微が四件、改稿を要するが十五件である。**
 
@@ -66,25 +67,25 @@ round3 は改稿六版すべてについて「変更範囲の申告は正確だ�
 
 | # | 作品 | 版 | 前版 | 判定 | 疑い | 前検算の確定事項の破壊 | 個別ファイル |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | monban | v10 | v9 | **改稿を要する** | 3 | **あり**（2件） | [v10-01-audit](../monban/critiques/v10-01-audit.md) |
-| 2 | tanomu-riyuu | v3 | v2 | **改稿を要する** | 7 | **あり**（6件） | [v3-01-audit](../tanomu-riyuu/critiques/v3-01-audit.md) |
-| 3 | bango-o-utsu-mono | v6 | v5 | **改稿を要する** | 5 | **あり**（5件） | [v6-01-audit](../bango-o-utsu-mono/critiques/v6-01-audit.md) |
-| 4 | kotae-o-shiru-tomodachi | v11 | v10 | **改稿を要する** | 6 | **あり**（4件） | [v11-01-audit](../kotae-o-shiru-tomodachi/critiques/v11-01-audit.md) |
-| 5 | hyoban-no-yoi-shokunin | v9 | v8 | **改稿を要する** | 6 | **あり**（4件） | [v9-01-audit](../hyoban-no-yoi-shokunin/critiques/v9-01-audit.md) |
-| 6 | hako-o-oroshita-toshi | **v1（新作）** | — | **改稿を要する** | 8 | **あり**（元稿 v1-01 の直しの巻き戻し） | [v1-01-audit](../hako-o-oroshita-toshi/critiques/v1-01-audit.md) |
-| 7 | zo-o-naderu | v7 | v6 | **改稿を要する** | 6 | **あり**（2件） | [v7-01-audit](../zo-o-naderu/critiques/v7-01-audit.md) |
-| 8 | mata-tanomu | v4 | v3 | **改稿を要する** | 6 | **あり**（3件） | [v4-01-audit](../mata-tanomu/critiques/v4-01-audit.md) |
-| 9 | kakitsuzukeru-mono | v5 | v4 | **改稿を要する** | 4 | **あり**（2件） | [v5-01-audit](../kakitsuzukeru-mono/critiques/v5-01-audit.md) |
-| 10 | ana-no-koe | v4 | v3 | **改稿を要する** | 7 | **あり**（1件） | [v4-01-audit](../ana-no-koe/critiques/v4-01-audit.md) |
-| 11 | kotae-no-nuru-ido | v5 | v4 | **改稿を要する** | 4 | **あり**（1件） | [v5-01-audit](../kotae-no-nuru-ido/critiques/v5-01-audit.md) |
-| 12 | tsugi-no-ji | v5 | v4 | **改稿を要する** | 6 | **あり**（2件） | [v5-01-audit](../tsugi-no-ji/critiques/v5-01-audit.md) |
-| 13 | kabe-o-tabeta-igata | **v1（新作）** | — | **改稿を要する** | 6 | なし（初版） | [v1-01-audit](../kabe-o-tabeta-igata/critiques/v1-01-audit.md) |
-| 14 | kabe-to-igata | v3 | **v1（正典）** | **改稿を要する** | 8 | なし（正典の一行が落ちた） | [v3-01-audit](../kabe-to-igata/critiques/v3-01-audit.md) |
-| 15 | hazure-no-fuda | v3 | v2 | **改稿を要する** | 4 | **消滅**（鎖が両半分から消えた） | [v3-01-audit](../hazure-no-fuda/critiques/v3-01-audit.md) |
-| 16 | chomen-ni-nai-mise | v6 | v5 | **軽微** | 4 | 疑わしい（1件） | [v6-01-audit](../chomen-ni-nai-mise/critiques/v6-01-audit.md) |
-| 17 | dare-no-te-mo | v7 | v6 | **軽微** | 5 | なし（音の指摘が1件戻った） | [v7-01-audit](../dare-no-te-mo/critiques/v7-01-audit.md) |
-| 18 | utsuseru-meiko | v8 | v7 | **軽微** | 3 | なし（申告のみ偽） | [v8-01-audit](../utsuseru-meiko/critiques/v8-01-audit.md) |
-| 19 | aru-hi-wakatta | v7 | v6 | **軽微** | 3 | **なし。十九件で唯一、偽になった申告もゼロ** | [v7-01-audit](../aru-hi-wakatta/critiques/v7-01-audit.md) |
+| 1 | monban | v10 | v9 | **改稿を要する** | 3 | **あり**（2件） | [v10-01-audit](../../monban/critiques/v10-01-audit.md) |
+| 2 | tanomu-riyuu | v3 | v2 | **改稿を要する** | 7 | **あり**（6件） | [v3-01-audit](../../tanomu-riyuu/critiques/v3-01-audit.md) |
+| 3 | bango-o-utsu-mono | v6 | v5 | **改稿を要する** | 5 | **あり**（5件） | [v6-01-audit](../../bango-o-utsu-mono/critiques/v6-01-audit.md) |
+| 4 | kotae-o-shiru-tomodachi | v11 | v10 | **改稿を要する** | 6 | **あり**（4件） | [v11-01-audit](../../kotae-o-shiru-tomodachi/critiques/v11-01-audit.md) |
+| 5 | hyoban-no-yoi-shokunin | v9 | v8 | **改稿を要する** | 6 | **あり**（4件） | [v9-01-audit](../../hyoban-no-yoi-shokunin/critiques/v9-01-audit.md) |
+| 6 | hako-o-oroshita-toshi | **v1（新作）** | — | **改稿を要する** | 8 | **あり**（元稿 v1-01 の直しの巻き戻し） | [v1-01-audit](../../hako-o-oroshita-toshi/critiques/v1-01-audit.md) |
+| 7 | zo-o-naderu | v7 | v6 | **改稿を要する** | 6 | **あり**（2件） | [v7-01-audit](../../zo-o-naderu/critiques/v7-01-audit.md) |
+| 8 | mata-tanomu | v4 | v3 | **改稿を要する** | 6 | **あり**（3件） | [v4-01-audit](../../mata-tanomu/critiques/v4-01-audit.md) |
+| 9 | kakitsuzukeru-mono | v5 | v4 | **改稿を要する** | 4 | **あり**（2件） | [v5-01-audit](../../kakitsuzukeru-mono/critiques/v5-01-audit.md) |
+| 10 | ana-no-koe | v4 | v3 | **改稿を要する** | 7 | **あり**（1件） | [v4-01-audit](../../ana-no-koe/critiques/v4-01-audit.md) |
+| 11 | kotae-no-nuru-ido | v5 | v4 | **改稿を要する** | 4 | **あり**（1件） | [v5-01-audit](../../kotae-no-nuru-ido/critiques/v5-01-audit.md) |
+| 12 | tsugi-no-ji | v5 | v4 | **改稿を要する** | 6 | **あり**（2件） | [v5-01-audit](../../tsugi-no-ji/critiques/v5-01-audit.md) |
+| 13 | kabe-o-tabeta-igata | **v1（新作）** | — | **改稿を要する** | 6 | なし（初版） | [v1-01-audit](../../kabe-o-tabeta-igata/critiques/v1-01-audit.md) |
+| 14 | kabe-to-igata | v3 | **v1（正典）** | **改稿を要する** | 8 | なし（正典の一行が落ちた） | [v3-01-audit](../../kabe-to-igata/critiques/v3-01-audit.md) |
+| 15 | hazure-no-fuda | v3 | v2 | **改稿を要する** | 4 | **消滅**（鎖が両半分から消えた） | [v3-01-audit](../../hazure-no-fuda/critiques/v3-01-audit.md) |
+| 16 | chomen-ni-nai-mise | v6 | v5 | **軽微** | 4 | 疑わしい（1件） | [v6-01-audit](../../chomen-ni-nai-mise/critiques/v6-01-audit.md) |
+| 17 | dare-no-te-mo | v7 | v6 | **軽微** | 5 | なし（音の指摘が1件戻った） | [v7-01-audit](../../dare-no-te-mo/critiques/v7-01-audit.md) |
+| 18 | utsuseru-meiko | v8 | v7 | **軽微** | 3 | なし（申告のみ偽） | [v8-01-audit](../../utsuseru-meiko/critiques/v8-01-audit.md) |
+| 19 | aru-hi-wakatta | v7 | v6 | **軽微** | 3 | **なし。十九件で唯一、偽になった申告もゼロ** | [v7-01-audit](../../aru-hi-wakatta/critiques/v7-01-audit.md) |
 
 ## 三　疑いの一覧（重大な順）
 
@@ -168,7 +169,7 @@ round3 は改稿六版すべてについて「変更範囲の申告は正確だ�
 | **規約7（直前の作と同じ型を使わない）** | **不合格。** この改稿と同じ commit が `index.html` を並べ替えた結果、**先頭四作が連続して「事実を二つ並べて切る」**になった（壁と鋳型 v3 → 壁を食べた鋳型 v1 → 次の字を当てる遊び v5 → ある日わかった弟子 v7）。七番めと八番めも連続して「気づかない」（答えを知っている友達 v11 → 書きつづけるもの v5）。**規約7 は、全作の結末が同型になった事故から生まれた規約である** |
 | **規約10（`lineage:`）** | **8件で欠落。** うち `hazure-no-fuda` v3 は**前版にあったものを落とした**（新規の欠落）。`kabe-to-igata` v3・`kabe-o-tabeta-igata` v1・`hako-o-oroshita-toshi` v1 は新規に置く機会だった。残る4件（ana-no-koe・tsugi-no-ji・utsuseru-meiko・zo-o-naderu）は引き継ぎ |
 | **規約12（`spreads:`）** | **リポジトリ全体で 0件。** 本回の責ではないが、機械検査としては未充足のまま |
-| **`original_author:`** | **19件のうち保有は2件のみ**（hyoban v9・kotae-no-nuru-ido v5）。[hyoban v8-01-audit](../hyoban-no-yoi-shokunin/critiques/v8-01-audit.md) は「**原案の帰属は作り直しでも消えない**」と裁定している。とくに `mata-tanomu` と `tanomu-riyuu` は**初めて著者が替わった版**で、その版に欄が立っていない |
+| **`original_author:`** | **19件のうち保有は2件のみ**（hyoban v9・kotae-no-nuru-ido v5）。[hyoban v8-01-audit](../../hyoban-no-yoi-shokunin/critiques/v8-01-audit.md) は「**原案の帰属は作り直しでも消えない**」と裁定している。とくに `mata-tanomu` と `tanomu-riyuu` は**初めて著者が替わった版**で、その版に欄が立っていない |
 | **変更点節の申告** | **19件のうち15件が同一の定型文一つだけ。** 変更範囲・grep 件数・検算項目の申告はゼロ（一節参照） |
 
 ## 六　`consumes` の鎖
@@ -188,9 +189,9 @@ round4 は「**`consumes` は双方向とも正しく更新されている**」�
 | 回 | 表 | 対象 | 疑いの総数 | 「改稿を要する」の作品 | 疑いの出た作品／全作品 | 主な型 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 第一回 | [fable-rev](critiques-audit-fable-rev.md) | 改稿7作 | 10 | 1／7 | 5／7 | 算術・時間の前後・分母／申告と実態の齟齬 |
-| 第二回 | [round2](critiques-audit-round2.md) | 応答5作 | 3 | 0／5 | 2／5 | 新設場面が既存の数量化と衝突／対応表が本文より強い |
-| 第三回 | [round3](critiques-audit-round3.md) | 新作3＋改稿6 | 8（＋軽微4） | 3／9 | 6／9 | 直した数の支配範囲を見ない／宣言だけの共有世界 |
-| 第四回 | [round4](critiques-audit-round4.md) | 改稿6 | 5 | 0／6 | 2／6 | grep できるものの外（制度・付属文書） |
+| 第二回 | [round2](../critiques-audit-round2.md) | 応答5作 | 3 | 0／5 | 2／5 | 新設場面が既存の数量化と衝突／対応表が本文より強い |
+| 第三回 | [round3](../critiques-audit-round3.md) | 新作3＋改稿6 | 8（＋軽微4） | 3／9 | 6／9 | 直した数の支配範囲を見ない／宣言だけの共有世界 |
+| 第四回 | [round4](../critiques-audit-round4.md) | 改稿6 | 5 | 0／6 | 2／6 | grep できるものの外（制度・付属文書） |
 | **第五回** | **本表** | **改稿17＋新作2** | **100超** | **15／19** | **19／19** | **本文だけが動き、付属文書が置き去りにされた／確定事項の巻き戻し** |
 
 **四巡かけて収束していたものが、一巡で開いた。**
