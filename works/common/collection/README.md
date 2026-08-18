@@ -12,6 +12,7 @@
 | [`../phases.md`](../phases.md) | active map | 時系列、二速度、発表順 |
 | [`../naming.md`](../naming.md) | active map | 命名の深さと三部構成 |
 | [`../visual.md`](../visual.md) | draft | 短編集全体の視覚設計 |
+| [`picturebook-production.md`](picturebook-production.md) | active production ledger | 第一部五話の図版・見開き・印刷の通過条件 |
 | [`../now-and-next.md`](../now-and-next.md) | dated ledger | 日付つき予測。外れた予測を消さない |
 | [`ladders.md`](ladders.md) | draft / battle target | 各話巻末の半歩・一歩・二歩 |
 

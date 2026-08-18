@@ -316,6 +316,8 @@ v6.md      ← 両者を統合。何を採ったかを明記する
 
 **そして本系列の作品には、絵が一枚も無い。**
 
+> **訂正（2026-08-18）：** この文は規約制定時の観測である。現在は [`common/book-proto-2.html`](common/book-proto-2.html) に十一葉の手描きSVGがある。ただし、場面絵を持つのは第一部五話のうち一話だけで、五話とも `spreads:` は未宣言である。規約12を満たしたという意味ではない。現況は [`common/collection/picturebook-production.md`](common/collection/picturebook-production.md) に記録する。
+
 規則：
 
 - フロントマターに `spreads:`（見開き数）を置く
