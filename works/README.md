@@ -26,7 +26,7 @@
 | [`hazure-no-fuda`](hazure-no-fuda/) | はずれの札 | [v2](hazure-no-fuda/v2.md) |
 | [`hako-o-oroshita-toshi`](hako-o-oroshita-toshi/) | 箱を下ろした年 | [v1](hako-o-oroshita-toshi/v1.md) |
 | [`hyoban-no-yoi-shokunin`](hyoban-no-yoi-shokunin/) | よく届く名（旧題：評判のよい職人） | [v8](hyoban-no-yoi-shokunin/v8.md) |
-| [`kabe-to-igata`](kabe-to-igata/) | 壁と鋳型 | [v1](kabe-to-igata/v1.md) |
+| [`kabe-to-igata`](kabe-to-igata/) | 壁と鋳型 | [v6-codex](kabe-to-igata/v6-codex.md) |
 | [`kabe-o-tabeta-igata`](kabe-o-tabeta-igata/) | 壁を食べた鋳型 | [v1](kabe-o-tabeta-igata/v1.md) |
 | [`kakitsuzukeru-mono`](kakitsuzukeru-mono/) | 書きつづけるもの | [v4](kakitsuzukeru-mono/v4.md) |
 | [`kotae-no-nuru-ido`](kotae-no-nuru-ido/) | 答えのぬるい井戸 | [v4](kotae-no-nuru-ido/v4.md) |

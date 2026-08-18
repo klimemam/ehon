@@ -8,6 +8,9 @@
 | [`../survey-fables.md`](../survey-fables.md) | dated research | 隣接する寓話・絵本と技法 |
 | [`../survey-toc.md`](../survey-toc.md) | dated research | 多分野の目次と空白 |
 | [`../../../docs/market.md`](../../../docs/market.md) | source / analysis | エージェント経済の分析 |
+| [`ai-system-metaphors.md`](ai-system-metaphors.md) | current research / glossary | AIシステムの層、固定メタファー、SRAM/HBM、P/D分離、創作種 |
 | [`world-internal-rationality.md`](world-internal-rationality.md) | current textual audit / hypothesis | 非現実の設定と、作者都合の不合理を分ける横断監査・新作の種 |
 
 既存三文書は版付き作品から多数参照されているため、安定したパスとして `common/` 直下に維持する。新しい独立サーベイはこのディレクトリへ置き、確認済み・推測・未確認を分ける。
+
+技術メタファーを新設するときは、先に [`ai-system-metaphors.md`](ai-system-metaphors.md) の層別台帳と照合する。とくに `memory`、`鋳型`、`壁`、`skill` は無修飾で別の層へ転用しない。
