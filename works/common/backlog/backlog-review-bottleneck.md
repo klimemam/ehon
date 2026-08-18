@@ -4,7 +4,7 @@
 
 **記録のみ。作品は書いていない。**
 
-関連：[`../saigo-no-tsukikaeshi/v1.md`](../saigo-no-tsukikaeshi/v1.md)／[`backlog-rhyme.md`](backlog-rhyme.md) T1／[`../mata-tanomu/v3.md`](../mata-tanomu/v3.md)／[`../monban/v9.md`](../monban/v9.md)／[`backlog-eval-env.md`](backlog-eval-env.md)／[`../../docs/thesis.md`](../../docs/thesis.md) 命題5
+関連：[`../saigo-no-tsukikaeshi/v1.md`](../../saigo-no-tsukikaeshi/v1.md)／[`backlog-rhyme.md`](../backlog-rhyme.md) T1／[`../mata-tanomu/v3.md`](../../mata-tanomu/v3.md)／[`../monban/v9.md`](../../monban/v9.md)／[`backlog-eval-env.md`](backlog-eval-env.md)／[`../../docs/thesis.md`](../../../docs/thesis.md) 命題5
 
 ---
 
@@ -20,7 +20,7 @@
 
 ## 1. サーベイ
 
-前科（[`positioning.md`](positioning.md) §4、23件）に照らし、確認の手段まで書く。
+前科（[`positioning.md`](../positioning.md) §4、23件）に照らし、確認の手段まで書く。
 
 ### 確認できたこと
 
@@ -85,7 +85,7 @@
 
 ## 6. 制作時の注意
 
-- 題の検査（[`naming.md`](naming.md) §2）：「それは◯◯だ」と言える形を制作時に探す。検査句の候補：「その判は、列を流すための判だ」「ここは検分が門になっている」。§2 の空き地（二枝の強制・判の希薄化）を名指せる題であること
+- 題の検査（[`naming.md`](../naming.md) §2）：「それは◯◯だ」と言える形を制作時に探す。検査句の候補：「その判は、列を流すための判だ」「ここは検分が門になっている」。§2 の空き地（二枝の強制・判の希薄化）を名指せる題であること
 - 規約6：非現実の設定はひとつ。生産の瞬時化は共有世界の装置（小屋・手形）を借りれば新設不要だが、最後の突き返し（小屋）・また頼む（手形）と世界を共有すると機構が紛れる。独立の町にするかどうかの判定が先
 - METR の知覚差（速くなったと信じ、遅くなっている）は強い場面になるが、数字は寓話に持ち込まない（支配数の管理）
 - 検分の見る時間を削る場面は、最後の突き返しの「突き返しが詫びごとになる」と象が似る。動きで分ける（あちらは評価が遠慮で減る、こちらは評価が急ぎで薄まる）

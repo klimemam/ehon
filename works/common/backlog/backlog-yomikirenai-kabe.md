@@ -4,7 +4,7 @@
 
 **記録のみ。作品は書いていない。**
 
-関連：[`../kabe-to-igata/v1.md`](../kabe-to-igata/v1.md)／[`../kabe-o-tabeta-igata/v1.md`](../kabe-o-tabeta-igata/v1.md)／[`../../docs/thesis.md`](../../docs/thesis.md) 命題0・1・4・5／[`method.md`](method.md)／[`naming.md`](naming.md)
+関連：[`../kabe-to-igata/v1.md`](../../kabe-to-igata/v1.md)／[`../kabe-o-tabeta-igata/v1.md`](../../kabe-o-tabeta-igata/v1.md)／[`../../docs/thesis.md`](../../../docs/thesis.md) 命題0・1・4・5／[`method.md`](../method.md)／[`naming.md`](../naming.md)
 
 ---
 
@@ -30,7 +30,7 @@ v1 の「翌朝、目覚めた職人は壁を読み」は、**壁が一朝で読
 
 ## 1. サーベイ
 
-前科（[`positioning.md`](positioning.md) §4、23件）に照らし、確認の手段まで書く。
+前科（[`positioning.md`](../positioning.md) §4、23件）に照らし、確認の手段まで書く。
 
 ### 確認できたこと
 
@@ -81,7 +81,7 @@ v1 の「翌朝、目覚めた職人は壁を読み」は、**壁が一朝で読
 
 ## 5. 制作時の注意
 
-- 題の検査（[`naming.md`](naming.md) §2）：「それは読み切れない壁だ」——読む容量を超えて成長した共有記憶と、それが強いる選択のこと。検査は通る形
+- 題の検査（[`naming.md`](../naming.md) §2）：「それは読み切れない壁だ」——読む容量を超えて成長した共有記憶と、それが強いる選択のこと。検査は通る形
 - derives_from は v1（正典）。ただし壁の長さの像は v3・壁を食べた鋳型と共有されているので、続編の時間軸がどの版の世界と整合するかを最初に検算する
 - 非現実の設定は v1 から継承（鋳型・一日の記憶）。新設しない（規約6）
 - 「読む場所の選択」を誰がするのかは機構の要。選ばずに決まる（目覚めた場所で決まる）ほうが、意図なき分化＝stigmergy の続編として筋が良い

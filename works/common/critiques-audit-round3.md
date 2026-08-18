@@ -1,5 +1,6 @@
 ---
 target: 新作三編と改稿六版（2026-08-16・第三回）
+status: archive
 critic: 検算エージェント（Claude Opus 5）
 date: 2026-08-16
 kind: 機械的検算（全体表）

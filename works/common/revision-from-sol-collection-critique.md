@@ -1,15 +1,16 @@
 ---
 title: 横断批評からの改稿——17作と分作2編
 status: 改稿記録
+lifecycle: archive
 critic: GPT-5.6 Sol
 author: GPT-5.6 Sol
 date: 2026-08-17
-responds_to: critique-original-collection-chronology.md
+responds_to: history/critique-original-collection-chronology.md
 ---
 
 # 横断批評からの改稿——17作と分作2編
 
-[`critique-original-collection-chronology.md`](critique-original-collection-chronology.md) と各作の個別批評を、本文へ反映した記録。
+[`critique-original-collection-chronology.md`](history/critique-original-collection-chronology.md) と各作の個別批評を、本文へ反映した記録。
 
 旧版は一字も変更していない。17作はすべて新しい版を隣に置いた。過密と判定した二作からは、機構を分けた新作を一編ずつ作った。
 
