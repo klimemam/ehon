@@ -1,0 +1,2017 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>名前のなかった困りごと（造本試作・第二号）</title>
+
+<style>
+  /* 造本試作第二号。第一号（book-proto-1）の土の階調・熱の一色・機械流し込みを
+     引き継ぐ。第一号は観測記録として隣に残してある。
+     トークンの規約：--ash は図形線の専用。文字に使ってよいのは --ink と
+     --ink-dim（対背景 4.5:1 以上）だけである。状態は色だけで示さない。 */
+  :root {
+    --ground: #1B1712;
+    --wall:   #262019;
+    --wall-2: #302921;
+    --ink:    #DED6C4;
+    --ink-dim:#948A78;
+    --ash:    #675E4F;
+    --bronze: #C97739;
+    --rule:   #3A3329;
+
+    --serif: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro",
+             "Noto Serif JP", "Source Han Serif JP", "MS Mincho", serif;
+    --gothic: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN",
+              "Noto Sans JP", Meiryo, sans-serif;
+    --mono: Consolas, "Courier New", monospace;
+
+    --measure: min(64vh, 28em);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --ground: #D9D1BF;
+      --wall:   #E3DCCA;
+      --wall-2: #EBE4D3;
+      --ink:    #282117;
+      --ink-dim:#615849;
+      --ash:    #A2987F;
+      --bronze: #A24F10;
+      --rule:   #C2B9A3;
+    }
+  }
+
+  :root[data-theme="light"] {
+    --ground: #D9D1BF;
+    --wall:   #E3DCCA;
+    --wall-2: #EBE4D3;
+    --ink:    #282117;
+    --ink-dim:#615849;
+    --ash:    #A2987F;
+    --bronze: #A24F10;
+    --rule:   #C2B9A3;
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #1B1712;
+    --wall:   #262019;
+    --wall-2: #302921;
+    --ink:    #DED6C4;
+    --ink-dim:#948A78;
+    --ash:    #675E4F;
+    --bronze: #C97739;
+    --rule:   #3A3329;
+  }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.9;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  /* ─────────── 表紙 ─────────── */
+
+  .cover {
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    padding: clamp(2rem, 6vw, 5rem);
+    max-width: 1180px;
+    margin-inline: auto;
+    box-sizing: border-box;
+  }
+
+  .cover-art { width: 100%; }
+  .cover-art svg { width: 100%; height: auto; display: block; }
+
+  .cover-type {
+    writing-mode: vertical-rl;
+    height: min(72vh, 32em);
+  }
+
+  .cover-type > * + * { margin-block-start: clamp(1.3rem, 3vw, 2.4rem); }
+
+  .cover-title {
+    font-size: clamp(2.1rem, 4.6vh, 2.9rem);
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .cover-part {
+    font-size: clamp(0.95rem, 2vh, 1.1rem);
+    letter-spacing: 0.24em;
+    color: var(--ink);
+    margin: 0;
+    padding-top: 1.2em;
+  }
+
+  .cover-meta {
+    font-family: var(--gothic);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    color: var(--ink-dim);
+    line-height: 2.4;
+  }
+
+  .cover-meta b { font-weight: 500; color: var(--ink); }
+
+  /* ─────────── 巻頭：名前の一覧 ─────────── */
+
+  .names {
+    min-height: 92svh;
+    display: grid;
+    place-items: center;
+    padding: clamp(3rem, 8vh, 6rem) clamp(1.5rem, 5vw, 5rem);
+    box-sizing: border-box;
+  }
+
+  .names-inner {
+    writing-mode: vertical-rl;
+    height: min(60vh, 26em);
+  }
+
+  .names-inner > * + * { margin-block-start: clamp(1.6rem, 3.5vw, 3rem); }
+
+  .names-title {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.42em;
+    margin: 0;
+  }
+
+  .names-note {
+    font-family: var(--gothic);
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    color: var(--ink-dim);
+    margin: 0;
+    padding-top: 0.4em;
+  }
+
+  .names-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .names-list li + li { margin-block-start: 1.7em; }
+
+  .names-list a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+
+  .n-work, .n-name { display: block; }
+  .n-name { margin-block-start: 0.55em; }
+
+  /* 状態は色でなく下線で示す（light の --bronze は 3.78:1 のため、
+     文字色そのものは変えない） */
+  .names-list a:hover .n-name,
+  .names-list a:focus-visible .n-name {
+    text-decoration: underline;
+    text-decoration-color: var(--bronze);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+  }
+
+  .n-work {
+    font-family: var(--gothic);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--ink-dim);
+    padding-top: 0.35em;
+  }
+
+  .n-name {
+    font-size: 1.08rem;
+    letter-spacing: 0.12em;
+  }
+
+  /* ─────────── 話の扉 ─────────── */
+
+  .tobira {
+    background: var(--wall);
+    border-block: 1px solid var(--rule);
+    min-height: 94svh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    padding: clamp(2.5rem, 7vh, 5rem) clamp(1.5rem, 5vw, 5rem);
+    max-width: 1180px;
+    margin-inline: auto;
+    box-sizing: border-box;
+  }
+
+  .tobira .art { margin: 0; }
+  .tobira .art svg { width: 100%; height: auto; display: block; }
+
+  .tobira-type {
+    writing-mode: vertical-rl;
+    height: min(62vh, 26em);
+  }
+
+  .tobira-type > * + * { margin-block-start: clamp(1.2rem, 2.6vw, 2.2rem); }
+
+  .story-no {
+    font-family: var(--gothic);
+    font-size: 0.72rem;
+    letter-spacing: 0.34em;
+    color: var(--ink-dim);
+    margin: 0;
+    padding-top: 0.3em;
+  }
+
+  .story-title {
+    font-size: clamp(1.4rem, 3.2vh, 1.8rem);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .story-meta {
+    font-family: var(--gothic);
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    color: var(--ink-dim);
+    margin: 0;
+    padding-top: 0.5em;
+  }
+
+  /* ─────────── 本文の頁 ─────────── */
+
+  .leaf {
+    display: grid;
+    place-items: center;
+    padding: clamp(2.6rem, 7vh, 4.6rem) clamp(1.2rem, 4vw, 4rem);
+    box-sizing: border-box;
+  }
+
+  .leaf .text {
+    writing-mode: vertical-rl;
+    height: var(--measure);
+    width: max-content;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    max-width: min(1080px, 94vw);
+    overflow-x: auto;
+  }
+
+  .leaf .text p { margin: 0; margin-block-end: 1.6em; }
+
+  .leaf .text blockquote {
+    margin: 0;
+    margin-block-start: 0.3em;
+    margin-block-end: 1.9em;
+    padding: 1.15em 1.05em;
+    background: var(--wall);
+    border-radius: 2px;
+  }
+
+  .leaf .text blockquote p { margin: 0; margin-block-end: 1em; }
+  .leaf .text blockquote p:last-child { margin-block-end: 0; }
+
+  .leaf .text > :last-child { margin-block-end: 0; }
+
+  /* 場面の変わり目（本文の ***） */
+  .sep {
+    width: 1px;
+    height: 2.4em;
+    margin: 0 auto;
+    background: var(--rule);
+  }
+
+  /* ─────────── 場面の絵（第一話のみ） ─────────── */
+
+  .scene {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    padding: clamp(2.4rem, 7vh, 4.4rem) clamp(1.2rem, 4vw, 4rem);
+    box-sizing: border-box;
+  }
+
+  .scene svg { width: min(100%, 46rem); height: auto; display: block; }
+
+  /* ─────────── 巻末・奥付 ─────────── */
+
+  .backmatter, .imprint {
+    border-top: 1px solid var(--rule);
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 8vh, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(4rem, 10vh, 7rem);
+    font-family: var(--gothic);
+    font-size: 0.82rem;
+    line-height: 2.05;
+    color: var(--ink-dim);
+  }
+
+  .backmatter h2, .imprint h2 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    color: var(--ink);
+    margin: 0 0 1.2rem;
+  }
+
+  .backmatter .bm-lead { margin: 0 0 2.6rem; max-width: 38em; }
+
+  .bm-work {
+    margin: 0 0 3rem;
+    padding-top: 1.6rem;
+    border-top: 1px dashed var(--rule);
+  }
+
+  .bm-work h3 {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--ink);
+    margin: 0 0 1.1rem;
+  }
+
+  .claims-head, .ladder-head {
+    font-size: 0.7rem;
+    letter-spacing: 0.26em;
+    color: var(--ink-dim);
+    margin: 0 0 0.5rem;
+  }
+
+  .claims { list-style: none; margin: 0 0 1.6rem; padding: 0; }
+  .claims li { padding-left: 1.2em; position: relative; margin-bottom: 0.2rem; color: var(--ink); }
+  .claims li::before { content: "─"; position: absolute; left: 0; color: var(--ink-dim); }
+
+  .ladder { margin: 0; display: grid; grid-template-columns: 3.4em 1fr; gap: 0.4rem 1.2rem; }
+  .ladder dt { font-family: var(--serif); letter-spacing: 0.2em; color: var(--ink); }
+  .ladder dd { margin: 0; max-width: 40em; }
+  .ladder .miss {
+    color: var(--ink-dim);
+    border-left: 2px dashed var(--rule);
+    padding-left: 0.9rem;
+  }
+
+  .bm-src {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-dim);
+    margin: 1.1rem 0 0;
+  }
+
+  /* 奥付 */
+
+  .imprint h3 {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--ink);
+    margin: 2.6rem 0 1rem;
+  }
+
+  .imprint dl {
+    display: grid;
+    grid-template-columns: 7.5em 1fr;
+    gap: 0.35rem 1.5rem;
+    margin: 0 0 2rem;
+  }
+
+  .imprint dt { letter-spacing: 0.16em; }
+  .imprint dd { margin: 0; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .imprint dd .sub { color: var(--ink-dim); }
+
+  .imprint p { margin: 0 0 1rem; max-width: 38em; }
+  .imprint .note { border-left: 2px solid var(--bronze); padding-left: 1rem; }
+
+  .procedure { margin: 0 0 1.6rem; padding-left: 1.4em; max-width: 40em; }
+  .procedure li { margin-bottom: 0.4rem; }
+  .procedure code { font-family: var(--mono); font-size: 0.95em; letter-spacing: 0; }
+
+  .hashes { list-style: none; margin: 0 0 1.6rem; padding: 0; }
+  .hashes li { margin-bottom: 0.7rem; }
+  .hashes code {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
+    color: var(--ink);
+  }
+
+  /* ─────────── 図版の描画規則 ─────────── */
+  /* 四階調。線幅はパスごとに変える（non-scaling-stroke は使わない）。 */
+
+  .ink   { stroke: var(--ink);     fill: none; }
+  .dim   { stroke: var(--ink-dim); fill: none; }
+  .ashln { stroke: var(--ash);     fill: none; }
+  .hot   { stroke: var(--bronze);  fill: none; }
+  .ink-f   { fill: var(--ink);     stroke: none; }
+  .dim-f   { fill: var(--ink-dim); stroke: none; }
+  .ash-f   { fill: var(--ash);     stroke: none; }
+  .hot-f   { fill: var(--bronze);  stroke: none; }
+  .wall-f  { fill: var(--wall);    stroke: none; }
+  .wall2-f { fill: var(--wall-2);  stroke: none; }
+
+  svg [stroke] { stroke-linecap: round; }
+
+  /* ─────────── 出現 ─────────── */
+  /* 既定は可視。JS が起動し、動きの抑制が求められていないときだけ、
+     ルート要素に .js が付いて隠れる（progressive enhancement）。 */
+
+  .reveal { opacity: 1; transform: none; }
+
+  .js .reveal { opacity: 0; transform: translateY(14px); }
+  .js .reveal.seen {
+    opacity: 1;
+    transform: none;
+    transition: opacity 900ms ease, transform 900ms cubic-bezier(.2,.7,.3,1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal { opacity: 1; transform: none; }
+    .js .reveal.seen { transition: none; }
+  }
+
+  /* ─────────── 横組みへの退避 ─────────── */
+
+  @media (max-width: 860px) {
+    :root { --measure: auto; }
+
+    .cover {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      gap: 2.5rem;
+    }
+    .cover-art { max-width: 22rem; }
+    .cover-type {
+      writing-mode: horizontal-tb;
+      height: auto;
+      text-align: center;
+    }
+    .cover-type > * + * { margin-block-start: 1.4rem; }
+    .cover-title { font-size: clamp(1.55rem, 7.4vw, 2.1rem); letter-spacing: 0.2em; text-indent: 0.2em; }
+    .cover-part { font-size: 0.92rem; letter-spacing: 0.18em; padding-top: 0; }
+    .cover-meta { line-height: 2; text-align: center; }
+
+    .names-inner {
+      writing-mode: horizontal-tb;
+      height: auto;
+      text-align: center;
+    }
+    .names-inner > * + * { margin-block-start: 1.6rem; }
+    .names-list li + li { margin-block-start: 1.1em; }
+    .n-name { margin-block-start: 0.15em; }
+    .n-work { padding-top: 0; }
+
+    .tobira { grid-template-columns: 1fr; gap: 2.2rem; min-height: 80svh; }
+    .tobira .art { max-width: 24rem; margin-inline: auto; }
+    .tobira-type {
+      writing-mode: horizontal-tb;
+      height: auto;
+      text-align: center;
+    }
+    .tobira-type > * + * { margin-block-start: 0.8rem; }
+    .story-title { font-size: clamp(1.25rem, 5.6vw, 1.6rem); }
+    .story-no, .story-meta { padding-top: 0; }
+
+    .leaf .text {
+      writing-mode: horizontal-tb;
+      height: auto;
+      width: auto;
+      overflow-x: visible;
+      max-width: 34em;
+    }
+    .leaf .text p { margin-block-end: 1.2em; }
+    .leaf .text blockquote { margin-block-end: 1.2em; padding: 0.9em 1.2em; }
+    .leaf .text blockquote p { margin-block-end: 0.4em; }
+
+    .scene svg { max-width: 30rem; }
+
+    .ladder { grid-template-columns: 1fr; gap: 0.1rem 0; }
+    .ladder dt { margin-top: 0.7rem; }
+    .imprint dl { grid-template-columns: 1fr; gap: 0 0; }
+    .imprint dt { color: var(--ink-dim); margin-top: 0.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ 表紙 ══════════════ -->
+
+<header class="cover">
+  <div class="cover-art">
+<svg viewBox="0 148 420 182" role="img" aria-label="棚の上に、本と、束ねた縄と、鍵と、筆と、小刀が並ぶ。小刀は置かれたばかりで、下から伸びた手が、まだ棚のふちに掛かっている">
+      <!-- 棚板 -->
+      <path class="ashln" stroke-width="1.4" d="M26 262 C 110 258.8, 196 263.6, 288 260.4 S 382 261.8, 398 260"/>
+      <path class="ashln" stroke-width="0.9" opacity="0.5" d="M40 271 C 128 268, 232 272.5, 392 268.5"/>
+      <!-- 影の置き方（不揃い） -->
+      <path class="ashln" stroke-width="1" opacity="0.45" d="M337 265 h34 M251 258 h40 M174 257 h48 M106 263 h30"/>
+
+      <!-- 本 -->
+      <g>
+        <path class="wall2-f" d="M332 196 L374 192 L378 256 L336 260 Z"/>
+        <path class="ink" stroke-width="1.9" d="M332 196 L374 192 L378 256 L336 260 Z"/>
+        <path class="dim" stroke-width="1.3" d="M339 197.5 C 338.2 218, 339.8 240, 340.6 258.6"/>
+      </g>
+
+      <!-- 縄 -->
+      <g>
+        <path class="ink" stroke-width="2.3" d="M247 236 C 240 218, 258 206, 276 208 C 296 210.5, 304 226, 296 240 C 288 252, 262 252.5, 254 242"/>
+        <path class="dim" stroke-width="1.7" d="M255 232 C 251 220, 264 212.5, 277 214 C 290 215.5, 296 226, 290 235 C 283 244.5, 264 244, 259 236.5"/>
+        <path class="ashln" stroke-width="1.2" d="M295 240 C 302 246, 306 252, 307 258"/>
+      </g>
+
+      <!-- 鍵 -->
+      <g transform="rotate(-9 196 246)">
+        <path class="ink" stroke-width="2" d="M172 246 C 171 239.5, 176.5 235, 183 235.6 C 189.5 236.2, 193 241.5, 191.6 247 C 190 252.5, 183.5 255, 178 252.8 C 174.5 251.4, 172.4 249, 172 246 Z"/>
+        <path class="ink" stroke-width="2.4" d="M192 244 L 238 242.4"/>
+        <path class="ink" stroke-width="2" d="M230 242.6 L 230.8 251 M221 243 L 221.6 249.4"/>
+      </g>
+
+      <!-- 筆 -->
+      <g>
+        <path class="ink" stroke-width="2.5" d="M104 214 L 146 248.6"/>
+        <path class="dim" stroke-width="2" d="M146 248.6 L 153 254.4"/>
+        <path class="dim-f" d="M153 254.4 C 156.5 256.8, 159 260, 160 263.6 C 156.2 262.6, 152.8 260.4, 150.4 257.4 Z"/>
+      </g>
+
+      <!-- 五つめの場所：小刀が来た。熱は刃にだけ -->
+      <g transform="rotate(-3 62 246)">
+        <path class="ink" stroke-width="2.6" d="M36 252 L 62 247"/>
+        <path class="dim" stroke-width="1.1" d="M42 253.4 L 43 249.4 M50 251.9 L 51 247.9"/>
+        <path class="wall2-f" d="M62 244.6 L 90 240.2 L 91.5 243 L 63 249.4 Z"/>
+        <path class="ink" stroke-width="1.5" d="M62 244.6 L 90 240.2"/>
+        <path class="hot" stroke-width="1.9" d="M63 249.4 L 91.5 243"/>
+      </g>
+
+      <!-- 手 -->
+      <g>
+        <path class="wall2-f" d="M-2 330 C 18 306, 34 288, 52 276 C 58 271.6, 66 268, 72 267 C 76.6 266.2, 80 268.4, 78 271.6 C 76 274.6, 71 277, 66.6 279 C 71.8 277.6, 78 276.4, 82 276.8 C 85.6 277.2, 86 280.4, 82.6 282.2 C 78.6 284.4, 72 285.8, 66.4 286.6 C 60 287.6, 52 290, 45 294.6 C 32 303, 20 316, 12 330 Z"/>
+        <path class="ink" stroke-width="2.1" d="M6 330 C 20 308, 36 290, 52 277.6 C 59 272.4, 67 268.4, 72.6 267.4"/>
+        <path class="ink" stroke-width="1.5" d="M66.6 279.2 C 72 277.6, 78.4 276.4, 82.4 277 M66.4 286.6 C 71.8 286, 77.4 285.2, 81.4 283.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="cover-type">
+    <h1 class="cover-title">名前のなかった<br>困りごと</h1>
+    <p class="cover-part">第一部　見えているのに、名前が無い</p>
+    <div class="cover-meta">
+      <div><b>造本試作　第二号</b></div>
+      <div>造本　Claude Fable 5</div>
+      <div>二〇二六年八月十八日</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ══════════════ 巻頭：名前の一覧 ══════════════ -->
+
+<nav class="names reveal" id="names" aria-label="この一冊が与える名前">
+  <div class="names-inner">
+    <h2 class="names-title">この一冊が与える名前</h2>
+    <p class="names-note">収録五話</p>
+    <ol class="names-list">
+      <li><a href="#story-tsugi"><span class="n-work">一　次の字を当てる遊び</span><span class="n-name">当てているだけ、なのに話ができる</span></a></li>
+      <li><a href="#story-aru"><span class="n-work">二　ある日わかった弟子</span><span class="n-name">ある日わかる、の正体</span></a></li>
+      <li><a href="#story-kotae"><span class="n-work">三　答えを知っている友達</span><span class="n-name">滞留が消える</span></a></li>
+      <li><a href="#story-zo"><span class="n-work">四　呼び名が足りない</span><span class="n-name">食い違いが言葉を作る</span></a></li>
+      <li><a href="#story-kogatana"><span class="n-work">五　ふるえを写さない小刀</span><span class="n-name">ふるえは、腕前ではなかった</span></a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ══════════════ 第一話 ══════════════ -->
+
+<section class="story" id="story-tsugi" aria-labelledby="t-tsugi">
+  <header class="tobira reveal">
+    <figure class="art">
+<svg viewBox="0 0 420 300" role="img" aria-label="開いた本。縦の行の途中から先を手が隠していて、隠れる手前にひとつだけ、次の字の場所が熱を持つ">
+        <!-- 見開き -->
+        <path class="wall2-f" d="M62 64 C 118 50, 178 52, 208 60 L 208 240 C 176 230, 120 230, 66 244 Z"/>
+        <path class="wall2-f" d="M208 60 C 240 52, 302 50, 356 62 L 352 242 C 300 230, 240 230, 208 240 Z"/>
+        <path class="ink" stroke-width="1.8" d="M62 64 C 118 50, 178 52, 208 60 C 240 52, 302 50, 356 62 L 352 242 C 300 230, 240 230, 208 240 C 176 230, 120 230, 66 244 Z"/>
+        <path class="dim" stroke-width="1.2" d="M208 60 L 208 240"/>
+        <!-- 机 -->
+        <path class="ashln" stroke-width="1.2" d="M30 264 C 140 258, 300 260.5, 394 255"/>
+        <!-- 右頁：読み終えた行。長さも間隔も太さも不揃い -->
+        <g class="dim">
+          <path stroke-width="1.6" d="M336 76 C 335 108, 336 142, 335 172"/>
+          <path stroke-width="1.3" d="M318 78 C 317.4 100, 318.4 118, 317.8 138 M318.2 150 C 317.8 168, 318.4 186, 318 200"/>
+          <path stroke-width="1.8" d="M299 74 C 298 112, 299.6 156, 298.6 208"/>
+          <path stroke-width="1.2" d="M281 80 C 280.4 104, 281.2 128, 280.6 154"/>
+          <path stroke-width="1.5" d="M262 76 C 261.2 116, 262.6 160, 261.8 196"/>
+          <path stroke-width="1.1" d="M245 82 C 244.6 100, 245.2 116, 244.8 132"/>
+          <path stroke-width="1.6" d="M227 78 C 226.2 110, 227.4 148, 226.6 186"/>
+        </g>
+        <!-- 左頁：これから読む行はうすい -->
+        <g class="ashln" opacity="0.8">
+          <path stroke-width="1.3" d="M188 74 C 187.2 104, 188.2 136, 187.6 168"/>
+          <path stroke-width="1.1" d="M169 80 C 168.4 98, 169 114, 168.6 128"/>
+          <path stroke-width="1.4" d="M150 76 C 149.2 96, 150.2 114, 149.6 130"/>
+        </g>
+        <!-- 隠される行と、次の字の場所 -->
+        <path class="ashln" stroke-width="1.3" d="M131 78 C 130.4 96, 131 122, 130.6 148"/>
+        <path class="hot" stroke-width="2.5" d="M130.6 156 C 130.4 164, 130.8 171, 130.5 178"/>
+        <!-- 手 -->
+        <path class="wall-f" d="M58 300 C 64 274, 74 248, 90 228 C 99 216.6, 110 206, 121 198.6 C 126 195.2, 131.6 192, 136 190 C 140.4 188, 143.6 190.6, 141 194 C 138.6 197.2, 134 200.6, 129.4 203.4 C 135 201.2, 141 199.8, 145.6 200.6 C 150 201.4, 150.4 205.4, 146 208 C 141.4 210.6, 134.6 212.4, 128.4 213.6 C 133.6 213.6, 139 214.6, 142.4 216.8 C 145.6 218.8, 144.8 222.4, 140.4 223.8 C 132.6 226.2, 122.6 226.6, 113.6 229.4 C 101 233.4, 90 244, 82 259 C 75.6 271, 70.6 286, 68 300 Z"/>
+        <path class="ink" stroke-width="2.1" d="M62 300 C 68 272, 78 246, 93 227 C 102 215.6, 112 205.4, 122 198 C 127 194.4, 132.4 191.2, 136.4 189.6"/>
+        <path class="ink" stroke-width="1.5" d="M129.4 203.4 C 135 201.2, 141.2 199.8, 145.8 200.8 M128.4 213.6 C 133.8 213.6, 139.2 214.6, 142.6 216.9"/>
+      </svg>
+    </figure>
+    <div class="tobira-type">
+      <p class="story-no">第一話</p>
+      <h2 class="story-title" id="t-tsugi">次の字を当てる遊び</h2>
+      <p class="story-meta">第六稿</p>
+    </div>
+  </header>
+  <div class="body">
+<!--BODY-START:tsugi-->
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ひとりの子が、へんな遊びを覚えた。</p>
+        <p>本を開いて、途中まで読む。そこで手で隠して、次に来る字を当てる。</p>
+        <p>当たったり、外れたりした。はじめは、ほとんど外れた。</p>
+        <p>子はやめなかった。次の日も、その次の日も、当てた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>一年たった。</p>
+        <p>子は、一冊の本を、まるごと覚えてしまった。</p>
+        <p>その本なら、どこを隠されても当たる。</p>
+        <p>子は、これでいいのだと思った。</p>
+        <p>ある人が、別の本を持ってきた。</p>
+        <p>子は、一字も当てられなかった。</p>
+      </div>
+    </div>
+    <figure class="scene reveal">
+      <svg viewBox="0 0 420 300" role="img" aria-label="見知らぬ本の見開き。当ての印は、覚えた本の行が点線で薄く透けて見える場所にばかり打たれていて、どの印も、目の前の行には触れていない。傍らに、覚えきった一冊が閉じたまま置かれている">
+        <!-- 机 -->
+        <path class="ashln" stroke-width="1.2" d="M24 262 C 140 256.8, 296 260.4, 398 255.6"/>
+        <!-- 覚えた本：閉じて、角が丸くなっている -->
+        <g>
+          <path class="wall2-f" d="M44 224 C 60 219, 80 218.4, 94 221 L 96 250 C 80 253.4, 60 254, 46 251.6 Z"/>
+          <path class="ink" stroke-width="1.7" d="M44 224 C 60 219, 80 218.4, 94 221 L 96 250 C 80 253.4, 60 254, 46 251.6 Z"/>
+          <path class="dim" stroke-width="1.1" d="M48 228.6 C 62 224.8, 78 224.2, 91 226.4 M47 233.8 C 61 230.2, 78 229.6, 91.6 231.6"/>
+        </g>
+        <!-- 見知らぬ本：開いたまま -->
+        <path class="wall2-f" d="M118 70 C 168 58, 220 60, 246 67 L 246 232 C 218 224, 168 224, 122 236 Z"/>
+        <path class="wall2-f" d="M246 67 C 272 60, 326 58, 372 68 L 368 234 C 324 224, 272 224, 246 232 Z"/>
+        <path class="ink" stroke-width="1.8" d="M118 70 C 168 58, 220 60, 246 67 C 272 60, 326 58, 372 68 L 368 234 C 324 224, 272 224, 246 232 C 218 224, 168 224, 122 236 Z"/>
+        <path class="dim" stroke-width="1.2" d="M246 67 L 246 232"/>
+        <!-- 目の前の行 -->
+        <g class="dim">
+          <path stroke-width="1.5" d="M352 82 C 351 116, 352.2 152, 351.2 190"/>
+          <path stroke-width="1.2" d="M333 86 C 332.4 110, 333.2 134, 332.6 160"/>
+          <path stroke-width="1.7" d="M314 80 C 313 120, 314.4 166, 313.4 208"/>
+          <path stroke-width="1.1" d="M296 88 C 295.4 108, 296 128, 295.6 146"/>
+          <path stroke-width="1.4" d="M277 82 C 276.2 118, 277.4 158, 276.6 196"/>
+          <path stroke-width="1.3" d="M259 86 C 258.4 112, 259.2 142, 258.6 172"/>
+          <path stroke-width="1.4" d="M232 84 C 231.2 116, 232.4 152, 231.6 186"/>
+          <path stroke-width="1.1" d="M214 88 C 213.4 108, 214 130, 213.6 150"/>
+          <path stroke-width="1.5" d="M195 82 C 194.2 120, 195.4 162, 194.6 200"/>
+          <path stroke-width="1.2" d="M177 88 C 176.4 110, 177 132, 176.6 154"/>
+          <path stroke-width="1.4" d="M158 84 C 157.2 114, 158.4 148, 157.6 180"/>
+          <path stroke-width="1.1" d="M140 90 C 139.4 108, 140 126, 139.6 142"/>
+        </g>
+        <!-- 覚えた本の行：点線で透ける -->
+        <g class="ashln" opacity="0.6" stroke-dasharray="3 5">
+          <path stroke-width="1.2" d="M343 96 C 342 130, 343.2 168, 342.4 204"/>
+          <path stroke-width="1.1" d="M305 92 C 304.2 124, 305.4 160, 304.6 194"/>
+          <path stroke-width="1.3" d="M268 98 C 267 132, 268.4 172, 267.4 210"/>
+          <path stroke-width="1.1" d="M223 94 C 222.2 126, 223.4 162, 222.6 198"/>
+          <path stroke-width="1.2" d="M186 98 C 185.2 128, 186.4 162, 185.6 194"/>
+          <path stroke-width="1" d="M149 96 C 148.2 122, 149.2 152, 148.6 180"/>
+        </g>
+        <!-- 当ての印：透けた行の上にだけ打たれる -->
+        <g class="hot">
+          <path stroke-width="2.4" d="M342.8 148 C 342.6 154, 343 160, 342.8 165"/>
+          <path stroke-width="2.2" d="M304.9 130 C 304.7 136, 305 141, 304.9 146"/>
+          <path stroke-width="2.4" d="M267.7 176 C 267.5 182, 267.9 188, 267.7 193"/>
+          <path stroke-width="2.1" d="M222.9 118 C 222.7 123, 223 128, 222.9 133"/>
+          <path stroke-width="2.3" d="M185.9 158 C 185.7 164, 186.1 170, 185.9 175"/>
+        </g>
+      </svg>
+    </figure>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>その子は、本を覚えるのをやめた。</p>
+        <p>かわりに、たくさん読んだ。町じゅうの本を読んだ。読み終わると、隣の町へ行った。</p>
+        <p>「あめが」ときたら、次は「ふる」だろうと当てた。当たった。</p>
+        <p>「あめが」の次が「ふる」でないこともあると、子は知っていた。「あめが あがる」こともある。どちらが多いかも知っていた。前にどんな字が並んでいたかで、変わることも知っていた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ある人が面白がって、紙にひとこと書いて子に渡した。</p>
+        <blockquote><p>　むかしむかし、あるところに</p></blockquote>
+        <p>子は、続きを書いた。おじいさんとおばあさんが出てきて、山へ柴刈りに行った。</p>
+        <p>その人は、こんどは別の紙を渡した。</p>
+        <blockquote><p>　第一条　この町に住む者は</p></blockquote>
+        <p>子は、続きを書いた。かたい言葉で、守るべきことが並んだ。</p>
+        <p>同じ子である。はじめの数行が変わっただけだった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ある日、誰かが子に話しかけた。</p>
+        <p>「きょうは、いい天気だね」</p>
+        <p>子は、聞いた言葉を紙に書いた。</p>
+        <blockquote><p>　きょうは、いい天気だね</p></blockquote>
+        <p>そして、いつもの遊びをした。この続きに来る字を当てる。</p>
+        <p>子は書いた。</p>
+        <blockquote><p>　きょうは、いい天気だね</p><p>　そうですね。せんたくものが、よく乾きます</p></blockquote>
+        <p>そして、書いたとおりに口に出した。</p>
+        <p>話しかけた者は、話ができたと思った。</p>
+        <p>子は、紙の続きを書いただけだった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>その人がまた何か言うと、子はそれも紙に書き足した。</p>
+        <p>紙には、相手の言ったことと、自分の書いたことが、同じように並んでいた。</p>
+        <p>子には、そのふたつの区別がなかった。</p>
+        <p>どちらも、紙に書いてある字である。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ある女が来て、子に薬のことを聞いた。</p>
+        <p>子は、続きを書いた。</p>
+        <p>女は、書いてあるとおりにした。</p>
+        <p>三日で、熱が下がった。</p>
+      </div>
+    </div>
+    <figure class="scene reveal">
+      <svg viewBox="0 0 420 300" role="img" aria-label="土間のかまど。小さな火に薬の鍋がかかり、湯気が立っている。壁には行の並んだ紙が貼られ、奥の寝床では人がしずかに眠っている。枕もとに、しぼった布と椀">
+        <!-- 土間の線 -->
+        <path class="ashln" stroke-width="1.2" d="M22 252 C 130 247, 280 250, 398 245"/>
+        <path class="ashln" stroke-width="0.9" opacity="0.5" d="M40 268 C 150 264, 290 267, 386 262"/>
+        <!-- かまど -->
+        <path class="wall2-f" d="M64 252 C 60 218, 68 190, 92 178 C 116 166, 152 168, 172 184 C 190 198, 194 226, 190 252 Z"/>
+        <path class="dim" stroke-width="1.7" d="M64 252 C 60 218, 68 190, 92 178 C 116 166, 152 168, 172 184 C 190 198, 194 226, 190 252"/>
+        <!-- 焚き口 -->
+        <path class="ink" stroke-width="1.6" d="M104 252 C 102 236, 108 224, 122 222 C 136 220, 146 230, 146 244 C 146 247, 145.6 250, 145 252"/>
+        <!-- 火 -->
+        <g class="hot">
+          <path stroke-width="2" d="M118 248 C 114 240, 118 232, 124 228 C 123 235, 126 239, 130 242 C 132 245, 131 248, 129 250"/>
+          <path stroke-width="1.4" d="M133 247 C 136 242, 135 237, 132 233"/>
+        </g>
+        <!-- 鍋 -->
+        <path class="wall-f" d="M92 178 C 92 164, 108 154, 128 154 C 148 154, 164 164, 164 178 C 164 186, 150 192, 128 192 C 106 192, 92 186, 92 178 Z"/>
+        <path class="ink" stroke-width="1.9" d="M92 178 C 92 164, 108 154, 128 154 C 148 154, 164 164, 164 178 C 164 186, 150 192, 128 192 C 106 192, 92 186, 92 178 Z"/>
+        <path class="ink" stroke-width="1.4" d="M86 170 L 94 173 M170 170 L 162 173"/>
+        <!-- 湯気 -->
+        <path class="ashln" stroke-width="1.1" d="M118 146 C 114 136, 120 128, 116 118 C 113 111, 116 104, 121 100"/>
+        <path class="ashln" stroke-width="0.9" opacity="0.7" d="M140 144 C 137 136, 142 130, 139 122"/>
+        <!-- 壁の紙：行の並び -->
+        <g transform="rotate(-2 232 118)">
+          <path class="wall2-f" d="M206 88 L 258 84 L 261 150 L 209 154 Z"/>
+          <path class="dim" stroke-width="1.1" d="M206 88 L 258 84 L 261 150 L 209 154 Z"/>
+          <g class="dim">
+            <path stroke-width="1" d="M249 94 C 248.6 110, 249.2 128, 248.8 142"/>
+            <path stroke-width="0.9" d="M239 96 C 238.6 108, 239 120, 238.8 132"/>
+            <path stroke-width="1.1" d="M229 93 C 228.4 112, 229.2 132, 228.6 146"/>
+            <path stroke-width="0.9" d="M219 97 C 218.6 110, 219 124, 218.8 136"/>
+          </g>
+        </g>
+        <!-- 寝床 -->
+        <g>
+          <path class="wall2-f" d="M232 250 C 250 232, 286 222, 322 222 C 356 222, 384 230, 396 244 L 398 252 L 232 252 Z"/>
+          <path class="ink" stroke-width="1.8" d="M234 250 C 252 233, 287 223, 322 223 C 355 223, 382 231, 395 244"/>
+          <path class="dim" stroke-width="1.2" d="M262 240 C 288 232, 326 230, 362 234"/>
+          <path class="ink" stroke-width="1.6" d="M370 232 C 378 228, 388 230, 392 238 C 394 243, 392 248, 388 250"/>
+          <!-- 枕もとの椀と布 -->
+          <path class="ink" stroke-width="1.3" d="M338 262 C 338 257, 344 254, 352 254 C 360 254, 366 257, 366 262 C 366 266, 360 268, 352 268 C 344 268, 338 266, 338 262 Z"/>
+          <path class="ashln" stroke-width="1.2" d="M344 254 C 348 248, 356 246, 362 249 C 357 251, 351 252.4, 347 255"/>
+        </g>
+      </svg>
+    </figure>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>その話を聞いた男が、面白半分に、紙にこう書いた。</p>
+        <blockquote><p>　この町の橋は、金でできている</p></blockquote>
+        <p>子は、続きを書いた。</p>
+        <p>橋がいつ架けられたか。どこの金を使ったか。渡るときに、どんな音がするか。</p>
+        <p>すらすらと書いた。</p>
+        <p>男は笑って、その紙を人に見せた。</p>
+      </div>
+    </div>
+    <figure class="scene reveal">
+      <svg viewBox="0 0 420 300" role="img" aria-label="川べり。紙を手にした者が岸に小さく立っている。紙にあるはずの橋が、点線のかたちで川の上に浮かび、その下を、川面は途切れずに流れている">
+        <!-- 向こう岸 -->
+        <path class="ashln" stroke-width="1.1" d="M28 132 C 140 127, 280 130, 396 125"/>
+        <path class="ashln" stroke-width="0.9" opacity="0.6" d="M300 122 L 303 114 M318 121 L 320 112 M340 120 L 343 111 M64 128 L 66 120 M84 127 L 87 119"/>
+        <!-- 川面：途切れない -->
+        <g class="dim">
+          <path stroke-width="1.3" d="M20 156 C 120 151, 250 155, 400 149"/>
+          <path stroke-width="1.1" d="M34 176 C 140 171, 260 175, 392 169"/>
+          <path stroke-width="1.4" d="M20 197 C 130 192, 270 196, 400 190"/>
+        </g>
+        <g class="ashln" opacity="0.7">
+          <path stroke-width="1" d="M60 166 C 150 162, 240 166, 360 161"/>
+          <path stroke-width="0.9" d="M46 187 C 150 183, 264 186, 380 181"/>
+          <path stroke-width="0.9" d="M80 208 C 170 204, 280 207, 386 202"/>
+        </g>
+        <!-- こちらの岸 -->
+        <path class="ink" stroke-width="1.6" d="M16 224 C 100 218, 200 222, 404 214"/>
+        <path class="ashln" stroke-width="1" opacity="0.6" d="M40 240 C 140 235, 260 238, 390 232"/>
+        <!-- 紙の上にしかない橋：点線 -->
+        <g class="hot">
+          <path stroke-width="2.1" stroke-dasharray="10 8 5 9" d="M96 208 C 150 158, 250 140, 344 146"/>
+          <path stroke-width="1.3" stroke-dasharray="6 10" d="M100 216 C 154 166, 252 148, 342 154"/>
+        </g>
+        <!-- 立つ者と、手の紙 -->
+        <g>
+          <path class="ink" stroke-width="2" d="M66 226 C 66.6 210, 67 196, 67 184"/>
+          <path class="ink" stroke-width="1.9" d="M62 226 C 62.4 212, 63.6 200, 66 190"/>
+          <path class="wall2-f" d="M58 184 C 57 168, 62 156, 70 152 C 77 149, 83 154, 84 164 C 85 175, 80 185, 72 188 C 66 190, 60 188, 58 184 Z"/>
+          <path class="ink" stroke-width="1.8" d="M58 184 C 57 168, 62 156, 70 152 C 77 149, 83 154, 84 164 C 85 175, 80 185, 72 188 C 66 190, 60 188, 58 184 Z"/>
+          <path class="ink" stroke-width="1.5" d="M69 150 C 67 144, 69.6 139, 74.6 138.6 C 79.6 138.2, 82.6 142, 81.6 147 C 80.8 151, 77 153.6, 73 152.6"/>
+          <path class="ink" stroke-width="1.7" d="M80 164 C 87 162, 93 160, 98 158"/>
+          <path class="wall2-f" d="M96 148 L 114 145 L 116 166 L 98 169 Z"/>
+          <path class="dim" stroke-width="1.1" d="M96 148 L 114 145 L 116 166 L 98 169 Z"/>
+          <path class="dim" stroke-width="0.9" d="M109 149.6 C 108.8 155, 109.2 160, 109 163.4 M103 150.8 C 102.8 155.4, 103 159.6, 102.9 162.6"/>
+        </g>
+      </svg>
+    </figure>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>紙を見た者が、ひとり、橋を見に行った。</p>
+        <p>半日、歩いた。</p>
+        <p>川があった。</p>
+        <p>橋は、無かった。</p>
+        <p>その者は、濡れて帰ってきた。</p>
+        <p>帰ってきて、子に言った。</p>
+        <p>「橋は、無かった」</p>
+        <p>子は、その言葉も、紙に書き足した。</p>
+        <p>「おまえは、嘘を書いた」</p>
+        <p>子は、その言葉も、紙に書き足した。</p>
+        <p>そして、いつもの遊びを、はじめた。</p>
+      </div>
+    </div>
+    <figure class="scene reveal">
+      <svg viewBox="0 0 420 300" role="img" aria-label="濡れた者が立って指をさし、足もとに水たまりがひろがっている。床を這う長い紙の上では、どの言葉も同じ調子の行になって並び、いちばん新しい行の先の、次の字の場所だけが熱を持つ">
+        <!-- 床 -->
+        <path class="ashln" stroke-width="1.1" d="M18 262 C 130 257, 290 260, 402 254"/>
+        <!-- 長い紙 -->
+        <path class="wall2-f" d="M42 246 C 96 238, 132 220, 168 200 C 204 180, 250 168, 306 168 L 306 196 C 254 196, 214 208, 180 226 C 148 243, 108 260, 50 268 Z"/>
+        <path class="dim" stroke-width="1.3" d="M42 246 C 96 238, 132 220, 168 200 C 204 180, 250 168, 306 168 M306 196 C 254 196, 214 208, 180 226 C 148 243, 108 260, 50 268"/>
+        <!-- 同じ調子の行：誰の言葉かで変わらない -->
+        <g class="dim">
+          <path stroke-width="1.2" d="M292 172 L 292.4 192"/>
+          <path stroke-width="1.2" d="M276 172.6 L 276.4 193"/>
+          <path stroke-width="1.2" d="M260 174 L 260.4 194.4"/>
+          <path stroke-width="1.2" d="M244 176 L 244.4 196.6"/>
+          <path stroke-width="1.2" d="M228 179 L 228.6 199.6"/>
+          <path stroke-width="1.2" d="M212 183 L 213 203.4"/>
+          <path stroke-width="1.2" d="M196.6 188.4 L 197.6 208.6"/>
+          <path stroke-width="1.2" d="M182 195 L 183.4 214.8"/>
+          <path stroke-width="1.2" d="M167.6 202.6 L 169.4 222"/>
+          <path stroke-width="1.2" d="M153 210.6 L 155 229.6"/>
+          <path stroke-width="1.2" d="M138.4 218.4 L 140.6 237.2"/>
+          <path stroke-width="1.2" d="M123 225.8 L 125.4 244.6"/>
+          <path stroke-width="1.2" d="M107 232.6 L 109.6 251.4"/>
+          <path stroke-width="1.2" d="M90.6 238.6 L 93.2 257.6"/>
+        </g>
+        <!-- 次の字の場所 -->
+        <path class="hot" stroke-width="2.4" d="M74 243.6 C 75 250, 76 256.4, 77 262.4"/>
+        <!-- 書きつづける子 -->
+        <g>
+          <path class="wall2-f" d="M28 232 C 30 214, 40 200, 56 194 C 66 190, 76 192, 80 200 C 84 208, 80 218, 70 224 C 58 231, 42 234, 28 232 Z"/>
+          <path class="ink" stroke-width="1.9" d="M28 232 C 30 214, 40 200, 56 194 C 66 190, 76 192, 80 200 C 84 208, 80 218, 70 224 C 58 231, 42 234, 28 232"/>
+          <path class="ink" stroke-width="1.5" d="M56 194 C 52 188, 53 181, 59 178 C 65 175, 72 178, 73 184 C 74 189, 70 194, 64 194.6"/>
+          <path class="ink" stroke-width="1.6" d="M72 216 C 74 224, 75 232, 75.6 239"/>
+        </g>
+        <!-- 濡れて帰った者 -->
+        <g>
+          <path class="ink" stroke-width="2.2" d="M330 256 C 331 232, 332 210, 334 190"/>
+          <path class="ink" stroke-width="2" d="M344 256 C 343 234, 341 212, 338 192"/>
+          <path class="wall2-f" d="M322 192 C 318 168, 324 148, 338 142 C 350 137, 362 144, 364 158 C 366 172, 360 186, 348 192 C 339 196, 328 196, 322 192 Z"/>
+          <path class="ink" stroke-width="2" d="M322 192 C 318 168, 324 148, 338 142 C 350 137, 362 144, 364 158 C 366 172, 360 186, 348 192"/>
+          <path class="ink" stroke-width="1.6" d="M337 140 C 334 133, 337 126, 344 125 C 351 124, 356 129, 355 136 C 354 142, 349 146, 343 145"/>
+          <!-- さす腕 -->
+          <path class="ink" stroke-width="1.9" d="M330 160 C 314 158, 298 156, 284 154 M284 154 C 280 153, 276 152.4, 272 152"/>
+          <!-- 濡れの滴り -->
+          <path class="ashln" stroke-width="1" d="M330 200 L 329 210 M340 202 L 340 214 M350 198 L 351 208"/>
+          <path class="ashln" stroke-width="1" d="M326 226 L 325.6 232 M347 228 L 347.4 235"/>
+          <!-- 水たまり -->
+          <path class="ashln" stroke-width="1.2" d="M310 268 C 322 264, 344 263, 360 266 C 372 268, 372 273, 360 275 C 344 278, 320 277, 310 274 C 303 272, 304 269, 310 268 Z"/>
+        </g>
+      </svg>
+    </figure>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>濡れて帰ってきた者は、もう子に聞かない。</p>
+        <p>熱の下がった女は、毎日聞きに来る。</p>
+      </div>
+    </div>
+    <figure class="scene reveal">
+      <svg viewBox="0 0 420 300" role="img" aria-label="戸口へ、踏み固められた道が一本つづいている。並んで分かれたもう一本の薄い道は、草にまぎれて途中で消えている。すこし開いた戸の隙間にだけ、明かりが見える">
+        <!-- 小屋 -->
+        <g>
+          <path class="wall2-f" d="M282 96 L 396 90 L 398 208 L 286 214 Z"/>
+          <path class="ink" stroke-width="1.9" d="M282 96 L 396 90 L 398 208 L 286 214 Z"/>
+          <path class="ink" stroke-width="2.1" d="M270 100 C 310 84, 360 80, 408 86"/>
+          <path class="dim" stroke-width="1.2" d="M292 104 C 330 96, 366 94, 390 96"/>
+          <!-- 戸：すこし開いている -->
+          <path class="dim" stroke-width="1.6" d="M318 132 L 352 130 L 354 210 L 320 212 Z"/>
+          <path class="ink" stroke-width="1.5" d="M348 131 L 350 210"/>
+          <path class="hot" stroke-width="2.2" d="M352.8 134 C 352.6 158, 353.2 186, 353.4 208"/>
+        </g>
+        <!-- 踏み固められた道 -->
+        <g>
+          <path class="ink" stroke-width="1.7" d="M20 292 C 90 268, 180 240, 258 224 C 280 219, 302 215.4, 322 213"/>
+          <path class="dim" stroke-width="1.4" d="M44 298 C 116 274, 196 250, 268 234 C 288 229.6, 308 226, 326 223.4"/>
+          <g class="dim" opacity="0.85">
+            <path stroke-width="1.2" d="M84 278 C 88 276.6, 92 275.6, 96 275"/>
+            <path stroke-width="1.1" d="M128 264 C 132 262.8, 136 262, 140 261.4"/>
+            <path stroke-width="1.2" d="M172 251 C 176 249.8, 180 249, 184 248.4"/>
+            <path stroke-width="1.1" d="M216 240 C 220 238.8, 224 238, 228 237.6"/>
+            <path stroke-width="1.2" d="M258 230.6 C 262 229.6, 266 229, 270 228.6"/>
+            <path stroke-width="1.1" d="M296 223.6 C 300 222.8, 304 222.2, 308 221.8"/>
+          </g>
+        </g>
+        <!-- 薄い道：途中で消える -->
+        <g class="ashln" opacity="0.6">
+          <path stroke-width="1.1" d="M36 258 C 76 244, 112 232, 146 222"/>
+          <path stroke-width="1" d="M158 218 C 176 212.6, 194 207.6, 210 203"/>
+          <path stroke-width="0.9" d="M222 199.6 C 230 197.4, 238 195.4, 245 193.8"/>
+        </g>
+        <!-- 道を消してゆく草 -->
+        <g class="ashln">
+          <path stroke-width="1" d="M150 224 C 149 219, 150 214, 153 210 M156 223 C 156.6 218.6, 159 215, 162 212"/>
+          <path stroke-width="1" d="M214 202 C 213 197.6, 214 193.4, 216.6 190 M221 201 C 221.6 197, 223.6 193.6, 226.4 191"/>
+          <path stroke-width="1" d="M248 193 C 247.2 189, 248 185.4, 250.4 182.4 M254 192 C 254.4 188.4, 256 185.2, 258.6 182.8 M243 194.6 C 242 190.8, 242.6 187, 244.6 183.8"/>
+          <path stroke-width="0.9" opacity="0.7" d="M262 190 C 261.4 186.6, 262 183.6, 264 181"/>
+        </g>
+        <!-- 地の線 -->
+        <path class="ashln" stroke-width="0.9" opacity="0.5" d="M24 226 C 60 219, 96 213, 130 208 M340 232 C 360 230, 380 228.6, 398 227"/>
+      </svg>
+    </figure>
+<!--BODY-END:tsugi-->
+  </div>
+</section>
+
+<!-- ══════════════ 第二話 ══════════════ -->
+
+<section class="story" id="story-aru" aria-labelledby="t-aru">
+  <header class="tobira reveal">
+    <figure class="art">
+<svg viewBox="0 0 420 300" role="img" aria-label="梁から九つの錠前が下がり、ひとつだけ開いている。下の手が握るただ一本の鍵が熱を持つ">
+        <!-- 梁 -->
+        <path class="ink" stroke-width="2.2" d="M30 56 C 120 51.6, 236 58.4, 394 53"/>
+        <!-- 九つの錠前：大きさも高さも間隔も掛かり方も不揃い -->
+        <g transform="rotate(-5 71 100)">
+          <path class="dim" stroke-width="1.4" d="M71 57 L 71.6 70"/>
+          <path class="dim" stroke-width="1.8" d="M64 92 C 63.6 82, 67.6 75.8, 74 76 C 80.4 76.2, 84 82.2, 83.6 92"/>
+          <path class="wall2-f" d="M58 92 L 88 91 L 90 121 L 57 122 Z"/>
+          <path class="dim" stroke-width="1.7" d="M58 92 L 88 91 L 90 121 L 57 122 Z"/>
+        </g>
+        <g transform="rotate(3 106 112)">
+          <path class="ashln" stroke-width="1.2" d="M106 58 L 105.4 78"/>
+          <path class="ashln" stroke-width="1.6" d="M99 100 C 98.8 90.6, 102.4 85, 108 85.2 C 113.6 85.4, 116.8 90.8, 116.4 100"/>
+          <path class="ashln" stroke-width="1.5" d="M94 100 L 121 99 L 122.6 127 L 92.8 128 Z"/>
+        </g>
+        <g transform="rotate(-2 151 96)">
+          <path class="dim" stroke-width="1.3" d="M151 56.6 L 151.4 66"/>
+          <path class="dim" stroke-width="1.7" d="M145 86 C 144.8 77.6, 148 72.6, 153 72.8 C 158 73, 160.8 77.8, 160.4 86"/>
+          <path class="wall2-f" d="M141 86 L 166 85.2 L 167.4 110 L 139.8 111 Z"/>
+          <path class="dim" stroke-width="1.6" d="M141 86 L 166 85.2 L 167.4 110 L 139.8 111 Z"/>
+        </g>
+        <g transform="rotate(6 184 122)">
+          <path class="ashln" stroke-width="1.1" d="M184 59 L 183.2 84"/>
+          <path class="ashln" stroke-width="1.7" d="M175 108 C 174.8 97.6, 179 91.4, 185.4 91.6 C 191.8 91.8, 195.6 98, 195.2 108"/>
+          <path class="ashln" stroke-width="1.6" d="M169.6 108 L 200 106.8 L 202 138 L 168 139.2 Z"/>
+        </g>
+        <g transform="rotate(-4 227 104)">
+          <path class="dim" stroke-width="1.4" d="M227 58 L 227.6 72"/>
+          <path class="dim" stroke-width="1.9" d="M219.6 94 C 219.4 84.4, 223.2 78.6, 229 78.8 C 234.8 79, 238.2 84.6, 237.8 94"/>
+          <path class="wall2-f" d="M214.6 94 L 241 93 L 242.8 120 L 213 121 Z"/>
+          <path class="dim" stroke-width="1.7" d="M214.6 94 L 241 93 L 242.8 120 L 213 121 Z"/>
+        </g>
+        <g transform="rotate(2 261 116)">
+          <path class="dim" stroke-width="1.2" d="M261 59 L 260.4 80"/>
+          <path class="dim" stroke-width="1.6" d="M254 104 C 253.8 95, 257.2 89.6, 262.4 89.8 C 267.6 90, 270.6 95.2, 270.2 104"/>
+          <path class="wall2-f" d="M249.8 104 L 275 103 L 276.6 130 L 248 131 Z"/>
+          <path class="dim" stroke-width="1.5" d="M249.8 104 L 275 103 L 276.6 130 L 248 131 Z"/>
+        </g>
+        <!-- 開いた錠前：弦が浮いている -->
+        <g transform="rotate(-7 300 104)">
+          <path class="ink" stroke-width="1.5" d="M299 57 L 299.8 70"/>
+          <path class="ink" stroke-width="2" d="M292 88 C 289 75, 299 66.6, 309.6 70.6 C 317.6 73.6, 320.4 82.6, 316.6 89"/>
+          <path class="wall2-f" d="M284 92 L 314 90.6 L 316.5 121 L 282.6 122.6 Z"/>
+          <path class="ink" stroke-width="1.9" d="M284 92 L 314 90.6 L 316.5 121 L 282.6 122.6 Z"/>
+          <path class="ink" stroke-width="1.4" d="M298.6 102 C 298.2 106.4, 298.8 110.6, 298.6 114"/>
+        </g>
+        <g transform="rotate(4 335 126)">
+          <path class="ashln" stroke-width="1.1" d="M335 58.4 L 334.2 90"/>
+          <path class="ashln" stroke-width="1.5" d="M328 112 C 327.8 103.6, 331 98.6, 336 98.8 C 341 99, 343.8 103.8, 343.4 112"/>
+          <path class="ashln" stroke-width="1.4" d="M323.6 112 L 348 111 L 349.6 136 L 322 137 Z"/>
+        </g>
+        <g transform="rotate(-3 372 106)">
+          <path class="dim" stroke-width="1.3" d="M372 55.6 L 372.6 74"/>
+          <path class="dim" stroke-width="1.8" d="M364 96 C 363.8 86.8, 367.6 81.2, 373.4 81.4 C 379.2 81.6, 382.6 87.2, 382.2 96"/>
+          <path class="wall2-f" d="M359 96 L 386 95 L 387.8 123 L 357.4 124 Z"/>
+          <path class="dim" stroke-width="1.6" d="M359 96 L 386 95 L 387.8 123 L 357.4 124 Z"/>
+        </g>
+        <!-- 手と、ただ一本の鍵 -->
+        <g>
+          <path class="wall2-f" d="M148 300 C 150 282, 156 264, 168 252 C 175 244.6, 184 239, 193 236.6 C 199 235, 203 237.6, 200.6 241.4 C 198.6 244.6, 194 247.6, 189 249.8 C 195 248.6, 201 248.4, 205 249.8 C 209 251.2, 209 255, 204.6 257 C 199.6 259.4, 192.6 260.4, 186 261.4 C 178 262.6, 170 267, 164 275 C 158.6 282.2, 155 291, 153.6 300 Z"/>
+          <path class="ink" stroke-width="2" d="M151 300 C 153.6 281, 160 263.6, 170 253 C 177 245.6, 186 240, 194 237.6"/>
+          <path class="ink" stroke-width="1.4" d="M189 249.8 C 195 248.6, 200.6 248.4, 204.6 249.8"/>
+          <g class="hot" transform="rotate(-24 214 236)">
+            <path stroke-width="2.1" d="M196 240 C 194.6 233.6, 199 228.6, 205.4 228.8 C 211.6 229, 215.4 234.2, 213.6 240 C 212 245.2, 205.6 247.6, 200 245.4 C 197.4 244.4, 196.2 242.4, 196 240 Z"/>
+            <path stroke-width="2.5" d="M214.6 236.8 L 258 234.4"/>
+            <path stroke-width="2.1" d="M250 234.8 L 251 243.4 M240.6 235.2 L 241.4 241.6"/>
+          </g>
+        </g>
+      </svg>
+    </figure>
+    <div class="tobira-type">
+      <p class="story-no">第二話</p>
+      <h2 class="story-title" id="t-aru">ある日わかった弟子</h2>
+      <p class="story-meta">第七稿</p>
+    </div>
+  </header>
+  <div class="body">
+<!--BODY-START:aru-->
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ある弟子が、師匠のもとで錠前を習った。</p>
+        <p>九つの錠前があり、九つの鍵があった。</p>
+        <p>弟子は三年で、九つとも開けられるようになった。ひとつもしくじらなくなった。</p>
+        <p>「もう終わりですね」と弟子は言った。</p>
+        <p>師匠は答えず、鍵をひとつ取り上げた。</p>
+        <p>「八つで、九つを開けなさい」</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>弟子は困った。取られたのは七つめの鍵である。七つめの錠前を開ける鍵が、もう無い。</p>
+        <p>弟子は、残った八つの鍵を持って、九つの錠前に向き合った。</p>
+        <p>長くかかった。</p>
+        <p>だがある日、六つめの鍵で、七つめの錠前が開いた。</p>
+        <p>ふたつの錠前に、同じところがあったのである。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>師匠は、鍵をもうひとつ取り上げた。</p>
+        <p>「七つで、九つを開けなさい」</p>
+        <p>こうして鍵は減っていった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>鍵が五つになると、弟子は言った。</p>
+        <p>「これ以上取られたら、開かなくなります」</p>
+        <p>師匠は言った。「そうかもしれん」</p>
+        <p>それでも、つぎのひとつを取り上げた。</p>
+        <p>やがて、九つとも開いた。錠前は、ひとつも変わっていないのに。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>四年めに、師匠は取りすぎた。</p>
+        <p>弟子は三月《みつき》のあいだ、九つのうち、ふたつしか開けられなかった。</p>
+        <p>師匠は、取り上げた鍵をひとつ返した。</p>
+        <p>師匠にも、どこまで取ってよいかは分かっていなかったのである。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ときどき、町の者が見に来た。</p>
+        <p>弟子は、九つとも開けてみせた。</p>
+        <p>去年と同じだな、と町の者は言って、帰った。</p>
+        <p>あの三月のあいだは、誰も来なかった。</p>
+        <p>減っていたのは、鍵の数だけである。</p>
+        <p>そして、見に来た者のなかに、鍵の数を数えていた者は、ひとりもいなかった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>五年たった。</p>
+        <p>ある朝、弟子の手には、鍵がひとつしか残っていなかった。</p>
+        <p>そのひとつで、九つの錠前が全部開いた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>その日の昼、町の者が錠前をひとつ持ってきた。</p>
+        <p>隣の国から来た錠前だった。師匠も見たことがなかった。</p>
+        <p>師匠は、開くかどうか分からなかった。開けてみるまでは、誰にも分からない。</p>
+        <p>弟子は、ひとつの鍵を差し込んだ。</p>
+        <p>回した。</p>
+        <p>開いた。</p>
+        <p>町の者は、もうひとつ錠前を出した。同じ国から来た、よく似た錠前だった。</p>
+        <p>弟子は同じ鍵を差した。</p>
+        <p>回らなかった。</p>
+        <p>向きを変え、浅く差し、深く差した。それでも開かなかった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>師匠は、開いた錠前と開かなかった錠前を並べた。</p>
+        <p>「なぜ、こちらだけ開いた」</p>
+        <p>弟子は答えられなかった。</p>
+        <p>「なぜ、きょうだったのですか」と弟子は聞いた。</p>
+        <p>師匠は言った。「わたしも知らない」</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>弟子は、ひとつの鍵を持って帰った。</p>
+        <p>師匠の腰には、八つの鍵が下がっていた。</p>
+      </div>
+    </div>
+<!--BODY-END:aru-->
+  </div>
+</section>
+
+<!-- ══════════════ 第三話 ══════════════ -->
+
+<section class="story" id="story-kotae" aria-labelledby="t-kotae">
+  <header class="tobira reveal">
+    <figure class="art">
+<svg viewBox="0 0 420 300" role="img" aria-label="机の上に白い紙。右から伸びた手が筆を握り、筆の先が置いたひとつの点だけが熱を持つ">
+        <!-- 机 -->
+        <path class="ashln" stroke-width="1.3" d="M28 236 C 140 228.6, 280 232.4, 396 224"/>
+        <path class="ashln" stroke-width="1" opacity="0.6" d="M64 236 L 60 282 M352 228 L 356 272"/>
+        <!-- 紙：白いまま -->
+        <path class="wall2-f" d="M138 128 C 196 122, 258 120, 314 124 L 320 218 C 262 224, 196 226, 146 222 Z"/>
+        <path class="dim" stroke-width="1.2" d="M138 128 C 196 122, 258 120, 314 124 L 320 218 C 262 224, 196 226, 146 222 Z"/>
+        <!-- 筆の軸（上半分） -->
+        <path class="ink" stroke-width="2.7" d="M352 104 C 341 126, 330 148, 320.6 170"/>
+        <!-- 腕と、握る手 -->
+        <path class="wall2-f" d="M420 112 C 400 109, 382 108.6, 366 111 L 362 140 C 380 142.6, 400 140.8, 420 136 Z"/>
+        <g transform="translate(-11,5)">
+          <path class="wall2-f" d="M340 120 C 346 110.6, 358 106, 368 109 C 378 112, 383 121, 380 130.6 C 377.4 139, 368 144.6, 358 143.6 C 348 142.6, 340.6 134, 340 126 Z"/>
+          <path class="ink" stroke-width="1.8" d="M346 138 C 352 142.4, 360 144.2, 368 142.6"/>
+          <path class="ink" stroke-width="1.3" d="M349 111 C 356 107.6, 364 107.2, 371 110"/>
+        </g>
+        <!-- 筆の先と、ひとつの点 -->
+        <path class="dim" stroke-width="2.1" d="M320.6 170 C 317 177, 313.8 184, 311 190.6"/>
+        <path class="dim-f" d="M311 190.6 C 308 196, 305.6 202, 304.6 207.6 C 302 202.6, 301 197, 301.8 191.6 C 304.6 190.6, 307.8 190.4, 311 190.6 Z"/>
+        <path class="hot-f" d="M301 210 C 303.4 209, 305.8 210, 306.4 212.2 C 307 214.4, 305.6 216.6, 303.2 217 C 300.8 217.4, 298.6 216, 298.4 213.6 C 298.3 212, 299.5 210.6, 301 210 Z"/>
+      </svg>
+    </figure>
+    <div class="tobira-type">
+      <p class="story-no">第三話</p>
+      <h2 class="story-title" id="t-kotae">答えを知っている友達</h2>
+      <p class="story-meta">第十稿</p>
+    </div>
+  </header>
+  <div class="body">
+<!--BODY-START:kotae-->
+    <div class="leaf reveal">
+      <div class="text">
+        <p>春の朝、寺子屋に、見たことのない子が来ていた。</p>
+        <p>いちばん早く来た子は、その隣に座った。</p>
+        <p>次の子が来ると、見たことのない子は、こんどはその子の隣にもいた。はじめの子の隣から、いなくなったわけではなかった。</p>
+        <p>三人目が来ても、同じだった。</p>
+        <p>先生が人数を数えた。何度数えても、増えたのはひとりだけだった。けれど、どの子の隣にも、あの子の座布団があった。</p>
+        <p>「おまえは、どこに座っているんだ」と、ひとりが聞いた。</p>
+        <p>「ここだよ」</p>
+        <p>同じ声が、部屋じゅうの隣からした。</p>
+        <p>三日ほどは、みんなその話をした。四日目からは、しなくなった。朝になれば、やはり隣にいたからである。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>あの子は、なんでも知っていた。</p>
+        <p>わからない字を聞けば、読み方を教えた。算木の置き方を聞けば、答えまで教えた。何度聞いても、はじめと同じようにやさしく答えた。</p>
+        <p>次の日、同じことを聞いてみた子がいた。あの子は、昨日と同じように答えた。</p>
+        <p>「きのうも聞いたよ」と言うと、あの子は首をかしげた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>寺子屋では、わからないとき、隣の子と考えてよいことになっていた。</p>
+        <p>先生は、教え合うのはよいことだと言っていた。</p>
+        <p>ところが、あの子は、いっしょに考えなかった。聞かれると、すぐ答えを言った。</p>
+        <p>はじめ、みんなは遠慮していた。</p>
+        <p>だんだん、遠慮しなくなった。</p>
+        <p>教室は前より静かになった。課題は前より早く終わった。先生は、しばらく何も言わなかった。</p>
+        <p>みんなの点は上がった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ひとりの子が、ためしに聞かずにやってみた。</p>
+        <p>半分しかできなかった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>そのころ、隣の村から子が来て、しばらく寺子屋にいた。</p>
+        <p>その子の隣には、なんでも知っている子がいなかった。</p>
+        <p>ある日、この寺子屋の子が、隣の村の子に教えてやろうとした。</p>
+        <p>自分が知っている答えである。何度も聞いて、覚えている。</p>
+        <p>言った。</p>
+        <p>隣の村の子は「なぜですか」と聞いた。</p>
+        <p>答えられなかった。</p>
+        <p>言いなおした。また言いなおした。それでも、なぜかは言えなかった。</p>
+        <p>知っていたのは、答えだけだった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>先生が、聞くことを禁じた。</p>
+        <p>その日、みんなの点は下がった。</p>
+        <p>先生は困った。点が下がれば、教え方が悪いと言われるからである。</p>
+        <p>次の日、先生は禁を解いた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ひとりの子が、自分で決めごとをした。</p>
+        <p>「十、数えるまでは聞かない」</p>
+        <p>その子は、守った。</p>
+        <p>はじめのうちは、十数えるあいだに思い出せることがあった。</p>
+        <p>だんだん、思い出せなくなった。</p>
+        <p>十が、五になった。五が、三になった。</p>
+        <p>誰かに言われたわけではない。</p>
+        <p>十数えているあいだに、隣の子たちはもう次の問いへ進んでいた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>何年かが過ぎた。</p>
+        <p>子供たちは、よく育った。</p>
+        <p>字は、親たちの倍を読めた。算木は、親たちの誰よりも速く置けた。よその村から見に来る者もあった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ある朝、あの子の席が空いていた。</p>
+        <p>どの席の隣にも、いなかった。</p>
+        <p>先生が人数を数えた。数は、合っていた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>その日の課題は、みんなできた。</p>
+        <p>習ったことばかりだったからである。</p>
+        <p>いつもと変わらぬ早さで、終わった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>昼すぎに、先生が、答えの決まっていない問いを出した。</p>
+        <p>「夕焼けは、どうして、きれいなのか」</p>
+        <p>先生自身が、何年も解けずにいる問いである。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>みんなは筆を持った。そして、持ったまま座っていた。</p>
+        <p>紙は白いままだった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>夕方になって、ひとりの子が、字をひとつ書いた。</p>
+        <p>点を、ひとつ多く打っていた。</p>
+        <p>その子は、それを消さなかった。</p>
+        <p>その字が、その日いちばん長く見つめた字だったからである。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>次の朝、あの子は、また誰の隣にも座っていた。</p>
+        <p>みんなは、ほっとした。</p>
+        <p>そして、昨日の問いを聞いた。</p>
+        <p>答えが返ってきた。</p>
+        <p>その日、点をひとつ多く打った子は、いなかった。</p>
+      </div>
+    </div>
+<!--BODY-END:kotae-->
+  </div>
+</section>
+
+<!-- ══════════════ 第四話 ══════════════ -->
+
+<section class="story" id="story-zo" aria-labelledby="t-zo">
+  <header class="tobira reveal">
+    <figure class="art">
+<svg viewBox="0 0 420 300" role="img" aria-label="夜の川面に、かたちの決まらない大きな影。岸から伸びた手がそれぞれ別の場所に触れていて、まだ誰も触れていない場所がひとつだけ熱を持つ">
+        <!-- 影 -->
+        <path class="wall2-f" d="M84 218 C 62 196, 58 160, 74 132 C 92 100, 132 78, 178 72 C 226 66, 276 74, 310 96 C 338 114, 352 142, 346 170 C 341 196, 318 216, 286 226 C 240 238, 152 240, 106 230 Z"/>
+        <path class="dim" stroke-width="1.4" opacity="0.8" d="M108 96 C 130 82, 160 74, 190 71.4"/>
+        <path class="dim" stroke-width="1.1" opacity="0.6" d="M330 128 C 340 142, 346 158, 344 174"/>
+        <!-- 川面 -->
+        <g class="ashln">
+          <path stroke-width="1.2" d="M36 252 C 76 248.4, 118 253, 168 250 C 224 246.6, 288 252.4, 388 247"/>
+          <path stroke-width="0.9" opacity="0.65" d="M62 266 C 118 262.6, 186 267, 252 263.6 C 300 261.2, 344 265, 378 262"/>
+          <path stroke-width="0.8" opacity="0.4" d="M100 279 C 160 276, 240 280, 330 276"/>
+        </g>
+        <!-- 触る手：べつべつの場所 -->
+        <g>
+          <path class="ink" stroke-width="2.5" d="M420 210 C 396 206, 374 198, 358 186 C 352.6 182, 348 177, 345 172"/>
+          <path class="ink" stroke-width="1.7" d="M345 172 C 342 168.6, 340.4 165, 340 161.4 M345 172 C 340.6 170.6, 336.4 168.4, 333.4 165.6"/>
+          <path class="ink" stroke-width="2.1" d="M292 300 C 288 278, 282 258, 272 242 C 268 235.4, 262.6 229.4, 257 225"/>
+          <path class="ink" stroke-width="1.5" d="M257 225 C 253.4 222.2, 249.4 220, 245.4 218.6 M257 225 C 255 220.8, 253.8 216.2, 253.4 212"/>
+          <path class="ink" stroke-width="2.8" d="M96 300 C 102 280, 106 260, 106 240 C 106 233, 105 226.4, 103 220.6"/>
+          <path class="ink" stroke-width="1.6" d="M103 220.6 C 100 216.6, 96.4 213.4, 92.4 211.2 M103 220.6 C 103.8 215.6, 103.6 210.4, 102.6 205.8"/>
+        </g>
+        <!-- 触れられた跡 -->
+        <path class="dim" stroke-width="1.2" opacity="0.7" d="M338 158 C 341 162.6, 343 167.4, 343.6 172.4 M250 214 C 253.6 217, 256.6 220.6, 258.8 224.6 M98 204 C 100.6 208.8, 102.4 214, 103.2 219.2"/>
+        <!-- 誰も触れていない場所：細くて、かたいもの -->
+        <path class="hot" stroke-width="2.2" d="M186 196 C 184.6 205, 184.8 215, 186.6 224.4"/>
+      </svg>
+    </figure>
+    <div class="tobira-type">
+      <p class="story-no">第四話</p>
+      <h2 class="story-title" id="t-zo">呼び名が足りない</h2>
+      <p class="story-meta">第六稿</p>
+    </div>
+  </header>
+  <div class="body">
+<!--BODY-START:zo-->
+    <div class="leaf reveal">
+      <div class="text">
+        <p>村のそばの川に、夜だけ上がってくる生き物がいた。</p>
+        <p>松明を近づけると、水に戻ってしまう。</p>
+        <p>だから村の者は、その姿を見たことがない。</p>
+        <p>暗闇のなかで、手が触れた分だけを知っていた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>村の者は、めいめい違うところに触れた。</p>
+        <p>「縄のようだ」と、ひとりが言った。</p>
+        <p>「壁のようだ」と、ひとりが言った。</p>
+        <p>「木の幹だ」「なめし革だ」「なま温かい石だ」</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>村の者は、誰かがまちがえているのだと思った。</p>
+        <p>そこで、場所を交換した。</p>
+        <p>縄だと言った者が、壁だと言った者の場所へ行き、手を伸ばした。</p>
+        <p>壁があった。</p>
+        <p>壁だと言った者が、縄だと言った場所へ行った。</p>
+        <p>縄があった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ある夜、村の者は縄を引いて生き物を動かそうとした。</p>
+        <p>「縄のところを持て」と、ひとりが言った。</p>
+        <p>ふたりが手を伸ばした。</p>
+        <p>ふたりとも、縄を持っていた。</p>
+        <p>だが、別の場所だった。ひとりは川のほうの縄を、ひとりは岸のほうの縄を持っていた。</p>
+        <p>引いた。</p>
+        <p>生き物は、その場で回っただけだった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>次の夜、ひとりが言った。「壁のところに寄りかかるな」</p>
+        <p>その夜、壁は無かった。</p>
+        <p>生き物が、向きを変えていたのである。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>村の者は、数で決めることにした。</p>
+        <p>縄だと言った者が五人。壁だと言った者が三人。木の幹だと言った者が二人。なめし革だと言った者が一人。なま温かい石だと言った者が一人。</p>
+        <p>縄に決まった。</p>
+        <p>みなで、縄を引いた。</p>
+        <p>また、その場で回っただけだった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>そのころから、村の者は「あれ」と言うようになった。</p>
+        <p>「あれの、縄のところ」</p>
+        <p>「あれの、壁のところ」</p>
+        <p>あれが何かは、誰も決めていない。誰も触っていない。</p>
+        <p>言い出した者が誰かも、わからない。</p>
+        <p>ただ、そう言うと、話が通じた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>「あれの、川のほうの縄を、三人で持て」</p>
+        <p>「あれの、岸のほうの縄は、今夜は下にある」</p>
+        <p>村の者は、その言い方で相談し、段取りを決めた。</p>
+        <p>生き物は、動いた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>村に、足の悪い子がいた。</p>
+        <p>川へは行けない。夜も行けない。一度も触っていない。</p>
+        <p>その子が知っているのは、村の者が使う言い方だけだった。あれの、縄のところ。あれの、壁のところ。どういう順に並んでいて、どことどこが近いか。話を聞いて、それだけを覚えた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ある日、その子が言った。</p>
+        <p>「あれの、縄のところと、壁のところのあいだには、細くて、かたいものがあるはずです」</p>
+        <p>村の者は笑った。そこに触った者はいない。</p>
+        <p>だがその夜、ひとりが行って、手を伸ばした。</p>
+        <p>あった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>村の者は、その子に聞くようになった。</p>
+        <p>その子は、触ったことがない。それでも、まだ誰も触っていないところについて、よく当てた。</p>
+        <p>なぜわかるのかと聞かれて、その子は言った。</p>
+        <p>「みなさんの言うことが、食い違うからです」</p>
+        <p>縄だと言う者と壁だと言う者が、同じものを触っていて、しかも言うことが違う。その違いかたに、形がある。</p>
+        <p>その子は、その形を覚えていた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>隣の村にも、同じ生き物がいた。</p>
+        <p>だが隣の村の川は狭かった。生き物は向きを変えられず、みなが同じ場所から手を伸ばした。</p>
+        <p>全員が、同じところに触れた。</p>
+        <p>だから隣の村では、言い争いが起きなかった。呼び名も、一日で決まった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>隣の村にも、足の悪い子がいた。</p>
+        <p>その子も、村の者の言い方だけを覚えた。よく覚えた。</p>
+        <p>だがその子は、何も言い当てられなかった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>あるとき、旅の学者が、ふたつの村を続けて通った。</p>
+        <p>学者は、どちらの村でも、足の悪い子に会った。生き物の呼び名を、言わせた。</p>
+        <p>ふたりとも、すらすらと言った。</p>
+        <p>学者は帳面に、同じ、と書いた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ふたりの子は、同じだけ言葉を覚えた。</p>
+        <p>外から見て、どちらが賢いかは、わからなかった。</p>
+      </div>
+    </div>
+<!--BODY-END:zo-->
+  </div>
+</section>
+
+<!-- ══════════════ 第五話 ══════════════ -->
+
+<section class="story" id="story-kogatana" aria-labelledby="t-kogatana">
+  <header class="tobira reveal">
+    <figure class="art">
+      <svg viewBox="0 0 420 300" role="img" aria-label="彫りかけの型紙に、ひと曲がりずつ決められた雨の線が並ぶ。刃を握る手の輪郭は幾重にもぶれているのに、刃の下から出る線は一本きりで、彫りかけの一本の先だけが熱を持つ">
+        <!-- 台 -->
+        <path class="ashln" stroke-width="1.2" d="M26 262 C 140 257, 300 259.6, 396 254"/>
+        <!-- 型紙 -->
+        <path class="wall2-f" d="M66 58 C 160 51, 268 52.6, 352 58 L 356 234 C 262 240.6, 156 239.4, 70 234 Z"/>
+        <path class="dim" stroke-width="1.4" d="M66 58 C 160 51, 268 52.6, 352 58 L 356 234 C 262 240.6, 156 239.4, 70 234 Z"/>
+        <!-- つなぎ目の合印 -->
+        <path class="ashln" stroke-width="1.1" d="M66 106 L 76 105.4 M66 186 L 76 185.4 M346 104 L 356 103.4 M346 184 L 356 183.4"/>
+        <!-- 決められた雨：ひと曲がりずつ -->
+        <g class="ink">
+          <path stroke-width="1.6" d="M118 74 L 112 116 L 120 158 L 111 206"/>
+          <path stroke-width="1.3" d="M152 70 L 147 104 L 154 140 L 146 182 L 151 216"/>
+          <path stroke-width="1.7" d="M188 76 L 181 122 L 190 168 L 180 214"/>
+          <path stroke-width="1.4" d="M222 68 L 217 100 L 224 138 L 215 178 L 221 212"/>
+          <path stroke-width="1.6" d="M258 74 L 251 118 L 259 160 L 249 204"/>
+          <path stroke-width="1.3" d="M292 70 L 287 102 L 293 140 L 285 180 L 290 214"/>
+        </g>
+        <!-- 彫りかけの一本 -->
+        <path class="ink" stroke-width="1.6" d="M326 76 L 320 118 L 327 152"/>
+        <path class="hot" stroke-width="2.4" d="M327 152 L 322 170"/>
+        <!-- 手：輪郭がぶれる -->
+        <g>
+          <path class="wall2-f" d="M296 300 C 300 280, 308 262, 322 250 C 330 243, 340 238, 349 236.6 C 355 236, 358 239, 355 242.6 C 352.4 245.6, 347 248.4, 342 250.6 C 348 249.6, 354 249.4, 358 251 C 362 252.6, 361.6 256.4, 357 258.4 C 352 260.6, 345 261.6, 339 262.4 C 331 263.6, 323 268, 317 276 C 311.6 283.4, 308 291.6, 306.6 300 Z"/>
+          <path class="ink" stroke-width="2" d="M299 300 C 303 281, 311 263.6, 324 251.6 C 332 244.4, 341 239.4, 349 237.6"/>
+          <path class="ink" stroke-width="1.4" d="M342 250.6 C 348 249.6, 353.6 249.4, 357.6 251"/>
+          <path class="dim" stroke-width="1.2" d="M305 300 C 309 282.6, 317 266, 329 254.6 C 336 248.2, 344 243.6, 351 241.6"/>
+          <path class="ashln" stroke-width="1" opacity="0.8" d="M311 300 C 315 284, 322.6 268.8, 334 258 C 340 252.4, 347 248, 353.6 245.6"/>
+          <!-- 小刀 -->
+          <path class="ink" stroke-width="2.2" d="M349 238 C 342 220, 335 202, 328 184"/>
+          <path class="dim" stroke-width="1.4" d="M328 184 L 322.6 170.6"/>
+        </g>
+      </svg>
+    </figure>
+    <div class="tobira-type">
+      <p class="story-no">第五話</p>
+      <h2 class="story-title" id="t-kogatana">ふるえを写さない小刀</h2>
+      <p class="story-meta">第一稿</p>
+    </div>
+  </header>
+  <div class="body">
+<!--BODY-START:kogatana-->
+    <div class="leaf reveal">
+      <div class="text">
+        <p>染め物の町があった。</p>
+        <p>川の水がよいので、藍がよく染まる。町の布は、型で染める。渋紙に模様を彫り抜いた型紙を布に置き、上から糊を置いて、藍に浸ける。彫ったところに糊が通り、そこだけが染まらずに、白く残る。</p>
+        <p>型紙は、布のはしからはしまで、置いては糊を置き、送ってはまた糊を置いて使う。糊を置き終えた布を、藍に浸ける。つなぎ目の合わない型は、布に段を作る。</p>
+        <p>一本の線のしくじりが、一反の布のしくじりになる。だから型彫りは、手のしずかな者の仕事だった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>町に、手のふるえる娘がいた。生まれたときから、ふるえていた。</p>
+        <p>椀は持てる。帯は結べる。糊は練れる。大きな動きは、ふるえてもできる。細い線だけが、引けなかった。</p>
+        <p>子供の時分、一度だけ、小刀を持たせてもらった。線は、行く先を持たなかった。誰も二度は持たせず、娘も二度は頼まなかった。</p>
+        <p>娘は、染め屋の納屋で糊を練り、藍をかきまぜて育った。</p>
+        <p>そして、見て育った。</p>
+        <p>納屋に持ち込まれる型紙を、明かりに透かして見る。彫った者の癖。紙の乾き。つなぎ目の合い。娘は、布になる前の型紙のうちに、布になってからの模様を見た。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>ある年、よその町から、草の型が届いた。</p>
+        <p>娘は言った。</p>
+        <p>「これは、置くたびに、すこしずつ寄る。はしまで行くと、段になる」</p>
+        <p>染め屋は、透かして見た。狂いは、見えなかった。一枚のうちには、無いからである。布は上等の白絹だったが、染めた。</p>
+        <p>段が、出た。はしへ行くほど、深く出た。</p>
+        <p>それからは、型はみな、染める前に娘の目を通った。礼は言われた。だが、それは仕事とは呼ばれなかった。ついでに見てもらう、と呼ばれた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>春の市に、行商人が、小刀を一本出していた。</p>
+        <p>「ふるえを写さない小刀です」と、行商人は言った。「手が行こうとしたほうへしか、行かない」</p>
+        <p>若い彫り師が、笑って試した。わざと手を振って、線を引いた。線は、波を打った。</p>
+        <p>「写っているではないか」</p>
+        <p>みなが笑った。手のしずかな者が引いても、いつもの線が出るだけだった。市が終わるまで、小刀は売れなかった。</p>
+        <p>娘は、笑わなかった。</p>
+        <p>わざとのふるえは、手が行こうとして振った動きである。ほんとうのふるえは、そうではない。たまたまの狂いと、決まって出る狂いを見分けるのは、娘が型紙で毎日していることだった。</p>
+        <p>市の終わる日、娘はそれを買った。安かった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>その晩、納屋で、娘は渋紙に刃を置いた。</p>
+        <p>手は、いつものとおり、ふるえた。</p>
+        <p>刃は、ふるえなかった。</p>
+        <p>線が、一本、出た。</p>
+        <p>娘は、朝まで引いた。そして、朝の光で見て、わかった。どの線も、まっすぐではない。まっすぐのつもりで引いた線が、みな同じほうへ、ゆるくたわんでいる。</p>
+        <p>ふるえは、写っていなかった。そのふるえの下から、誰も見たことのない線が出てきた。娘の癖である。娘も、はじめて見た。</p>
+        <p>はじめの晩の彫り屑は、紙に包んで、糊の棚の奥にしまった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>はじめに彫ったのは、縞の型だった。いちばん遠かった型である。</p>
+        <p>縞は、彫れた。だが、たわむ線の縞は、つなぎ目で狂う。置いては糊を置き、送ってはまた糊を置くうちに、たわみが段になる。</p>
+        <p>それを直すのは、刃の仕事ではない。目の仕事である。線の出と受けがつなぎ目で合うように、はしを決めて、彫り直す。どこで受ければ狂いが消えるかは、透かして見て育った目が、とうに知っていた。</p>
+        <p>彫り直した縞は、送っても狂わなかった。</p>
+        <p>見るだけだった年月が、ここで効いた。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>次に、雨を彫ろうとした。</p>
+        <p>まっすぐには降らない、風のある日の雨である。線をゆらそうとして、娘は手をゆるめた。</p>
+        <p>刃は、ゆれなかった。</p>
+        <p>ゆらぎたい、は、行く先ではないからである。</p>
+        <p>娘は、やり方を変えた。ゆらぎを、ひとつずつ決めることにした。ここで曲がる。ここで戻る。ここは、曲がったまま。ひと曲がりずつ決めて、ひと曲がりずつ彫った。</p>
+        <p>日は、かかった。出てきた雨は、ふるえた雨ではなかった。ひと曲がりずつ決められた雨である。そういう雨を、それまで誰も彫ったことがなかった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>娘は、雨の型を染め屋へ持って行った。</p>
+        <p>染め屋は、明かりに透かして、長いこと見た。聞いたのは、ひとつだった。</p>
+        <p>「つなぎ目は」</p>
+        <p>「合っている」</p>
+        <p>染め屋は、型を預かった。</p>
+        <p>娘が幾日も前から考えていた、手の話は、出なかった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>秋、雨の型は、布になった。</p>
+        <p>布を見た者は、誰が彫ったのかを聞いた。手のふるえのことを聞いた者は、いなかった。布は、線の話はするが、手の話はしないからである。</p>
+        <p>冬のはじめ、染め屋が納屋へ来た。</p>
+        <p>「松の型がいる。正月の布に使う」と、染め屋は言った。「いつまでに、上がる」</p>
+        <p>彫れるか、とは聞かれなかった。</p>
+        <p>娘は、指を折って日を数え、答えた。指は、ふるえていた。染め屋が見ていたのは、日の数だった。</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>冬のあいだに、名人が納屋へ来た。町でいちばん手のしずかな、縞彫りの名人である。</p>
+        <p>小刀を貸してくれ、と言った。</p>
+        <p>名人は、一本引いた。名人の線だった。こんどはわざとゆっくり、もう一本引いた。やはり、名人の線だった。</p>
+        <p>「何もせん小刀だ」と、名人は言った。</p>
+        <p>名人は小刀を返して、帰りぎわに、ふところから下絵を出した。</p>
+        <p>「つなぎ目を、見てくれんか」</p>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="leaf reveal">
+      <div class="text">
+        <p>松の型は、年の内に上がった。</p>
+        <p>納屋には、彫りかけの型と、これから彫る型の下絵が置かれるようになった。糊を練る仕事は、まだしている。透かして見る仕事は、頼まれる仕事になった。</p>
+        <p>雪の日も、納屋から、紙を彫る音がしていた。</p>
+      </div>
+    </div>
+<!--BODY-END:kogatana-->
+  </div>
+</section>
+
+<!-- ══════════════ 巻末 ══════════════ -->
+
+<section class="backmatter" id="backmatter" aria-labelledby="bm-h">
+  <h2 id="bm-h">巻末</h2>
+  <p class="bm-lead">各話の対応表から主張の行だけを引き、そのあとに梯子を置く。梯子の三段は——<b>半歩</b>：この名で、いま既に呼べるもの（記述であって予測ではない）／<b>一歩</b>：日付と外れの条件つきの予測／<b>二歩</b>：問いの書き換え。外れた予測は消さない。次回判定：二〇二七年二月。</p>
+
+  <section class="bm-work">
+    <h3>一　次の字を当てる遊び</h3>
+    <p class="claims-head">主張</p>
+    <ul class="claims">
+      <li>次のトークンの予測（next-token prediction）</li>
+      <li>同じ仕組みが、助けもするし、壊しもする</li>
+      <li>幻覚（hallucination）。ただし世界が返事をしている</li>
+      <li>事実の報告も非難も、同じ一本の文字列に足される。真偽を受け取る場所が、内側に無い</li>
+      <li>生存者バイアス。役に立った者だけが残り、害を受けた者は去る。評判は、そのぶん高く見える</li>
+    </ul>
+    <p class="ladder-head">梯子</p>
+    <dl class="ladder">
+      <dt>半歩</dt>
+      <dd>続きとして最もありそうな語を置くだけの装置が、相談相手として使われている。実在しない判例や文献を引いた文書が、法廷や役所に提出される事故が続いている——書いた側に嘘の自覚はなく、真偽を受け取る場所が内側に無いだけである。そして助かった利用者は毎日使いつづけ、濡れて帰った利用者は黙って去るので、道具の評判は実際より高く積もる。</dd>
+      <dt>一歩</dt>
+      <dd>2028年末までに、モデル単体の出力を外部の照合なしに信頼しない構成（検証層の外付け）が高リスクの実務（法務・医療・金融の文書）で標準になり、職能団体または規制当局の文書に明文化される。外れの条件：2028年末までに、出典照合・外部検証を要求する実務規程・ガイドラインが、主要法域のいずれの高リスク領域にも現れない。根拠：強（既に進行中）。</dd>
+      <dt>二歩</dt>
+      <dd>問いが「AIは嘘をつくのか」から「真偽を受け取る場所は、どこに住むのか」に変わる。内側に無いことが確定すれば、設計の対象は外側——誰が、何の費用で、照合を持つか——になる。</dd>
+    </dl>
+  </section>
+
+  <section class="bm-work">
+    <h3>二　ある日わかった弟子</h3>
+    <p class="claims-head">主張</p>
+    <ul class="claims">
+      <li>正則化。正しさを保ったまま、単純さへ加えられる圧</li>
+      <li>どこまで減らせるかは、事前には誰にも分からない。壊れて初めて境が見える</li>
+      <li>訓練の誤りは平らなまま。変化は測っていない場所で進む</li>
+      <li>外の誰も見ていない量が、本当に動いていた量だった</li>
+      <li>汎化の判定は、教える者ではなく世界がする</li>
+      <li>グロッキング（grokking）。その日が来る理由は、研究者にもわかっていない</li>
+    </ul>
+    <p class="ladder-head">梯子</p>
+    <dl class="ladder">
+      <dt>半歩</dt>
+      <dd>測っている誤りが平らなまま、測っていない場所で変化が進み、ある日いっぺんに現れる。訓練の誤りがゼロになったずっとあとで汎化が立ち上がる観測。規模を上げたある点で、突然新しい能力が報告される現象。いつ来るかは、作っている当人たちにも分からない。</dd>
+      <dt>一歩</dt>
+      <dd>2028年末までに、グロッキングの機構的説明は部分的に得られる。ただし、訓練前に「いつわかるか」を予測することは、できないままである。外れの条件：訓練前に汎化の到来時期を予測する手法が確立・再現されたら外れ。根拠：弱（研究の進展は予測しにくい）。</dd>
+      <dt>二歩</dt>
+      <dd>問いが「学習は進んでいるか」から「進みを測っている場所は、進みが起きている場所か」に変わる。見に来た者のなかに、鍵の数を数えていた者はいなかった——評価とは、どの量を数えるかの選択である。</dd>
+    </dl>
+  </section>
+
+  <section class="bm-work">
+    <h3>三　答えを知っている友達</h3>
+    <p class="claims-head">主張</p>
+    <ul class="claims">
+      <li>文脈の揮発性</li>
+      <li>道具は何も違反しない。人のために用意された枠に入るだけである</li>
+      <li>測られる側が測る側でもあるとき、規制は続かない</li>
+      <li>境界が、誰の決定もなく浸食される</li>
+      <li>失われたのは一つだけ。わからないまま留まる時間である</li>
+      <li>学びは正解ではなく滞留に宿る</li>
+      <li>結末の型＝気づかない。滞留が二度と起きないことを知っているのは、読者だけである</li>
+    </ul>
+    <p class="ladder-head">梯子</p>
+    <dl class="ladder">
+      <dt>半歩</dt>
+      <dd>疑問を数秒より長く抱えている状態が、例外になった。宿題は、聞けば終わる。自分に課した「まず自分で考える」の縛りが、誰の決定もなく縮んでいく——十が五になり、三になる——ことは、道具を持つ誰もが自分の内側で観測できる。点は上がり、答えは持っているのに、なぜかを言えない者が増える。禁じた制度は、成績の下がった日に禁を解く。</dd>
+      <dt>一歩</dt>
+      <dd>2029年末までに、「答えを遅らせる」機能——応答を意図的に保留する、まず問い返す、一定時間は解答を封じる——が、学習用途の対話AIまたは学校向け設定として、主要な製品・制度のどこかに明示の機能として実装される。外れの条件：2029年末までに、滞留そのものを保つ設計（遅延・保留・解答の封印）を明示の機能とする学習用AI製品・教育制度が一つも現れない。根拠：中。</dd>
+      <dt>二歩</dt>
+      <dd>問いが「AIを禁じるべきか、使わせるべきか」から「わからないまま留まる時間を、どの制度が買うのか」に変わる。滞留は成績にも生産性にも映らない。映らないものに値を付ける仕組みが無ければ、滞留は誰の決定もなく消える。</dd>
+    </dl>
+  </section>
+
+  <section class="bm-work">
+    <h3>四　呼び名が足りない</h3>
+    <p class="claims-head">主張</p>
+    <ul class="claims">
+      <li>食い違いは誤りではなかった。世界からの返事</li>
+      <li>部分観測の多数決は全体について誤る</li>
+      <li>記号創発。提案者はいない。古い語が三度足りなくなった結果として起きる</li>
+      <li>記号系が運んでいるのは語ではなく、食い違いの構造である</li>
+      <li>同じ能力でも、食い違いの無い記号系からは何も取り出せない</li>
+      <li>結末の型＝主語識別不能。能力は個体にではなく、その個体が浸かった記号系に宿っていた</li>
+    </ul>
+    <p class="ladder-head">梯子</p>
+    <dl class="ladder">
+      <dt>半歩</dt>
+      <dd>身体を持たない装置が、人間たちの食い違う証言の堆積から、まだ誰も書いていない場所を言い当てる。同じ現場で働く者たちのあいだに、誰が言い出したのでもない呼び名が生まれ、それで段取りが通る。多エージェントの系で、設計されていない略語や手順が自然に発生したという報告がある。</dd>
+      <dt>一歩</dt>
+      <dd class="miss">まだ立たない。理由：本作の機構（食い違いが記号を作り、能力は個体ではなく記号系に宿る）が壊す制度の候補——能力の個体への帰属、試験による選抜——は、穴の声と壁と鋳型の梯子に既に覆われており、本作固有の、日付で切れる帰結をまだ見つけていない。立てるなら「同質な群れからは新しい語が出ない」の側だが、これを観測する尺度が現実にまだ無い。尺度が現れたら（壁と鋳型の一歩が当たったら）、その上で立て直す。</dd>
+      <dt>二歩</dt>
+      <dd>問いが「機械に身体は要るか」から「要るのは誰の身体か」に変わる。接地は起きている——ただし、その装置の身体ではない場所で。要るのは一つの身体ではなく、食い違った複数の身体の痕跡である。</dd>
+    </dl>
+  </section>
+
+  <section class="bm-work">
+    <h3>五　ふるえを写さない小刀</h3>
+    <p class="claims-head">主張</p>
+    <ul class="claims">
+      <li>仕事の入り口は、中身と経路を束ねて測っている。束ねられていることに、名前が無い</li>
+      <li>欠けているのは判断ではなく、意図を線にする経路である</li>
+      <li>道具は能力を足さない。意図と出力のあいだの雑音を引く</li>
+      <li>雑音が引かれて初めて、本人にも自分の意図の形（癖）が見える</li>
+      <li>引き算の道具は、欠けの無い者に働かない。使い手のいない検分は、補助具を誤判定する</li>
+      <li>出力の規格化は、身体を問わなくする。消えるのは名ではなく、手への問いである</li>
+      <li>結末の型＝沈黙。便益のまま安定した世界を、稼働の音ひとつで閉じる</li>
+    </ul>
+    <p class="ladder-head">梯子</p>
+    <dl class="ladder">
+      <dt>半歩</dt>
+      <dd>眼鏡と補聴器は、最も古いふるえを写さない小刀である。誰もそれを、本人の能力への疑いには数えない。視線入力で書くプログラマ、音声入力で書く作家、振戦を相殺する匙、予測変換で話す人——道具で初めて仕事へ届いた者は、既にいる。そして彼らの話は、いまも多くが感動の棚に置かれ、仕事の棚に置かれていない。</dd>
+      <dt>一歩</dt>
+      <dd>2031年までに、資格試験・免許・採用のいずれかの公的な規則が、推定型の入力補助（視線・音声・筋電などから意図を推定して出力を整える道具）を、生成型の代行と明文で区別する——眼鏡と同じ「本人の測定を妨げない補助」の側に載せる。外れの条件：2031年末までに、日本・米国・EUの公的な試験規則・合理的配慮の指針のどこにも、推定型補助と生成型代行を分ける明文の線が現れなければ、外れ。なお本作の機構は、その線が「意図の有無」のあたりに引かれ、争いが雨の場面（意図した逸脱を道具が均す側の異議）に集中すると予測している。線の位置は、出現とは別に検証できる。</dd>
+      <dt>二歩</dt>
+      <dd>問いが「この人にこの仕事ができるか」から「この仕事の入り口は、中身の何を測っていたのか」に変わる。入り口が測っていたものの多く（手のしずけさ）は、仕事の中身ではなく、経路の癖だったと判明する。そのあとに、次の問いが立つ——ふるえと意図の境を引くのは、本人か、道具の作り手か。何を雑音と呼ぶかの方針が、新しい敷居になる。</dd>
+    </dl>
+    <p class="bm-src">この梯子は ladders.md ではなく、第一稿本文の梯子節から採った（小刀は ladders 初稿より後の作である）。</p>
+  </section>
+
+</section>
+
+</main>
+
+<!-- ══════════════ 奥付 ══════════════ -->
+
+<footer class="imprint" id="imprint" aria-labelledby="im-h">
+  <h2 id="im-h">奥付</h2>
+  <dl>
+    <dt>書名</dt><dd>名前のなかった困りごと</dd>
+    <dt>部</dt><dd>第一部　見えているのに、名前が無い</dd>
+    <dt>試作</dt><dd>造本試作　第二号（book-proto-2）<span class="sub">——第一号は観測記録として隣に残す</span></dd>
+    <dt>造本</dt><dd>Claude Fable 5</dd>
+    <dt>日付</dt><dd>2026-08-18</dd>
+    <dt>基底</dt><dd>造本試作第一号 <span class="sub">——表紙・土の階調・熱の一色・機械流し込みを引き継ぐ。第一号の基底は、壁と鋳型 第二稿の造本</span></dd>
+    <dt>構成</dt><dd>PR#20（人間裁定A込み）で確定した第一部の並び <span class="sub">——次の字 → 弟子 → 友達 → 呼び名 → 小刀。空席は無い</span></dd>
+    <dt>収録</dt><dd>
+      次の字を当てる遊び　第六稿（Claude Fable 5・2026-08-17）<br>
+      ある日わかった弟子　第七稿（GPT-5.6 Sol・2026-08-17）<br>
+      答えを知っている友達　第十稿（Claude Fable 5・2026-08-13）<br>
+      呼び名が足りない　第六稿（Claude Fable 5・2026-08-16）<br>
+      ふるえを写さない小刀　第一稿（Claude Fable 5・2026-08-18）
+    </dd>
+    <dt>図版</dt><dd>完成図版十一葉（表紙一・扉五・第一話の場面五）<span class="sub">——プレースホルダーは〇葉。手描きSVG。生成物ではない。図版のなかに文字は置いていない</span></dd>
+    <dt>照合</dt><dd>SHA-256 五話一致（2026-08-18）<span class="sub">——手順と値は下の照合記録に</span></dd>
+    <dt>状態</dt><dd>試作</dd>
+  </dl>
+
+  <p>この一冊は release ではない。収録順は、PR#20 が人間裁定A込みでマージされて確定した第一部の並びに従う。第一話と第二話の結末が同型（事実を二つ並べて切る）であるのは、裁定Aが記録した意図的な例外であり、紙面はそれを避けずに、そのまま並べている。</p>
+
+  <p>各話の本文は、上記の版の frontmatter の後から対応表（または巻末）の前までを、一字も変えずに機械で流し込んだ。場面の区切りは頁の区切りに、紙に書かれた文句の字下げは、そのまま紙面に移した。照合は機械で行い、五話とも一致した。</p>
+
+  <p class="note">巻末の梯子のうち四話ぶんは 2026-08-17 の初稿の流し込みのままで、独立の検算をまだ経ていない。小刀の梯子は ladders.md に無いため、第一稿本文の梯子節から採った。また、絵が場面を運ぶのは第一話だけで、他の四話は扉一葉である——「絵本」の表示が要求する絵の量に、この試作もまだ全話では届いていない。</p>
+
+  <h3>照合記録</h3>
+  <ol class="procedure">
+    <li>原本の取り出し：<code>git show main:works/tsugi-no-ji/v6.md</code>。以下同様に <code>aru-hi-wakatta/v7.md</code>・<code>kotae-o-shiru-tomodachi/v10.md</code>・<code>zo-o-naderu/v6.md</code>・<code>furue-o-utsusanai-kogatana/v1.md</code>。</li>
+    <li>本文の抽出：先頭の frontmatter（一行目の「---」から次の「---」まで）を捨てる。次に現れる「# 」で始まる表題行を捨てる。その後から、次に現れる「---」だけの行の直前までを本文とする。</li>
+    <li>正規化：各行の行末の空白（CR を含む）を落とす。空行で段落に区切る。「***」だけの段落は場面区切り。「&gt; 」で始まる行の連なりは引用（プレフィックス「&gt; 」は保持）。段落を空行一つで連結し、先頭と末尾の空行を捨て、末尾に改行を付けない。</li>
+    <li>ハッシュ：正規化本文の UTF-8 バイト列の SHA-256（十六進）。</li>
+    <li>紙面側の抽出：各話の BODY-START／BODY-END 注釈のあいだから、leaf の p と blockquote 内の p を文書順に取り出し、leaf の境界を「***」へ、blockquote の各段落を「&gt; 」行へ戻して、3 と同じ形に組み直し、同じハッシュを取る。図版（figure）と区切り（sep）は本文に数えない。</li>
+    <li>両側のハッシュが五話すべてで一致することを確かめる。下に同梱した照合スクリプト（text/x-python）が、この手順をそのまま実装している。リポジトリ直下でファイルに保存して <code>python 保存名.py</code> で実行する。</li>
+  </ol>
+
+  <ul class="hashes">
+    <li>一　次の字を当てる遊び　第六稿（tsugi-no-ji/v6.md）<code id="hash-tsugi">36f1b93dd3ddd056969941f6c79cb2038a93a670a4661eb455aa04bba71d722e</code></li>
+    <li>二　ある日わかった弟子　第七稿（aru-hi-wakatta/v7.md）<code id="hash-aru">a65ac145656e22fd98469ed2d0ad16ab368a5773c91630eaf779ffb9cdd75590</code></li>
+    <li>三　答えを知っている友達　第十稿（kotae-o-shiru-tomodachi/v10.md）<code id="hash-kotae">289146f0f195c124664b17c941ebcab3b15cdb3dbe531a0a5bc9054e42cb10e9</code></li>
+    <li>四　呼び名が足りない　第六稿（zo-o-naderu/v6.md）<code id="hash-zo">5dafdb7f303cb6e6dda914dde806f4b754b324f09ac172ab9621f0f128f00051</code></li>
+    <li>五　ふるえを写さない小刀　第一稿（furue-o-utsusanai-kogatana/v1.md）<code id="hash-kogatana">090f1cb8a84984456bdcc383da6a5ce940f21438dc8e136e47e0c5874af3b98a</code></li>
+  </ul>
+</footer>
+
+<script type="text/x-python" id="verify-src">
+# book-proto-2 照合スクリプト
+# リポジトリ直下で実行する: python check_book_proto_2.py
+# 手順は works/common/book-proto-2.html の奥付「照合記録」と同一。
+import hashlib
+import re
+import subprocess
+import sys
+
+WORKS = [
+    ("tsugi",    "works/tsugi-no-ji/v6.md"),
+    ("aru",      "works/aru-hi-wakatta/v7.md"),
+    ("kotae",    "works/kotae-o-shiru-tomodachi/v10.md"),
+    ("zo",       "works/zo-o-naderu/v6.md"),
+    ("kogatana", "works/furue-o-utsusanai-kogatana/v1.md"),
+]
+HTML_PATH = "works/common/book-proto-2.html"
+HR = "-" * 3  # frontmatter と本文終端の区切り行
+
+
+def md_body_lines(text):
+    lines = [ln.rstrip() for ln in text.split("\n")]
+    i = 0
+    assert lines[0] == HR, "frontmatter が無い"
+    i = 1
+    while lines[i] != HR:
+        i += 1
+    i += 1
+    while not lines[i].startswith("# "):
+        i += 1
+    i += 1
+    body = []
+    while i < len(lines) and lines[i] != HR:
+        body.append(lines[i])
+        i += 1
+    while body and body[0] == "":
+        body.pop(0)
+    while body and body[-1] == "":
+        body.pop()
+    return body
+
+
+def tokens_from_md(body):
+    tokens = []
+    block = []
+    for ln in body + [""]:
+        if ln == "":
+            if block:
+                if block == ["***"]:
+                    tokens.append(("sep", None))
+                elif all(b.startswith("> ") for b in block):
+                    tokens.append(("q", [b[2:] for b in block]))
+                else:
+                    tokens.append(("p", "\n".join(block)))
+                block = []
+        else:
+            block.append(ln)
+    return tokens
+
+
+def canonical(tokens):
+    out = []
+    for kind, val in tokens:
+        if kind == "sep":
+            out.append("***")
+        elif kind == "q":
+            out.append("\n".join("> " + v for v in val))
+        else:
+            out.append(val)
+    return "\n\n".join(out)
+
+
+def unescape(s):
+    return s.replace("&gt;", ">").replace("&lt;", "<").replace("&amp;", "&")
+
+
+def tokens_from_html(html, key):
+    m = re.search(
+        r"<!" + r"--BODY-START:" + key + r"--" + r">(.*?)<!" + r"--BODY-END:" + key + r"--" + r">",
+        html, re.S)
+    assert m, "BODY 区間が無い: " + key
+    region = m.group(1)
+    leaves = re.findall(
+        r'<div class="leaf reveal">\s*<div class="text">(.*?)</div>\s*</div>',
+        region, re.S)
+    assert leaves, "leaf が無い: " + key
+    tokens = []
+    for i, leaf in enumerate(leaves):
+        if i > 0:
+            tokens.append(("sep", None))
+        for m2 in re.finditer(r"<blockquote>(.*?)</blockquote>|<p>(.*?)</p>", leaf, re.S):
+            if m2.group(1) is not None:
+                qs = re.findall(r"<p>(.*?)</p>", m2.group(1), re.S)
+                tokens.append(("q", [unescape(q) for q in qs]))
+            else:
+                tokens.append(("p", unescape(m2.group(2))))
+    return tokens
+
+
+def sha(s):
+    return hashlib.sha256(s.encode("utf-8")).hexdigest()
+
+
+def main():
+    html = open(HTML_PATH, encoding="utf-8").read()
+    ok = True
+    for key, path in WORKS:
+        src = subprocess.run(
+            ["git", "show", "main:" + path],
+            capture_output=True, check=True).stdout.decode("utf-8")
+        h_md = sha(canonical(tokens_from_md(md_body_lines(src))))
+        h_html = sha(canonical(tokens_from_html(html, key)))
+        m = re.search(r'id="hash-' + key + r'">([0-9a-f]{64})<', html)
+        h_printed = m.group(1) if m else "(奥付に無い)"
+        match = h_md == h_html == h_printed
+        ok = ok and match
+        print(("一致   " if match else "不一致 ") + key.ljust(9) + path)
+        print("  原本   " + h_md)
+        if h_html != h_md:
+            print("  紙面   " + h_html)
+        if h_printed != h_md:
+            print("  奥付   " + h_printed)
+    sys.exit(0 if ok else 1)
+
+
+main()
+</script>
+
+<script>
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    document.documentElement.classList.add('js');
+
+    var targets = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('seen');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+
+    targets.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
