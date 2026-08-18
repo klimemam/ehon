@@ -8,14 +8,17 @@
 AGENTS.md        この文書
 README.md        リポジトリの説明
 index.html       索引
-docs/            始点（私的な分析）。thesis.md, open-questions.md, market.md, agent-economy.md
+docs/            始点（私的な分析）。README.md が入口
 works/           作品
 ├── README.md    規約16条 ＋ 索引（入口）
 ├── <slug>/      各作品。vN.md と critiques/
-└── common/      作品をまたぐもの。方法・地図・種・記録
+└── common/      作品をまたぐもの。README.md が分類の正本
+    ├── battle.md                         現行の批評プロトコル（パス固定）
+    ├── *.md                              版から参照される安定パス文書（図では個別名を省略）
+    └── {process,collection,backlog,research,history}/
 ```
 
-**作品ごとの批評・関連資料は、その作品の `critiques/` に置く。** 作品をまたぐものだけが `common/` に入る。
+**作品ごとの批評・関連資料は、その作品の `critiques/` に置く。** 作品をまたぐものだけが `common/` に入り、書き込み先は [`works/common/README.md`](works/common/README.md) に従う。
 
 ## 0. どのブランチに書くか
 

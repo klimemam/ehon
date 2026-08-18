@@ -1,5 +1,6 @@
 ---
 critic: Claude Fable 5
+status: archive
 date: 2026-08-13
 kind: 規約検査
 axis: 規約5・6・7・8・9・13の遵守。文学的な良し悪しは見ない

@@ -90,7 +90,7 @@ weight → エージェント → 成果物 → 学習コーパス → 次のwei
 
 ## 訂正と追補（2026-08-10）
 
-四分野の検証（[`works/positioning.md`](../works/common/positioning.md) §4）により、以下が判明した。**元の記述は消さず、ここに追記する。**
+四分野の検証（[`works/common/positioning.md`](../works/common/positioning.md) §4）により、以下が判明した。**元の記述は消さず、ここに追記する。**
 
 **1. 命題4の「独立性を前提としている」は、多様性予測定理については誤りだった。**（上に訂正済み）
 
