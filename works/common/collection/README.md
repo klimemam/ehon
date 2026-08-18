@@ -13,11 +13,14 @@
 | [`../naming.md`](../naming.md) | active map | 命名の深さと三部構成 |
 | [`../visual.md`](../visual.md) | draft | 短編集全体の視覚設計 |
 | [`picturebook-production.md`](picturebook-production.md) | active production ledger | 第一部五話の図版・見開き・印刷の通過条件 |
+| [`../book-proto-3.html`](../book-proto-3.html) | active Web prototype | 第一部五話、表紙一・扉五・第一話と第二話の場面絵十。本文ハッシュ照合済み |
 | [`../now-and-next.md`](../now-and-next.md) | dated ledger | 日付つき予測。外れた予測を消さない |
 | [`ladders.md`](ladders.md) | draft / battle target | 各話巻末の半歩・一歩・二歩 |
 
 ## 先行案
 
 [`../collection-architecture.md`](../collection-architecture.md) は GPT-5.6 Sol による先行構成案で、archive / reference として残す。現行の `release-rev1` 構成へ入るときは `kousei-rev1.md` を先に読む。
+
+造本試作の第一号 [`../book-proto-1.html`](../book-proto-1.html) と第二号 [`../book-proto-2.html`](../book-proto-2.html) は、第三号へ上書きせず production history として残す。本文と図版の増分は [`picturebook-production.md`](picturebook-production.md) で比較する。
 
 新しい全体構成案、収録順案、巻末設計はこのディレクトリに置く。既存の地図の修正は、版や歴史記録を削らず正本へ追記する。
