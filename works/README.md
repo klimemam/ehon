@@ -329,6 +329,8 @@ v6.md      ← 両者を統合。何を採ったかを明記する
 
 > **訂正（2026-08-18）：** この文は規約制定時の観測である。現在は [`common/book-proto-2.html`](common/book-proto-2.html) に十一葉の手描きSVGがある。ただし、場面絵を持つのは第一部五話のうち一話だけで、五話とも `spreads:` は未宣言である。規約12を満たしたという意味ではない。現況は [`common/collection/picturebook-production.md`](common/collection/picturebook-production.md) に記録する。
 
+> **更新（2026-08-19）：** [`common/book-proto-3.html`](common/book-proto-3.html) は十六葉（表紙一・扉五・場面十）のSVGを持ち、場面絵を持つ話は二話になった。残る三話は扉だけで、`spreads:` と紙の造本も未決である。さらに、初回の第二話五案は独立批評で全件修正になった。量が増えたことと規約9・12を通ったことは同義でない。
+
 規則：
 
 - フロントマターに `spreads:`（見開き数）を置く
