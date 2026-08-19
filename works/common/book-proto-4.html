@@ -2619,7 +2619,7 @@
     <dt>状態</dt><dd>公開ベータ（未完・修正は次版へ）</dd>
   </dl>
 
-  <p>この一冊は完成版ではない。制作途中の状態を release-rev1 として固定し、公開ベータにした。公開後に見つかった誤りはこの版を消さず、次の release で直す。収録順は、PR#20 が人間裁定A込みでマージされて確定した第一部の並びに従う。第一話と第二話の結末が同型（事実を二つ並べて切る）であるのは、裁定Aが記録した意図的な例外であり、紙面はそれを避けずに、そのまま並べている。</p>
+  <p>この一冊は完成版ではない。頁めくり式の造本試作第四号を release-rev3 として固定し、公開ベータにした。release-rev1 はスクロール式の第三号、release-rev2 は第四号の初出だが版名表示に誤りのある版として残す。公開後に見つかった誤りは固定版を消さず、次の release で直す。収録順は、PR#20 が人間裁定A込みでマージされて確定した第一部の並びに従う。第一話と第二話の結末が同型（事実を二つ並べて切る）であるのは、裁定Aが記録した意図的な例外であり、紙面はそれを避けずに、そのまま並べている。</p>
 
   <p>各話の本文は、上記の版の frontmatter の後から対応表（または巻末）の前までを、一字も変えずに機械で流し込んだ。場面の区切りは頁の区切りに、紙に書かれた文句の字下げは、そのまま紙面に移した。照合は機械で行い、五話とも一致した。</p>
 
@@ -2638,7 +2638,7 @@
 <div class="sheet">
   <h3>照合記録</h3>
   <ol class="procedure">
-    <li>原本の取り出し：<code>git show release-rev1:works/tsugi-no-ji/v6.md</code>。以下同様に <code>aru-hi-wakatta/v7.md</code>・<code>kotae-o-shiru-tomodachi/v10.md</code>・<code>zo-o-naderu/v6.md</code>・<code>furue-o-utsusanai-kogatana/v1.md</code>。公開前の検査だけは環境変数 <code>EHON_SOURCE_REF=HEAD</code> で固定候補を指定する。</li>
+    <li>原本の取り出し：<code>git show release-rev3:works/tsugi-no-ji/v6.md</code>。以下同様に <code>aru-hi-wakatta/v7.md</code>・<code>kotae-o-shiru-tomodachi/v10.md</code>・<code>zo-o-naderu/v6.md</code>・<code>furue-o-utsusanai-kogatana/v1.md</code>。公開前の検査だけは環境変数 <code>EHON_SOURCE_REF=HEAD</code> で固定候補を指定する。</li>
     <li>本文の抽出：先頭の frontmatter（一行目の「---」から次の「---」まで）を捨てる。次に現れる「# 」で始まる表題行を捨てる。その後から、次に現れる「---」だけの行の直前までを本文とする。</li>
     <li>正規化：各行の行末の空白（CR を含む）を落とす。空行で段落に区切る。「***」だけの段落は場面区切り。「&gt; 」で始まる行の連なりは引用（プレフィックス「&gt; 」は保持）。段落を空行一つで連結し、先頭と末尾の空行を捨て、末尾に改行を付けない。</li>
     <li>ハッシュ：正規化本文の UTF-8 バイト列の SHA-256（十六進）。</li>
@@ -2687,7 +2687,7 @@ WORKS = [
     ("kogatana", "works/furue-o-utsusanai-kogatana/v1.md"),
 ]
 HTML_PATH = "works/common/book-proto-4.html"
-SOURCE_REF = os.environ.get("EHON_SOURCE_REF", "release-rev1")
+SOURCE_REF = os.environ.get("EHON_SOURCE_REF", "release-rev3")
 HR = "-" * 3  # frontmatter と本文終端の区切り行
 
 

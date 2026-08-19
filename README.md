@@ -7,6 +7,14 @@
 
 ## 公開ベータ
 
+> **更新（release-rev3）：** 現在の公開候補は、頁めくり式の造本試作第四号である。`release-rev2` で本文と索引を第四号へ切り替えたが、索引・奥付・照合器に `release-rev1` という版名が残った。固定済みの rev2 は書き換えず、その不一致も記録として残し、版名だけを訂正した状態を `release-rev3` として固定する。
+
+- 現在読む：[`works/common/book-proto-4.html`](works/common/book-proto-4.html)
+- 現在の固定版：`release-rev3`
+- 作業の続き：`main`
+
+### release-rev1 を切ったときの記録
+
 2026-08-19、人間の裁定により、造本試作第三号『名前のなかった困りごと』を **公開ベータ** として固定することにした。完成版ではない。五話のうち場面絵があるのは二話だけで、紙の造本・全話の図版・読者検証は残っている。
 
 - 読む：[`works/common/book-proto-3.html`](works/common/book-proto-3.html)

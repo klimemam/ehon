@@ -12,6 +12,16 @@
 4. 先行研究・文脈は [`research/README.md`](research/README.md)
 5. 過去の検算・改稿記録は [`history/README.md`](history/README.md)
 
+## 造本試作と固定版
+
+| 固定版 | 造本 | 状態 |
+| --- | --- | --- |
+| `release-rev1` | [`book-proto-3.html`](book-proto-3.html) | スクロール式の第三号。最初の公開ベータ |
+| `release-rev2` | [`book-proto-4.html`](book-proto-4.html) | 頁めくり式の第四号を初めて公開。ただし索引・奥付・照合器の版名が rev1 のまま残った |
+| `release-rev3` | [`book-proto-4.html`](book-proto-4.html) | rev2 の本文と造本を変えず、版名表示と照合参照だけを訂正した現在の公開候補 |
+
+造本を直すときは旧試作を上書きしない。固定 release に誤りが見つかった場合も、その枝を直さず次の番号へ進む。
+
 ## 分類と正本
 
 | 分類 | 新しく書く場所 | 現行の正本・入口 |
