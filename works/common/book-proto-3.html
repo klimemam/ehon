@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>名前のなかった困りごと（造本試作・第三号）</title>
+<title>名前のなかった困りごと（公開ベータ／造本試作・第三号）</title>
+<meta name="description" content="五つの寓話を収録した造本試作第三号。完成前の状態を公開ベータとして固定しています。">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#1B1712">
 
 <style>
   /* 造本試作第三号。第二号（book-proto-2）の五話・本文照合・視覚文法を
@@ -83,6 +86,7 @@
   /* ─────────── 表紙 ─────────── */
 
   .cover {
+    position: relative;
     min-height: 100svh;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -96,6 +100,24 @@
 
   .cover-art { width: 100%; }
   .cover-art svg { width: 100%; height: auto; display: block; }
+
+  .beta-mark {
+    position: absolute;
+    inset-block-start: clamp(1rem, 3vw, 2rem);
+    inset-inline-start: clamp(1rem, 3vw, 2rem);
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--bronze);
+    color: var(--ink);
+    background: color-mix(in srgb, var(--ground) 88%, transparent);
+    font-family: var(--gothic);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    line-height: 1.6;
+    z-index: 2;
+  }
+
+  .beta-mark span { color: var(--ink-dim); letter-spacing: 0.1em; }
 
   .cover-type {
     writing-mode: vertical-rl;
@@ -401,6 +423,7 @@
 
   .imprint p { margin: 0 0 1rem; max-width: 38em; }
   .imprint .note { border-left: 2px solid var(--bronze); padding-left: 1rem; }
+  .imprint a { color: var(--bronze); text-underline-offset: 0.2em; }
 
   .procedure { margin: 0 0 1.6rem; padding-left: 1.4em; max-width: 40em; }
   .procedure li { margin-bottom: 0.4rem; }
@@ -519,6 +542,7 @@
 <!-- ══════════════ 表紙 ══════════════ -->
 
 <header class="cover">
+  <p class="beta-mark">PUBLIC BETA<br><span>未完・更新予定</span></p>
   <div class="cover-art">
 <svg viewBox="0 148 420 182" role="img" aria-label="棚の上に、本と、束ねた縄と、鍵と、筆と、小刀が並ぶ。小刀は置かれたばかりで、下から伸びた手が、まだ棚のふちに掛かっている">
       <!-- 棚板 -->
@@ -2056,14 +2080,16 @@
     </dd>
     <dt>図版</dt><dd>完成図版十六葉（表紙一・扉五・第一話の場面五・第二話の場面五）<span class="sub">——プレースホルダーは〇葉。手描きSVG。生成物ではない。図版のなかに文字は置いていない</span></dd>
     <dt>照合</dt><dd>SHA-256 五話一致（2026-08-19）<span class="sub">——手順と値は下の照合記録に</span></dd>
-    <dt>状態</dt><dd>試作</dd>
+    <dt>状態</dt><dd>公開ベータ（未完・更新予定）</dd>
   </dl>
 
-  <p>この一冊は release ではない。収録順は、PR#20 が人間裁定A込みでマージされて確定した第一部の並びに従う。第一話と第二話の結末が同型（事実を二つ並べて切る）であるのは、裁定Aが記録した意図的な例外であり、紙面はそれを避けずに、そのまま並べている。</p>
+  <p>この一冊は完成版ではない。制作途中の状態を release-rev1 として固定し、公開ベータにした。公開後に見つかった誤りはこの版を消さず、次の release で直す。収録順は、PR#20 が人間裁定A込みでマージされて確定した第一部の並びに従う。第一話と第二話の結末が同型（事実を二つ並べて切る）であるのは、裁定Aが記録した意図的な例外であり、紙面はそれを避けずに、そのまま並べている。</p>
 
   <p>各話の本文は、上記の版の frontmatter の後から対応表（または巻末）の前までを、一字も変えずに機械で流し込んだ。場面の区切りは頁の区切りに、紙に書かれた文句の字下げは、そのまま紙面に移した。照合は機械で行い、五話とも一致した。</p>
 
   <p class="note">これは完成形の縮尺見本ではない。巻末の梯子のうち四話ぶんは 2026-08-17 の初稿の流し込みのままで、独立の検算をまだ経ていない。小刀の梯子は ladders.md に無いため、第一稿本文の梯子節から採った。また、絵が場面を運ぶのは第一話と第二話だけで、残る三話は扉一葉である——「絵本」の表示が要求する絵の量に、この試作もまだ全話では届いていない。</p>
+
+  <p>読後に残った問い、不自然な数や因果、読みにくかった箇所は、<a href="https://github.com/klimemam/ehon/issues/75">公開ベータの受付</a>へ。感想も誤りも、次の版を作るための世界からの返事として残す。</p>
 
   <h3>照合記録</h3>
   <ol class="procedure">
