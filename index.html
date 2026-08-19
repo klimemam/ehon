@@ -3,8 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>collective-weights ── 寓話</title>
-<meta name="description" content="同一のweightから起動された多数のエージェントは集合知能になりうるか。その問いから生まれた寓話の連作。">
+<title>名前のなかった困りごと ── 公開ベータ</title>
+<meta name="description" content="AI・人間・社会の名前のなかった困りごとを描く寓話集。造本試作第三号を公開ベータとして読めます。">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#B3B2A4">
+<meta property="og:type" content="website">
+<meta property="og:title" content="名前のなかった困りごと ── 公開ベータ">
+<meta property="og:description" content="完成前の造本試作を、公開ベータとして固定しました。五つの寓話を収録しています。">
 <style>
 :root{
   --stone:#B3B2A4; --stone-lit:#D2D0C1; --stone-deep:#8C8B7C;
@@ -24,6 +29,14 @@ body::after{
 }
 .wrap{max-width:46rem;margin:0 auto;padding:clamp(3rem,10vh,7rem) clamp(1.4rem,5vw,3rem) 6rem;position:relative;z-index:1}
 
+.beta-flag{
+  display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.35rem;
+  padding:.42rem .72rem;border:1px solid rgba(70,68,60,.42);
+  background:rgba(210,208,193,.5);font-family:var(--gothic);
+  font-size:.72rem;letter-spacing:.18em;color:#3A382F;
+}
+.beta-flag span{font-size:.66rem;letter-spacing:.1em;color:rgba(51,49,43,.62)}
+
 h1{
   font-size:clamp(1.9rem,5vw,2.7rem); font-weight:600; letter-spacing:.24em;
   color:#3A382F; margin-bottom:.9rem;
@@ -31,6 +44,23 @@ h1{
 }
 .lede{max-width:32em;margin-bottom:.4rem}
 .note{font-family:var(--gothic);font-size:.78rem;letter-spacing:.1em;color:rgba(51,49,43,.5);line-height:2}
+
+.beta-card{
+  margin:2.4rem 0 3.2rem;padding:clamp(1.25rem,4vw,2rem);
+  border:1px solid rgba(51,49,43,.25);border-left:4px solid var(--molten);
+  background:rgba(210,208,193,.38);
+}
+.beta-card h2{margin:0 0 .8rem;font-size:.76rem;color:rgba(51,49,43,.75)}
+.beta-card p{font-size:.94rem;line-height:1.9;margin:.55rem 0}
+.beta-card .limits{font-family:var(--gothic);font-size:.76rem;color:rgba(51,49,43,.62)}
+.beta-card .cta{
+  display:inline-block;margin-top:1rem;padding:.78rem 1.05rem;
+  color:#F2EBDD;background:#443F35;text-decoration:none;
+  font-family:var(--gothic);font-size:.82rem;letter-spacing:.12em;
+}
+.beta-card .cta:hover,.beta-card .cta:focus-visible{background:#2F2B25;outline:2px solid var(--molten);outline-offset:3px}
+.beta-card .feedback{display:inline-block;margin-left:1rem;font-family:var(--gothic);font-size:.76rem;color:rgba(51,49,43,.72)}
+@media (max-width:34rem){.beta-card .feedback{display:block;margin:1rem 0 0}}
 
 hr{border:0;height:1px;background:rgba(51,49,43,.18);margin:3rem 0 2.2rem}
 
@@ -63,13 +93,22 @@ footer a{color:rgba(51,49,43,.62)}
 <body>
 <div class="wrap">
 
-  <h1>壁と鋳型</h1>
+  <div class="beta-flag">PUBLIC BETA <span>release-rev1</span></div>
+  <h1>名前のなかった困りごと</h1>
   <p class="lede">同一の鋳型から生まれた多数のものは、集合知能になりうるか。なるとすれば、それはどこに宿り、何によって進化するのか。</p>
-  <p class="note">その問いから生まれた寓話の連作。結論は出ていない。</p>
+  <p class="note">その問いから生まれた寓話の連作。結論も、造本も、まだ途中にある。</p>
+
+  <section class="beta-card" aria-labelledby="beta-heading">
+    <h2 id="beta-heading">公 開 ベ ー タ</h2>
+    <p>五つの寓話を、一冊として読むための造本試作です。完成を待たず、この段階を <b>release-rev1</b> として固定しました。</p>
+    <p class="limits">第一話と第二話には場面絵があります。残る三話は扉絵のみで、紙の造本、全話の図版、対象年齢の検証は未完です。公開後に見つかった誤りはこの版を消さず、次の release で直します。</p>
+    <a class="cta" href="works/common/book-proto-3.html">公開ベータを読む</a>
+    <a class="feedback" href="https://github.com/klimemam/ehon/issues/75">感想・誤りを知らせる</a>
+  </section>
 
   <hr>
 
-  <h2>読 め る も の</h2>
+  <h2>単 篇 の 試 作</h2>
   <ul>
     <li>
       <a href="works/kabe-to-igata/ehon-v1.html">
