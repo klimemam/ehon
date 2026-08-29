@@ -33,7 +33,10 @@ def writer(body):
 
 
 def declared_turn(body):
-    m = re.findall(r"current turn\s*[:：]\s*\**\s*([A-Za-z人間]+)", body or "")
+    # 行頭の宣言だけを採る。散文中の言及（「`current turn: 人間` へ一本化すべきか」等）を
+    # 宣言と誤認しないため。PR#84 が自分自身の判定を誤ったことで見つかった。
+    m = re.findall(r"^[ 	]*(?:[-*]\s*)?current turn\s*[:：]\s*\**\s*([A-Za-z人間]+)",
+                   body or "", re.M)
     if not m:
         return None
     v = m[-1]
