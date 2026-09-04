@@ -137,7 +137,7 @@ status: 草稿
 
 | 寓話 | 主張 |
 | --- | --- |
-| 椀ひとつが、三度、頼まれて生まれる | 多層の下請け。認知の外注の連鎖（[`backlog-agent-economy.md`](../common/backlog-agent-economy.md) S1） |
+| 椀ひとつが出来るまでに、三度、人が人に頼む | 多層の下請け。認知の外注の連鎖（[`backlog-agent-economy.md`](../common/backlog-agent-economy.md) S1） |
 | 知っているのは頭で、手は知らなかった | 前提1：技能は写せない（暗黙知） |
 | 日は一日しかない | 前提2：時間は有限。**この二つが多層下請けの柱である** |
 | 手形 | 規約6の設定。技能の複製可能性（skill＝prompt+tools が写せる） |
