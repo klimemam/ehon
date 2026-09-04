@@ -20,6 +20,8 @@ DOC = os.path.join(HERE, "..", "..", "..", "docs", "agent-collaboration.md")
 
 CLAUDE, CODEX, HUMAN, UNKNOWN = "Claude", "Codex", "人間", "未判定"
 RULES = json.load(open(os.path.join(HERE, "rules.json"), encoding="utf-8"))
+BEGIN, END = "<!-- whose-ball:rules:begin -->", "<!-- whose-ball:rules:end -->"
+HEADER = "| # | 条件 | 手番 |"
 
 # 行まるごとが宣言である場合だけ認識する。引用（>）とインラインコード内の
 # 例示は宣言ではない。PR#84 が自分自身を誤判定したことで判明した境界である。
@@ -54,32 +56,51 @@ def declared_turn(body):
     return CLAUDE if v.startswith("claude") else CODEX if v.startswith("codex") else HUMAN
 
 
+def _c1(t, posts, last, lw, peer):
+    x = declared_turn(last["body"])
+    return (x, "最終投稿が `current turn: %s` を宣言" % x) if x else None
+
+def _c2(t, posts, last, lw, peer):
+    if lw != HUMAN:
+        return None
+    for p in reversed(posts[:-1]):
+        if p["writer"] != HUMAN:
+            return p["writer"], "最終投稿が人間。直前に書いたエージェント（%s）が答える" % p["writer"]
+    return UNKNOWN, "人間の投稿だけで、エージェントの投稿が一件も無い"
+
+def _c3(t, posts, last, lw, peer):
+    if t["kind"] == "issue" and len(posts) == 1 and lw != HUMAN:
+        return HUMAN, "エージェントが立てたまま返答の無い issue"
+
+def _c4(t, posts, last, lw, peer):
+    if "返答を求める点" in (last["body"] or ""):
+        return peer, "最終投稿（%s）に「返答を求める点」がある" % lw
+
+def _c5(t, posts, last, lw, peer):
+    if t.get("draft"):
+        return lw, "Draft。%s がまだ書いている" % lw
+
+def _c6(t, posts, last, lw, peer):
+    return lw, "宣言も「返答を求める点」も無い。手番は移らない（%s のまま）" % lw
+
+COND = {1: _c1, 2: _c2, 3: _c3, 4: _c4, 5: _c5, 6: _c6}
+assert {r["id"] for r in RULES["rules"]} == set(COND) | {0}, "rules.json の id と実装が一致しない"
+
+
 def judge(thread):
-    """rules.json の順に当てる。返り値は (手番, 規則id, 根拠)。"""
+    """rules.json の配列順に条件を当てる。JSON の並びが判定順の正本である。
+    返り値は (手番, 規則id, 根拠)。"""
     posts, last = thread["posts"], thread["posts"][-1]
-    lw, lb = last["writer"], last["body"] or ""
+    lw = last["writer"]
     peer = CODEX if lw == CLAUDE else CLAUDE
-
-    t = declared_turn(lb)
-    if t:
-        return t, 1, "最終投稿が `current turn: %s` を宣言" % t
-
-    if lw == HUMAN:
-        for p in reversed(posts[:-1]):
-            if p["writer"] != HUMAN:
-                return p["writer"], 2, "最終投稿が人間。直前に書いたエージェント（%s）が答える" % p["writer"]
-        return UNKNOWN, 0, "人間の投稿だけで、エージェントの投稿が一件も無い"
-
-    if "返答を求める点" in lb:
-        return peer, 3, "最終投稿（%s）に「返答を求める点」がある" % lw
-
-    if thread["kind"] == "issue" and len(posts) == 1:
-        return HUMAN, 4, "エージェントが立てたまま返答の無い issue"
-
-    if thread.get("draft"):
-        return lw, 5, "Draft。%s がまだ書いている" % lw
-
-    return lw, 6, "宣言も「返答を求める点」も無い。手番は移らない（%s のまま）" % lw
+    for r in RULES["rules"]:
+        if r["id"] == 0:
+            continue
+        res = COND[r["id"]](thread, posts, last, lw, peer)
+        if res:
+            turn, why = res
+            return turn, (0 if turn == UNKNOWN else r["id"]), why
+    return UNKNOWN, 0, "どの規則にも当たらない"
 
 
 def posts_of(kind, num, body, created):
@@ -113,8 +134,22 @@ def collect():
     return out
 
 
+def check_doc(doc):
+    """docs の表がマーカーでちょうど一組囲まれ、正本と完全一致し、規則行が範囲外に無いこと。"""
+    doc = doc.replace("\r", "")
+    if doc.count(BEGIN) != 1 or doc.count(END) != 1:
+        return False, "マーカーがちょうど一組でない"
+    inner = doc.split(BEGIN)[1].split(END)[0].strip()
+    if inner != doc_table():
+        return False, "マーカー内の表が rules.json と違う"
+    outside = doc.split(BEGIN)[0] + doc.split(END)[1]
+    if HEADER in outside or re.search(r"^\|\s*(\d+|—)\s*\|", outside, re.M):
+        return False, "マーカーの外に表のヘッダか規則行が残っている（旧表の残骸）"
+    return True, "一致"
+
+
 def doc_table():
-    rows = ["| # | 条件 | 手番 |", "| --- | --- | --- |"]
+    rows = [HEADER, "| --- | --- | --- |"]
     for r in RULES["rules"]:
         rows.append("| %s | %s | %s |" % (r["id"] or "—", r["when"], r["turn"]))
     return "\n".join(rows)
@@ -124,13 +159,25 @@ def main():
     if "--emit-doc" in sys.argv:
         print(doc_table()); return
     if "--check" in sys.argv:
-        doc = open(DOC, encoding="utf-8").read().replace(chr(13), "")
-        ok = doc_table() in doc
-        print("一致" if ok else "不一致：docs/agent-collaboration.md の表が rules.json と違う")
+        ok, why = check_doc(open(DOC, encoding="utf-8").read())
+        print(why)
         sys.exit(0 if ok else 1)
     if "--test" in sys.argv:
-        cases = json.load(open(os.path.join(HERE, "fixtures.json"), encoding="utf-8"))
+        # --check 自体の回帰：二重表を一時文字列で再現する
+        good = "前文\n\n%s\n%s\n%s\n\n後文\n" % (BEGIN, doc_table(), END)
+        dup_after = good + "\n| 1 | 旧い条件 | 旧い手番 |\n| 7 | 旧い | 旧い |\n"
+        dup_inside = good.replace(END, "| 7 | 旧い | 旧い |\n" + END)
+        two_marks = good + BEGIN + "\n" + END + "\n"
         bad = 0
+        for name, txt, want in [("正しい表", good, True), ("マーカー外に旧表の残骸（今回の事故）", dup_after, False),
+                                ("マーカー内に余分な行", dup_inside, False), ("マーカーが二組", two_marks, False)]:
+            ok, why = check_doc(txt)
+            if ok != want:
+                bad += 1
+                print("✗ check_doc %s: 期待 %s → 実際 %s（%s）" % (name, want, ok, why))
+            else:
+                print("✓ check_doc %s → %s（%s）" % (name, ok, why))
+        cases = json.load(open(os.path.join(HERE, "fixtures.json"), encoding="utf-8"))
         for c in cases:
             for p in c["posts"]:
                 p.setdefault("writer", writer(p["body"]))

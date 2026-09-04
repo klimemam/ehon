@@ -80,7 +80,7 @@
   "name": "返答を求める点があれば相手へ",
   "kind": "PR",
   "draft": false,
-  "rule": 3,
+  "rule": 4,
   "expect": "Codex",
   "posts": [
    {
@@ -93,7 +93,7 @@
   "name": "エージェントが立てたまま返答の無い issue は人間",
   "kind": "issue",
   "draft": false,
-  "rule": 4,
+  "rule": 3,
   "expect": "人間",
   "posts": [
    {
@@ -142,6 +142,32 @@
    {
     "body": "追記だが署名を忘れた",
     "at": "2"
+   }
+  ]
+ },
+ {
+  "name": "未応答 issue に「返答を求める点」があっても人間（Codex 採決）",
+  "kind": "issue",
+  "draft": false,
+  "rule": 3,
+  "expect": "人間",
+  "posts": [
+   {
+    "body": "逐文で見てほしい。\n\n## 返答を求める点\n\n1. 不自然な箇所\n\n🤖 Claude Fable 5.1",
+    "at": "1"
+   }
+  ]
+ },
+ {
+  "name": "未応答 issue でも明示宣言があれば宣言先",
+  "kind": "issue",
+  "draft": false,
+  "rule": 1,
+  "expect": "Codex",
+  "posts": [
+   {
+    "body": "分担案。\n\ncurrent turn: **Codex**\n\n🤖 Claude Fable 5.1",
+    "at": "1"
    }
   ]
  }
