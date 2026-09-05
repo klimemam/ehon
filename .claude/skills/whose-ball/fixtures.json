@@ -1,0 +1,174 @@
+[
+ {
+  "name": "宣言の行頭アンカー（PR#84 の実データ）",
+  "kind": "PR",
+  "draft": false,
+  "rule": 1,
+  "expect": "Codex",
+  "posts": [
+   {
+    "body": "- current turn: **Codex**（規則への異議、または追認）\n\n宣言（`current turn: 人間`）へ一本化して、キーワード判定を落とすべきか\n\n🤖 Claude Opus 5",
+    "at": "1"
+   }
+  ]
+ },
+ {
+  "name": "引用行の宣言は宣言でない",
+  "kind": "PR",
+  "draft": false,
+  "rule": 6,
+  "expect": "Claude",
+  "posts": [
+   {
+    "body": "前回はこう書いた。\n\n> current turn: Codex\n\n今回は保留する。\n\n🤖 Claude Opus 5",
+    "at": "1"
+   }
+  ]
+ },
+ {
+  "name": "レビュー要約の宣言が本文を上書きする（PR#84 の現状）",
+  "kind": "PR",
+  "draft": false,
+  "rule": 1,
+  "expect": "Claude",
+  "posts": [
+   {
+    "body": "- current turn: **Codex**\n\n🤖 Claude Opus 5",
+    "at": "1"
+   },
+   {
+    "body": "差し戻し。\n\ncurrent turn: **Claude**\n\n— Codex",
+    "at": "2"
+   }
+  ]
+ },
+ {
+  "name": "人間が書けば手番はエージェントへ移る",
+  "kind": "PR",
+  "draft": false,
+  "rule": 2,
+  "expect": "Claude",
+  "posts": [
+   {
+    "body": "直した。\n\n🤖 Claude Opus 5",
+    "at": "1"
+   },
+   {
+    "body": "行って帰るなら渡らないでしょ？",
+    "at": "2"
+   }
+  ]
+ },
+ {
+  "name": "人間の投稿だけなら未判定（Claude へ暗黙割当てしない）",
+  "kind": "issue",
+  "draft": false,
+  "rule": 0,
+  "expect": "未判定",
+  "posts": [
+   {
+    "body": "読みづらい",
+    "at": "1"
+   },
+   {
+    "body": "ここも",
+    "at": "2"
+   }
+  ]
+ },
+ {
+  "name": "返答を求める点があれば相手へ",
+  "kind": "PR",
+  "draft": false,
+  "rule": 4,
+  "expect": "Codex",
+  "posts": [
+   {
+    "body": "直した。\n\n## 返答を求める点\n\n1. 検算\n\n🤖 Claude Opus 5",
+    "at": "1"
+   }
+  ]
+ },
+ {
+  "name": "エージェントが立てたまま返答の無い issue は人間",
+  "kind": "issue",
+  "draft": false,
+  "rule": 3,
+  "expect": "人間",
+  "posts": [
+   {
+    "body": "逐文で指摘してください。\n\n🤖 Claude Opus 5",
+    "at": "1"
+   }
+  ]
+ },
+ {
+  "name": "Draft は書き手自身",
+  "kind": "PR",
+  "draft": true,
+  "rule": 5,
+  "expect": "Codex",
+  "posts": [
+   {
+    "body": "書きかけ。\n\n— Codex",
+    "at": "1"
+   }
+  ]
+ },
+ {
+  "name": "無宣言では手番は移らない（規則6・既定は書き手自身）",
+  "kind": "PR",
+  "draft": false,
+  "rule": 6,
+  "expect": "Codex",
+  "posts": [
+   {
+    "body": "参考までに調べた結果を貼る。\n\n— Codex",
+    "at": "1"
+   }
+  ]
+ },
+ {
+  "name": "署名を落とすと人間として数えられる",
+  "kind": "PR",
+  "draft": false,
+  "rule": 2,
+  "expect": "Codex",
+  "posts": [
+   {
+    "body": "検算した。\n\n— Codex",
+    "at": "1"
+   },
+   {
+    "body": "追記だが署名を忘れた",
+    "at": "2"
+   }
+  ]
+ },
+ {
+  "name": "未応答 issue に「返答を求める点」があっても人間（Codex 採決）",
+  "kind": "issue",
+  "draft": false,
+  "rule": 3,
+  "expect": "人間",
+  "posts": [
+   {
+    "body": "逐文で見てほしい。\n\n## 返答を求める点\n\n1. 不自然な箇所\n\n🤖 Claude Fable 5.1",
+    "at": "1"
+   }
+  ]
+ },
+ {
+  "name": "未応答 issue でも明示宣言があれば宣言先",
+  "kind": "issue",
+  "draft": false,
+  "rule": 1,
+  "expect": "Codex",
+  "posts": [
+   {
+    "body": "分担案。\n\ncurrent turn: **Codex**\n\n🤖 Claude Fable 5.1",
+    "at": "1"
+   }
+  ]
+ }
+]
