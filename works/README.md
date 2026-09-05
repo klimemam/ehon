@@ -22,7 +22,7 @@
 | [`aru-hi-wakatta`](aru-hi-wakatta/) | ある日わかった弟子 | [v7](aru-hi-wakatta/v7.md) |
 | [`bango-o-utsu-mono`](bango-o-utsu-mono/) | 番号を打つ者 | [v5](bango-o-utsu-mono/v5.md) |
 | [`chomen-ni-nai-mise`](chomen-ni-nai-mise/) | 帳面にない店 | [v6](chomen-ni-nai-mise/v6.md) |
-| [`dare-no-te-mo`](dare-no-te-mo/) | 誰の手も写っていない絵 | [v7](dare-no-te-mo/v7.md) |
+| [`dare-no-te-mo`](dare-no-te-mo/) | 誰の手も写っていない絵 | [v8](dare-no-te-mo/v8.md) |
 | [`hazure-no-fuda`](hazure-no-fuda/) | はずれの札 | [v2](hazure-no-fuda/v2.md) |
 | [`hako-o-oroshita-toshi`](hako-o-oroshita-toshi/) | 箱を下ろした年 | [v1](hako-o-oroshita-toshi/v1.md) |
 | [`hyoban-no-yoi-shokunin`](hyoban-no-yoi-shokunin/) | よく届く名（旧題：評判のよい職人） | [v8](hyoban-no-yoi-shokunin/v8.md) |
