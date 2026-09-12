@@ -13,11 +13,15 @@
 | [`../naming.md`](../naming.md) | active map | 命名の深さと三部構成 |
 | [`../visual.md`](../visual.md) | draft | 短編集全体の視覚設計 |
 | [`picturebook-production.md`](picturebook-production.md) | active production ledger | 第一部五話の図版・見開き・印刷の通過条件 |
+| [`picturebook-production.md §9`](picturebook-production.md) | restart proposal / 2026-09-12 | 公開rev3と未採用候補の区別、五話の読み筋、後半三話の図版・巻末の次作業 |
+| [`../book-proto-4.html`](../book-proto-4.html) | current published beta / release-rev3 | 頁めくり版。9月12日に固定原稿との五話ハッシュ一致を確認。次版の完成を意味しない |
 | [`../book-proto-3.html`](../book-proto-3.html) | active Web prototype | 第一部五話、表紙一・扉五・第一話と第二話の場面絵十。本文ハッシュ照合済み |
 | [`../now-and-next.md`](../now-and-next.md) | dated ledger | 日付つき予測。外れた予測を消さない |
 | [`ladders.md`](ladders.md) | draft / battle target | 各話巻末の半歩・一歩・二歩 |
 
 ## 先行案
+
+2026-09-12追記：上表の第三号の `active Web prototype` は制作当時の状態を残したもの。現在の公開元は第四号／release-rev3であり、第三号はスクロール版の制作履歴として参照する。
 
 [`../collection-architecture.md`](../collection-architecture.md) は GPT-5.6 Sol による先行構成案で、archive / reference として残す。現行の `release-rev1` 構成へ入るときは `kousei-rev1.md` を先に読む。
 
